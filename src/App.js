@@ -5,6 +5,7 @@ import LandingPage from "./pages";
 import Dashboard from "./pages";
 import CreateSession from "./pages";
 import FindSession from "./pages";
+import MainWrapper from "./";
 import './App.css';
 
 function App() {
@@ -13,9 +14,11 @@ function App() {
       <Switch>
         <h1>Jamster</h1>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/createSession" component={CreateSession} />
-        <Route exact path="/findSession" component={FindSession} />
+        <MainWrapper>
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/createSession" component={CreateSession} />
+          <Route exact path="/findSession" component={FindSession} />
+        </MainWrapper>
       </Switch>
     </Router>
   );
