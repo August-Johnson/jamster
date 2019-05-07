@@ -1,10 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import LandingPage from "./pages";
-import Dashboard from "./pages";
-import CreateSession from "./pages";
-import FindSession from "./pages";
+import { CreateSession, FindSession, Dashboard, LandingPage } from "./pages";
 import './App.css';
 
 function App() {

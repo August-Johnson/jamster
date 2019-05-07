@@ -1,33 +1,18 @@
-require("dotenv").config();
-var express = require("express");
-var db = require("./app/models");
-var app = express();
-var PORT = process.env.PORT || 3000;
-var passport   = require('passport');
-var session    = require('express-session');
-var bodyParser = require('body-parser');
+const express = require("express");
 
+const app = express();
+const routes = require("./routes");
+const PORT = process.env.PORT || 3001;
 
-//For BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-
-// Middleware
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("app/public"));
 
-// Routes
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
 
-require("./app/routes/apiRoutes")(app, db);
-require("./app/routes/auth.js")(app,passport);
-require("./app/routes/protectedHTML.js")(app, db);
-require("./app/routes/publicHTML.js")(app, db);
+app.use(routes);
 
- 
-
-// Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync({force: true}).then(function() {
   app.listen(PORT, function() {
     console.log(
@@ -37,5 +22,3 @@ db.sequelize.sync({force: true}).then(function() {
     );
   });
 });
-
-module.exports = app;
