@@ -1,22 +1,19 @@
 import React from 'react';
 //import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { CreateSession, FindSession, Dashboard, LandingPage } from "./pages";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MyProfile from "./pages/myProfile";
 import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <h1>Jamster</h1>
-        <Route exact path="/" component={LandingPage} />
-        <MainWrapper>
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/createSession" component={CreateSession} />
-          <Route exact path="/findSession" component={FindSession} />
-        </MainWrapper>
-      </Switch>
-    </Router>
+    <div>
+      <h1>Jamster</h1>
+      <Router>
+        <Switch>
+          <Route exact path="/myProfile" component={MyProfile} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
