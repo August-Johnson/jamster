@@ -13,6 +13,12 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
-app.listen(PORT, () => {
-    console.log(`==> API Server listening on PORT ${PORT}!`);
+db.sequelize.sync({force: true}).then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
 });
