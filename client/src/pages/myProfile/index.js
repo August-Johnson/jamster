@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 class UserInfo extends Component {
     state = {
-        email: "",
+        email: "someones-email@gmail.com",
         instrument: "",
         skillLevel: "",
         username: "Gus"

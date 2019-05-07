@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import UserInfo from "./pages/userInfo/index";
+import MyProfile from "./pages/myProfile";
 import './App.css';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <h1>Jamster</h1>
       <Router>
         <Switch>
-          <Route exact path="/user" component={UserInfo} />
+          <Route exact path="/myProfile" component={MyProfile} />
         </Switch>
       </Router>
     </div>
