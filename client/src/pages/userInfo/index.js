@@ -6,9 +6,16 @@ class UserInfo extends Component {
         email: "",
         instrument: "",
         skillLevel: "",
-        username: ""
+        username: "Gus"
     }
 
+    render() {
+        return (
+            <Container>
+                <h1>Welcome to your page {this.state.username}</h1>
+            </Container>
+        );
+    }
 
 
 }
