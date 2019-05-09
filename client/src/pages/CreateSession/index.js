@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+//import { Container } from "react-bootstrap";
 
 class CreateSession extends Component {
     state = {
@@ -9,6 +9,11 @@ class CreateSession extends Component {
         description: ""
     }
 
+    render() {
+        return (
+            <h1>Create Session</h1>
+        );
+    }
 
 
 }

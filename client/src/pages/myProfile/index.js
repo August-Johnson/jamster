@@ -18,7 +18,6 @@ class UserInfo extends Component {
         return (
             <Container>
 
-
                 <Jumbotron>
                     <Row>
                         <Col>
@@ -74,7 +73,6 @@ class UserInfo extends Component {
             </Container>
         );
     }
-
 }
 
 export default UserInfo;

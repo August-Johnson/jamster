@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+//import { Container } from "react-bootstrap";
 
 class FindSession extends Component {
     state = {
@@ -8,6 +8,11 @@ class FindSession extends Component {
         skillLevel: "",
     }
 
+    render() {
+        return (
+            <h1>Find Session</h1>
+        );
+    }
 
 
 }
