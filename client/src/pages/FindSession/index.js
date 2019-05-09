@@ -51,12 +51,6 @@ class FindSession extends Component {
         );
     }
 
-    render() {
-        return (
-            <h1>Find Session</h1>
-        );
-    }
-
 
 }
 
