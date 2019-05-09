@@ -52,7 +52,6 @@ class FindSession extends Component {
     }
 
 
-
 }
 
 export default FindSession;
