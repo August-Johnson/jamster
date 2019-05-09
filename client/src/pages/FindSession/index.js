@@ -10,8 +10,25 @@ class FindSession extends Component {
         jamSessions: [
             {
                 sessionId: 1,
+                collaborators: [
+                    {
+                        name: "Ken",
+                        instrument: "Guitar",
+                        skillLevel: 3
+                    },
+                    {
+                        name: "Ben",
+                        instrument: "Drums",
+                        skillLevel: 4
+                    },
+                    {
+                        name: "Charlie",
+                        instrument: "Bass",
+                        skillLevel: 2
+                    }
+                ],
                 title: "Jam Session Title",
-                description: "We love to rock and roll! None of that country shit."
+                details: "We love to rock and roll! None of that country shit."
             }
         ]
     }
@@ -22,8 +39,8 @@ class FindSession extends Component {
                 <Jumbotron>
                     <Row>
                         {this.state.jamSessions.map((session) => 
-                            <Col xl="6" lg="6" md="12" sm="12" xs="12">
-                                <SessionsCard sessionTitle={session.title} sessionDescription={session.description} />
+                            <Col>
+                                <SessionsCard sessionTitle={session.title} sessionDetails={session.details} collaborators={session.collaborators} />
                             </Col>
                         )}
                     </Row>
