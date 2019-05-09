@@ -3,50 +3,32 @@ import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import SessionsCard from "../../components/SessionCard";
 
 class FindSession extends Component {
     state = {
-        name: "",
-        instrument: "",
-        skillLevel: "",
+        jamSessions: [
+            {
+                sessionId: 1,
+                title: "Jam Session Title",
+                description: "We love to rock and roll! None of that country shit."
+            }
+        ]
     }
+
     render() {
-        return(
+        return (
             <Container>
                 <Jumbotron>
                     <Row>
-                        <Col>
-                        <h1 className="text-center">Find Session</h1>
-                        <p className="text-center">Looking for jam session? Try your luck below!</p>
-
-                        </Col>    
+                        {this.state.jamSessions.map((session) => 
+                            <Col xl="6" lg="6" md="12" sm="12" xs="12">
+                                <SessionsCard sessionTitle={session.title} sessionDescription={session.description} />
+                            </Col>
+                        )}
                     </Row>
                 </Jumbotron>
 
-                    <Row>
-                        <Col>
-                            <Card>
-
-                                <Form className="m-4">
-                                    <Button className="mb-4" variant="primary" type="submit">
-                                        Find Session
-                                    </Button>
-
-                                    <Form.Group controlId="sessionForm.Details">
-                                        <Form.Label>Session Details</Form.Label>
-                                        <Form.Control as="textarea" rows="3" />
-                                    </Form.Group>
-
-                                </Form>
-
-                            </Card>
-                        </Col>
-                    </Row>
-
-                
             </Container>
         );
     }
