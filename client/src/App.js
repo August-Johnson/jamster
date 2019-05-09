@@ -5,6 +5,7 @@ import MyProfile from "./pages/myProfile";
 import CreateSession from "./pages/CreateSession";
 import FindSession from "./pages/FindSession";
 import login from "./pages/login";
+import createAccount from "./pages/createAccount";
 import './App.css';
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
           <Route exact path="/CreateSession" component={CreateSession} />
           <Route exact path="/FindSession" component={FindSession} />
           <Route exact path="/login" component={login} />
+          <Route exact path="/createAccount" component={createAccount} />
+          
         </Switch>
       </Router>
     </div>
