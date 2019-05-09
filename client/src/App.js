@@ -19,7 +19,6 @@ function App() {
       <h1>Jamster</h1>
       <Router>
         <Switch>
-
           {/* Landing page route */}
           {/* <Route exact path="/" component={LandingPage} /> */}
           <Container>
@@ -28,7 +27,6 @@ function App() {
             <Route exact path="/findSession" component={FindSession} />
             <Route exact path="/createSession" component={CreateSession} />
           </Container>
-
         </Switch>
       </Router>
     </div>
