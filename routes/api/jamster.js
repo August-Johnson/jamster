@@ -1,5 +1,9 @@
 const router = require("express").Router();
+<<<<<<< HEAD
 const allControllers = require("../../controllers/allControllers/authController");
+=======
+const allControllers = require("../../controllers/allControllers");
+>>>>>>> d550d6a199ded16f0ab943fc0f27dfe289d40bec
 
 // Routes relating to user data
 router.route("/user")

@@ -18,7 +18,10 @@ class UserInfo extends Component {
         return (
             <Container>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d550d6a199ded16f0ab943fc0f27dfe289d40bec
                 <Jumbotron>
                     <Row>
                         <Col>
@@ -74,7 +77,10 @@ class UserInfo extends Component {
             </Container>
         );
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d550d6a199ded16f0ab943fc0f27dfe289d40bec
 }
 
 export default UserInfo;
