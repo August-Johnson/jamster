@@ -29,6 +29,28 @@ class FindSession extends Component {
                 ],
                 title: "Jam Session Title",
                 details: "We love to rock and roll! None of that country shit."
+            },
+            {
+                sessionId: 2,
+                collaborators: [
+                    {
+                        name: "James",
+                        instrument: "Piano",
+                        skillLevel: 4
+                    },
+                    {
+                        name: "George",
+                        instrument: "Violin",
+                        skillLevel: 5
+                    },
+                    {
+                        name: "Claire",
+                        instrument: "Cello",
+                        skillLevel: 4
+                    }
+                ],
+                title: "Jam Session Title 2",
+                details: "Jam session focused around classical music. Looking for experienced players only and expect each member to put in the time."
             }
         ]
     }
@@ -37,13 +59,11 @@ class FindSession extends Component {
         return (
             <Container>
                 <Jumbotron>
-                    <Row>
+                
                         {this.state.jamSessions.map((session) => 
-                            <Col>
-                                <SessionsCard sessionTitle={session.title} sessionDetails={session.details} collaborators={session.collaborators} />
-                            </Col>
+                                <SessionsCard sessionTitle={session.title} sessionDetails={session.details} collaborators={session.collaborators} />  
                         )}
-                    </Row>
+                    
                 </Jumbotron>
 
             </Container>
