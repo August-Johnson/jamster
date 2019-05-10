@@ -2,8 +2,6 @@ import React from 'react';
 //import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MyProfile from "./pages/myProfile";
-
-
 import Container from "./components/Container";
 import Navbar from "./components/Navbar";
 import CreateSession from "./pages/CreateSession";
