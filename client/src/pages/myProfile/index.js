@@ -17,7 +17,6 @@ class UserInfo extends Component {
     render() {
         return (
             <Container>
-
                 <Jumbotron>
                     <Row>
                         <Col>
@@ -28,7 +27,6 @@ class UserInfo extends Component {
                     </Row>
 
                     <Row>
-
                         <Col xl={6} lg={6} md={6} sm={12} xs={12}>
                             <img src="https://via.placeholder.com/300x300" alt="null" />
                             <br />
@@ -66,10 +64,9 @@ class UserInfo extends Component {
                             </Card>
 
                         </Col>
-
                     </Row>
-                </Jumbotron>
 
+                </Jumbotron>
             </Container>
         );
     }
