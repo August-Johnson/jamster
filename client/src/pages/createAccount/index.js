@@ -3,7 +3,7 @@ import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
 import Wrapper from "../../components/Wrapper";
-import Navbar from "../../components/Navbar";
+
 import {Button, InputGroup, FormGroup, FormControl} from "react-bootstrap";
 
 class createAccount extends Component {
