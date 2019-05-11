@@ -1,11 +1,10 @@
 import React from 'react';
 //import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MyProfile from "./pages/myProfile";
+import MyProfile from "./routedPages/MyProfile";
 import Container from "./components/Container";
-import Navbar from "./components/Navbar";
-import CreateSession from "./pages/CreateSession";
-import FindSession from "./pages/FindSession";
+import CreateSession from "./routedPages/CreateSession";
+import FindSession from "./routedPages/FindSession";
 import login from "./pages/login";
 import createAccount from "./pages/createAccount";
 import './App.css';
@@ -13,8 +12,6 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Navbar />
-      <h1>Jamster</h1>
       <Router>
         <Switch>
  

@@ -3,7 +3,7 @@ import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
 import Wrapper from "../../components/Wrapper";
-import Navbar from "../../components/Navbar";
+
 import {Button, InputGroup, FormGroup, FormControl} from "react-bootstrap";
 
 class createAccount extends Component {
@@ -29,6 +29,7 @@ class createAccount extends Component {
       <Wrapper>
       <Hero backgroundImage={Background}></Hero>
       <Container>
+        {/* Need to change text color to white probably */}
       <h2>Welcome to Jamster to create an acount please enter the corresponding information below</h2>
       <br></br>
       <InputGroup><FormControl placeholder="Instrument"aria-label="Instrument"aria-describedby="basic-addon1" name="instrument" value={this.state.instrument} onChange={this.onChange}/></InputGroup>

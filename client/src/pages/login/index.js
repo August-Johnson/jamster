@@ -3,7 +3,6 @@ import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
 import Wrapper from "../../components/Wrapper";
-import Navbar from "../../components/Navbar";
 import {Button, InputGroup, FormGroup, FormControl} from "react-bootstrap";
 
 class login extends Component {
@@ -33,6 +32,7 @@ class login extends Component {
 
       <br></br>
       <Button type="submit" variant="outline-primary">Submit</Button>
+      <Button type="submit" variant="outline-info"><a href="/createAccount">Create Account</a></Button>
 
       </Container>
         
