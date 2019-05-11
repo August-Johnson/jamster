@@ -8,12 +8,39 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 class CreateSession extends Component {
-    state = {
-        numCollaborators: "",
-        instrument: "",
-        skillLevel: "",
-        description: ""
+    // state = {
+    //     numCollaborators: "",
+    //     instrument: "",
+    //     skillLevel: "",
+    //     date: "",
+    //     time: "",
+    //     description: ""
+    // }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+                    sessionId: '1',
+                    collborators: '3',
+                    instrument: '',
+                    skillLevel: '',
+                    date: '',
+                    time: '',
+                    sessionDetails: 'what'
+    };
+    
+        this.handleCollaborators = this.handleChange.bind(this);
     }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        alert('Yes');
+    };
+
     render() {
         return(
             <Container>
@@ -31,43 +58,72 @@ class CreateSession extends Component {
                             <Card>
 
                                 <Form className="m-4">
-                                    <Form.Group controlId="sessionForm.Collaborators">
-                                        <Form.Label>Number of Collaborators</Form.Label>
-                                        <Form.Control as="select">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        </Form.Control>
-                                    </Form.Group>
+
+                                    <Row>
+                                        <Col>
+                                            <Form.Group controlId="sessionForm.Name">
+                                                <Form.Label>Session Name (Required)</Form.Label>
+                                                <Form.Control as="textarea" rows="1" placeholder="Session Name"/>
+                                            </Form.Group>
+                                        </Col>
+                                        <Col>
+                                            <Form.Group controlId="sessionForm.Collaborators">
+                                                <Form.Label>Number of Collaborators</Form.Label>
+                                                <Form.Control as="select">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                </Form.Control>
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
+
                                     <Form.Group controlId="sessionForm.Instrument">
-                                        <Form.Label>Instrument(s)</Form.Label>
-                                        <Form.Control as="select" multiple>
-                                        <option>Bass</option>
-                                        <option>Guitar</option>
-                                        <option>Vocals</option>
-                                        <option>Drums</option>
-                                        <option>Keyboard</option>
+                                        <Form.Label>Instrument</Form.Label>
+                                        <Form.Control as="select">
+                                        <option value="Bass">Bass</option>
+                                        <option value="Drums">Drums</option>
+                                        <option value="Guitar">Guitar</option>
+                                        <option value="Keyboard">Keyboard</option>
+                                        <option value="Vocals">Vocals</option>
                                         </Form.Control>
                                     </Form.Group>
                                     <Form.Group controlId="sessionForm.Skill">
-                                        <Form.Label>Skill</Form.Label>
-                                        <Form.Control as="select" multiple>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
+                                        <Form.Label>Skill Level</Form.Label>
+                                        <Form.Control as="select">
+                                        <option value="1">1 (Low)</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 (High)</option>
                                         </Form.Control>
                                     </Form.Group>
+                                    <Row>
+                                        <Col>
+                                            <Form.Group controlId="sessionForm.Date">
+                                                <Form.Label>Date</Form.Label>
+                                                <Form.Control type="date" placeholder=""/>
+                                            </Form.Group>
+                                        </Col>
+                                        <Col>
+                                            <Form.Group controlId="fosessionForm.Time">
+                                                <Form.Label>Time</Form.Label>
+                                                <Form.Control type="time" placeholder=""/>
+                                            </Form.Group>
+                                        </Col>
+                                    </Row>
                                     
                                     <Form.Group controlId="sessionForm.Details">
                                         <Form.Label>Session Details</Form.Label>
-                                        <Form.Control as="textarea" rows="3" />
+                                        <Form.Control as="textarea" rows="3" placeholder="Add Any Additional Session Details"/>
                                     </Form.Group>
 
-                                    <Button variant="primary" type="submit">
+                                    <Button variant="primary" type="submit" onSubmit={this.handleSubmit}>
                                         Submit
                                     </Button>
+                                    
                                 </Form>
 
                             </Card>
