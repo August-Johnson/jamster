@@ -19,10 +19,10 @@ export default {
     },
     // get user info for myProfile
     getMyInfo: function (userId) {
-        return axios.get("/api/jamster/users/:id");
+        return axios.get("/api/jamster/users/" + userId);
     },
     // get session info
     getSessionInfo: function (sessionId) {
-        return axios.get("/api/jamster/sessions/:id");
+        return axios.get("/api/jamster/sessions/" + sessionId);
     }
 }
