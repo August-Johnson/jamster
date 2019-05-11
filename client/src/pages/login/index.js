@@ -33,6 +33,7 @@ class login extends Component {
 
       <br></br>
       <Button type="submit" variant="outline-primary">Submit</Button>
+      <Button type="submit" variant="outline-info"><a href="/createAccount">Create Account</a></Button>
 
       </Container>
         

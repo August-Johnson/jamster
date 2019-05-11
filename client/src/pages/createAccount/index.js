@@ -29,6 +29,7 @@ class createAccount extends Component {
       <Wrapper>
       <Hero backgroundImage={Background}></Hero>
       <Container>
+        {/* Need to change text color to white probably */}
       <h2>Welcome to Jamster to create an acount please enter the corresponding information below</h2>
       <br></br>
       <InputGroup><FormControl placeholder="Instrument"aria-label="Instrument"aria-describedby="basic-addon1" name="instrument" value={this.state.instrument} onChange={this.onChange}/></InputGroup>
