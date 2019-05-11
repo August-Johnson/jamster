@@ -15,19 +15,16 @@ function DashboardNav() {
         <ul className="list-unstyled components">
           <p className="user-name">User Name</p>
           <li>
-            <a href="/">Home</a>
+            <a href="/myProfile">My Profile</a>
           </li>
           <li>
-            <a href="/">Find Session</a>
+            <a href="/findSession">Find Session</a>
           </li>
           <li>
-            <a href="/">Create Session</a>
+            <a href="/createSession">Create Session</a>
           </li>
           <li>
-            <a href="/">Settings</a>
-          </li>
-          <li>
-            <a href="/">Logout</a>
+            <a href="/login">Logout</a>
           </li>
         </ul>
       </nav>
