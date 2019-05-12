@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import FindSession from "../../pages/FindSession/index"
+import Dashboard from "../../pages/dashboard/index"
+
+
 
 import "./style.css";
 
@@ -57,7 +59,7 @@ class DashboardNav extends Component {
         <div className="container main">
           <div className="card">
             <div className="card-body">
-              <FindSession/>
+              <Dashboard/>
             </div>
           </div>
         </div>

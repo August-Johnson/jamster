@@ -1,6 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Dashboard from "./routedPages/dashboard"
 import MyProfile from "./routedPages/MyProfile";
 import Container from "./components/Container";
 import CreateSession from "./routedPages/CreateSession";
@@ -18,6 +19,7 @@ function App() {
           {/* Landing page route */}
           {/* <Route exact path="/" component={LandingPage} /> */}
           <Container>
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/login" component={login} />
             <Route exact path="/myProfile" component={MyProfile} />
             <Route exact path="/findSession" component={FindSession} />
