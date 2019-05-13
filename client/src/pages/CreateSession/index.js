@@ -109,7 +109,7 @@ class CreateSession extends Component {
                         <Col>
                             <Card>
 
-                                <Form className="m-4" onSubmit={this.handleFormSubmit}>
+                                <Form className="m-4" onSubmit={this.handleSubmit}>
 
                                     <Row>
                                         <Col>
