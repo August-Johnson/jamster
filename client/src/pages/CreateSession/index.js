@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 
 class CreateSession extends Component {
     state = {
-        sessionId: 1,
+        // sessionId: 1,
         sessionName: "",
         collaborators: 0,
         instrument: "",
@@ -19,9 +19,25 @@ class CreateSession extends Component {
         sessionDetails: ""
     }
 
-    handleSubmit(event) {
+    handleFormSubmit = event => {
         event.preventDefault();
-        alert('Yes');
+        if (!this.state.sessionName || !this.state.instrument || !this.state.skillLevel || !this.state.date || !this.state.time) {
+            alert("Please Complete the Required Fields");
+        } else if (this.state.collaborators === 0) {
+            alert("Please Select at Least 1 Collaborator");
+        } else {
+            alert("Time to Jam!")
+        }
+
+        this.setState({
+            sessionName: "",
+            collaborators: 0,
+            instrument: "",
+            skillLevel: "",
+            date: "",
+            time: "",
+            sessionDetails: ""
+        });
     };
 
     handleChange = (event) => {
@@ -46,7 +62,7 @@ class CreateSession extends Component {
                 <Row>
                     <Col>
                         <Form.Group controlId="sessionForm.Instrument">
-                            <Form.Label>Instrument</Form.Label>
+                            <Form.Label>Instrument (Required)</Form.Label>
                             <Form.Control as="select" onChange={this.handleChange} name="instrument" value={this.state.instrument}>
                                 <option selected value="">Choose...</option>
                                 <option value="Bass">Bass</option>
@@ -59,7 +75,7 @@ class CreateSession extends Component {
                     </Col>
                     <Col>
                         <Form.Group controlId="sessionForm.Skill">
-                            <Form.Label>Skill Level</Form.Label>
+                            <Form.Label>Skill Level (Required)</Form.Label>
                             <Form.Control as="select" onChange={this.handleChange} name="skillLevel" value={this.state.skillLevel}>
                                 <option selected value="">Choose...</option>
                                 <option value="1">1 (Low)</option>
@@ -104,7 +120,7 @@ class CreateSession extends Component {
                                         </Col>
                                         <Col>
                                             <Form.Group controlId="sessionForm.Collaborators">
-                                                <Form.Label>Number of Collaborators</Form.Label>
+                                                <Form.Label>Number of Collaborators (Required)</Form.Label>
                                                 <Form.Control as="select" onChange={this.handleCollaborators} name="collaborators">
                                                 <option selected value="0">Choose...</option>
                                                 <option value="1">1</option>
@@ -122,20 +138,20 @@ class CreateSession extends Component {
                                     <Row>
                                         <Col>
                                             <Form.Group controlId="sessionForm.Date">
-                                                <Form.Label>Date</Form.Label>
+                                                <Form.Label>Date (Required)</Form.Label>
                                                 <Form.Control type="date" placeholder="" onChange={this.handleChange} name="date" value={this.state.date}/>
                                             </Form.Group>
                                         </Col>
                                         <Col>
                                             <Form.Group controlId="sessionForm.Time">
-                                                <Form.Label>Time</Form.Label>
+                                                <Form.Label>Time (Required)</Form.Label>
                                                 <Form.Control type="time" placeholder="" onChange={this.handleChange} name="time" value={this.state.time}/>
                                             </Form.Group>
                                         </Col>
                                     </Row>
                                     
                                     <Form.Group controlId="sessionForm.Details">
-                                        <Form.Label>Session Details</Form.Label>
+                                        <Form.Label>Session Details (Optional)</Form.Label>
                                         <Form.Control as="textarea" rows="3" placeholder="Add Any Additional Session Details" onChange={this.handleChange} name="sessionDetails" value={this.state.sessionDetails}/>
                                     </Form.Group>
 
