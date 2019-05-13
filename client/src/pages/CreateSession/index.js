@@ -93,7 +93,7 @@ class CreateSession extends Component {
                         <Col>
                             <Card>
 
-                                <Form className="m-4">
+                                <Form className="m-4" onSubmit={this.handleSubmit}>
 
                                     <Row>
                                         <Col>
@@ -139,7 +139,7 @@ class CreateSession extends Component {
                                         <Form.Control as="textarea" rows="3" placeholder="Add Any Additional Session Details" onChange={this.handleChange} name="sessionDetails" value={this.state.sessionDetails}/>
                                     </Form.Group>
 
-                                    <Button variant="primary" type="submit" onSubmit={this.handleSubmit}>
+                                    <Button variant="primary" type="submit">
                                         Submit
                                     </Button>
                                     

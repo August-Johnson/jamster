@@ -5,6 +5,10 @@ import SessionsCard from "../../components/SessionCard";
 
 class FindSession extends Component {
     state = {
+        // card coded some 'session' for development testing
+        // jamSessions is an array of objects that represent each jam session.
+        // Each one has a session id, an array of collaborators, a title and details (optional).
+        // Each collaborator in the array is an object with the properties of the person's name, the instrument they play and their skill level.
         jamSessions: [
             {
                 sessionId: 1,
@@ -57,13 +61,13 @@ class FindSession extends Component {
         return (
             <Container>
                 <Jumbotron>
-                
-                        {this.state.jamSessions.map((session) => 
-                                <SessionsCard sessionTitle={session.title} sessionDetails={session.details} collaborators={session.collaborators} />  
-                        )}
-                    
-                </Jumbotron>
+                    {/* mapping through the jamSessions array from the state and dynamically create session cards for each one.
+                    Passing the info from each jam session in as props to the SessionsCard component. */}
+                    {this.state.jamSessions.map((session) =>
+                        <SessionsCard sessionTitle={session.title} sessionDetails={session.details} collaborators={session.collaborators} />
+                    )}
 
+                </Jumbotron>
             </Container>
         );
     }
