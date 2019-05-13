@@ -3,7 +3,8 @@ import axios from "axios";
 export default {
     // login call
     userLogin: function () {
-        return axios.get("/api/jamster/login");
+        // I think it's a POST request since we need to access what the user entered into the fields.
+        return axios.post("/api/jamster/login");
     },
     // create account call
     createNewUser: function () {
