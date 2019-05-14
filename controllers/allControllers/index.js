@@ -51,8 +51,10 @@ module.exports = {
   },
   // join a jam session
   joinSession: function (req, res) {
+    const user = 3;
+    const user3 = "usr3";
     db.session.update({
-
+      [user3]: user
     })
       .then((sessionData) => res.json(sessionData))
       .catch((err) => res.json(err));
