@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
-import Wrapper from "../../components/Wrapper";
+import { Link } from "react-router-dom";
 
-import {Button, InputGroup, Image, FormGroup, FormControl, Row, Col} from "react-bootstrap";
+import {Button, InputGroup, FormControl, Row, Col} from "react-bootstrap";
 
 class login extends Component {
   state = {
@@ -36,8 +36,8 @@ class login extends Component {
       <InputGroup><FormControl placeholder="Password"aria-label="Password"aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange}/></InputGroup>
 
       <br></br>
-      <Button className="mb-3" type="submit" variant="outline-primary">Submit</Button>
-      <Button className="mb-3" type="submit" variant="outline-info"><a href="/createAccount">Create Account</a></Button>
+      <Link to="/dashboard"><Button className="mb-3" type="submit" variant="outline-primary">Submit</Button></Link>
+      <Link to="/createAccount"><Button className="mb-3" type="submit" variant="outline-info">Create Account</Button></Link>
       </Col>
       </Row>
       
