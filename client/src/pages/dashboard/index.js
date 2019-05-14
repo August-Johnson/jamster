@@ -18,7 +18,7 @@ function Dashboard() {
                 </div>
                 <div className="col-md-6">
                   <div className="card">
-                    <a href="/newreview">
+                    <a href="/createsession">
                       <div className="card-body text-center">
                         <p className="text-center font-weight-bold">
                           Create New Session
