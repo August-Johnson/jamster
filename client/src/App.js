@@ -9,6 +9,7 @@ import FindSession from "./routedPages/FindSession";
 import login from "./pages/login";
 import createAccount from "./pages/createAccount";
 import './App.css';
+import Footer from "../src/components/Footer/index"
 
 function App() {
   return (
@@ -25,8 +26,9 @@ function App() {
             <Route exact path="/findSession" component={FindSession} />
             <Route exact path="/createSession" component={CreateSession} />
             <Route exact path="/createAccount" component={createAccount} />
+            <Footer/>
           </Container>
- 
+
         </Switch>
       </Router>
     </div>
