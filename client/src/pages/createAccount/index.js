@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
-import Wrapper from "../../components/Wrapper";
+import { Link } from "react-router-dom";
 
-import {Button, InputGroup, FormGroup, FormControl, Row, Col} from "react-bootstrap";
+
+import {Button, InputGroup, FormControl, Row, Col} from "react-bootstrap";
+
 
 class createAccount extends Component {
   state = {
@@ -61,7 +63,7 @@ class createAccount extends Component {
       
 
       <br></br>
-      <Button className="mb-3" type="submit" variant="outline-primary">Submit</Button>
+      <Button className="mb-3" type="submit" variant="outline-primary"><Link to="/login" >Submit</Link></Button>
       
       </Col>
       </Row>
