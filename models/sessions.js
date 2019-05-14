@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var session = sequelize.define("session", {
+    const session = sequelize.define("session", {
         name: DataTypes.STRING,
         usr1: {
             type: DataTypes.INTEGER,
