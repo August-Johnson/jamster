@@ -164,9 +164,6 @@ class CreateSession extends Component {
                             </Card>
                         </Col>
                     </Row>
-
-              
-
             </Container>
         );
     }
