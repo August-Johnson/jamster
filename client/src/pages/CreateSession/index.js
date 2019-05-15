@@ -94,7 +94,6 @@ class CreateSession extends Component {
             });
         }
 
-
     };
 
     handleChange = (event) => {
