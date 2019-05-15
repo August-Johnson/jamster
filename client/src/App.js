@@ -13,10 +13,9 @@ import Footer from "../src/components/Footer/index"
 
 function App() {
   return (
-    <div>
+    <Container>
       <Router>
         <Switch>
- 
           {/* Landing page route */}
           {/* <Route exact path="/" component={LandingPage} /> */}
           <Container>
@@ -31,7 +30,7 @@ function App() {
 
         </Switch>
       </Router>
-    </div>
+    </Container>
   );
 }
 
