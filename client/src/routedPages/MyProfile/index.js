@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import UserInfo from "../../pages/myProfile/index";
 import "./style.css";
-import styled, { keyframes } from "styled-components";
-import FadeInRightBig from "@bit/formidablelabs.react-animations.fade-in-right-big";
-const FadeInRightBigAnimation = keyframes`${FadeInRightBig}`;
-const FadeInRightBigDiv = styled.div`
-  animation: 1s ${FadeInRightBigAnimation};
-`;
+
 
 class DashboardNav extends Component {
 
@@ -60,13 +55,13 @@ class DashboardNav extends Component {
         </button>
 
         <div className="container main">
-          <FadeInRightBigDiv>
+          
             <div className="card">
               <div className="card-body">
                 <UserInfo />
               </div>
             </div>
-          </FadeInRightBigDiv>
+          
         </div>
       </div>
     );
