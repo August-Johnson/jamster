@@ -1,38 +1,46 @@
 {
-  "name": "jamster",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "server.js",
-  "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Iceberg09/jamster.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Iceberg09/jamster/issues"
-  },
-  "homepage": "https://github.com/Iceberg09/jamster#readme",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "classnames": "^2.2.6",
-    "express": "^4.16.4",
-    "if-env": "^1.0.4",
-    "mysql2": "^1.6.5",
-    "sequelize": "^5.8.5"
-  },
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.19.0"
-  }
+    "name": "jamster",
+    "version": "1.0.0",
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+    "main": "server.js",
+    "scripts": {
+        "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+        "start:prod": "node server.js",
+        "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+        "client": "cd client && npm run start",
+        "seed": "node scripts/seedDB.js",
+        "install": "cd client && npm install",
+        "build": "cd client && npm run build",
+        "heroku-postbuild": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Iceberg09/jamster.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Iceberg09/jamster/issues"
+    },
+    "homepage": "https://github.com/Iceberg09/jamster#readme",
+    "dependencies": {
+        "@bit/formidablelabs.react-animations.fade-in-right-big": "^1.0.0",
+        "axios": "^0.18.0",
+        "classnames": "^2.2.6",
+        "express": "^4.16.4",
+        "if-env": "^1.0.4",
+        "mysql2": "^1.6.5",
+        "react-sticky-footer": "0.1.0-rc3",
+        "sequelize": "^5.8.5",
+        "styled-components": "^4.2.0"
+    },
+    "devDependencies": {
+        "concurrently": "^4.1.0",
+        "nodemon": "^1.19.0"
+    },
+    "bit": {
+        "env": {},
+        "componentsDefaultDirectory": "components/{name}",
+        "packageManager": "npm"
+    }
 }
