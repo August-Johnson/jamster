@@ -2,12 +2,14 @@ const router = require("express").Router();
 const allControllers = require("../../controllers/allControllers");
 
 // Routes relating to user data
-router.route("/user")
+router.route("/login")
     // Route for user login
     .get(allControllers.userLogin)
 
+
+router.route("/createNewUser")
     // Route for creating a new user
-    .post(allControllers.userCreate)
+    .post(allControllers.createNewUser)
 
 // ------------------------------------------------ //
 

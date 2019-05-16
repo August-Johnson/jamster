@@ -1,20 +1,20 @@
 const express = require("express");
 
-const app = express();
-/* const routes = require("./routes"); */
-const PORT = process.env.PORT || 4000;
+const routes = require("./routes");
+const PORT = process.env.PORT || 3001;
 const db = require('./models');
+const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+  app.use(express.static("client/build"));
 }
 
-/* app.use(routes); */
+app.use(routes);
 
-db.sequelize.sync({force: true}).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   console.log("wtf");
   app.listen(PORT, () => {
     console.log(

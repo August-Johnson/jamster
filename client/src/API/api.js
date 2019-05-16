@@ -2,13 +2,13 @@ import axios from "axios";
 
 export default {
     // login call
-    userLogin: function () {
+    userLogin: function (usernameData) {
         // I think it's a POST request since we need to access what the user entered into the fields.
-        return axios.post("/api/jamster/login");
+        return axios.get("/api/jamster/login", usernameData);
     },
     // create account call
-    createNewUser: function () {
-        return axios.post("/api/jamster/createNewUser");
+    createNewUser: function (createUserData) {
+        return axios.post("/api/jamster/createNewUser", createUserData);
     },
     // find sessions call
     findSessions: function () {
