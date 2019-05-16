@@ -31,5 +31,9 @@ router.route("/sessions/:id")
     // Route for updating a session
     .put(allControllers.joinSession)
 
+// ------------------------------------------------ //
+// getting the users data for myProfile page
+// router.route("/users/:id")
+//     .get(allControllers.getMyInfo)
 
 module.exports = router;

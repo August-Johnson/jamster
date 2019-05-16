@@ -30,11 +30,15 @@ class login extends Component {
 
     API.userLogin(usernameData)
       .then((userData) => {
-        if (userData.password === this.state.password) {
+        console.log(userData);
+        if (userData.data.password === this.state.password) {
           // storing the username in localstorage if the login info is valid
           localStorage.setItem("username", this.state.username);
 
           window.location.replace("/dashboard");
+        }
+        else {
+          alert("Incorrect login info!")
         }
       })
       .catch((err) => console.log(err));
