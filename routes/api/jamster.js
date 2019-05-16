@@ -16,20 +16,20 @@ router.route("/createNewUser")
 // Routes relating to sessions data
 router.route("/sessions")
     // Route for getting all sessions
-    .get(allControllers.getSessions)
+    .get(allControllers.getJamSessions)
 
     // Route for creating a session
-    .post(allControllers.createSession)
+    .post(allControllers.createNewSession)
 
 // ------------------------------------------------ //
 
 // Routes relating to single session data, with req.params.id
 router.route("/sessions/:id")
     // Route for viewing a single sessions (when user clicks on one to view details)
-    .get(allControllers.viewSession)
+    .get(allControllers.viewJamSession)
 
     // Route for updating a session
-    .put(allControllers.editSession)
+    .put(allControllers.joinSession)
 
 
 module.exports = router;

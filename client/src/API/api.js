@@ -11,19 +11,23 @@ export default {
         return axios.post("/api/jamster/createNewUser", createUserData);
     },
     // find sessions call
-    findSessions: function () {
+    getJamSessions: function () {
         return axios.get("/api/jamster/sessions");
     },
     // create a session call
     createNewSession: function () {
         return axios.post("/api/jamster/createSession");
     },
+    // get session info
+    viewJamSession: function (sessionId) {
+        return axios.get("/api/jamster/sessions/" + sessionId);
+    },
+    // joining a jam session
+    joinSession: function(sessionId, joiningUserData) {
+        return axios.put("/api/jamster/sessions/" + sessionId, joiningUserData)
+    },
     // get user info for myProfile
     getMyInfo: function (userId) {
         return axios.get("/api/jamster/users/" + userId);
-    },
-    // get session info
-    getSessionInfo: function (sessionId) {
-        return axios.get("/api/jamster/sessions/" + sessionId);
     }
 }
