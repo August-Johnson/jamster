@@ -1,7 +1,12 @@
 import React, { Component } from "react";
-import CreateSession from "../../pages/CreateSession/index"
-
+import CreateSession from "../../pages/CreateSession/index";
 import "./style.css";
+import styled, { keyframes } from "styled-components";
+import FadeInRightBig from "@bit/formidablelabs.react-animations.fade-in-right-big";
+const FadeInRightBigAnimation = keyframes`${FadeInRightBig}`;
+const FadeInRightBigDiv = styled.div`
+  animation: 1s ${FadeInRightBigAnimation};
+`;
 
 class DashboardNav extends Component {
 
@@ -18,7 +23,7 @@ class DashboardNav extends Component {
   render() {
 
     let buttonClass = ["inactive"];
-    if(this.state.addClass) {
+    if (this.state.addClass) {
       buttonClass.push("active");
     }
 
@@ -27,7 +32,7 @@ class DashboardNav extends Component {
         <nav id="sidebar" className={buttonClass.join(' ')}>
           <div className="sidebar-header">
             <h3>Jamster</h3>
-            
+
           </div>
 
           <ul className="list-unstyled components">
@@ -55,11 +60,13 @@ class DashboardNav extends Component {
         </button>
 
         <div className="container main">
-          <div className="card">
-            <div className="card-body">
-              <CreateSession/>
+          <FadeInRightBigDiv>
+            <div className="card">
+              <div className="card-body">
+                <CreateSession/>
+              </div>
             </div>
-          </div>
+          </FadeInRightBigDiv>
         </div>
       </div>
     );
