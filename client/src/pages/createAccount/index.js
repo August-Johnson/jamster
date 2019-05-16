@@ -3,8 +3,6 @@ import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
 import { Link } from "react-router-dom";
-
-
 import {Button, InputGroup, FormControl, Row, Col} from "react-bootstrap";
 
 
@@ -48,11 +46,11 @@ class createAccount extends Component {
       <br></br>
       <InputGroup><FormControl as="select" placeholder="Skill Level"aria-label="Skill Level"aria-describedby="basic-addon1" name="skillLevel" value={this.state.skillLevel} onChange={this.onChange}>
       <option selected value="">Skill Level</option>
-      <option value="1">1 (Low)</option>
+      <option value="1">1 (Beginner)</option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
-      <option value="5">5 (High)</option></FormControl></InputGroup>
+      <option value="5">5 (Advanced)</option></FormControl></InputGroup>
 
 
       <br></br>
@@ -67,6 +65,7 @@ class createAccount extends Component {
       
       </Col>
       </Row>
+      
       </Container>
         
       

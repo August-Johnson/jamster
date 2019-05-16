@@ -10,13 +10,13 @@ import login from "./pages/login";
 import createAccount from "./pages/createAccount";
 import './App.css';
 import Footer from "../src/components/Footer/index"
+import StickyFooter from 'react-sticky-footer';
 
 function App() {
   return (
-    <div>
+    <Container>
       <Router>
         <Switch>
- 
           {/* Landing page route */}
           {/* <Route exact path="/" component={LandingPage} /> */}
           <Container>
@@ -26,12 +26,12 @@ function App() {
             <Route exact path="/findSession" component={FindSession} />
             <Route exact path="/createSession" component={CreateSession} />
             <Route exact path="/createAccount" component={createAccount} />
-            <Footer/>
+            <StickyFooter normalStyles={{backgroundColor:"tomato", 'text-align':"center"}}>Jamster 2019&copy;</StickyFooter>
           </Container>
 
         </Switch>
       </Router>
-    </div>
+    </Container>
   );
 }
 

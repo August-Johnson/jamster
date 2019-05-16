@@ -49,7 +49,7 @@ a[data-toggle="collapse"] {
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
     clear: both;
 }
 
