@@ -64,5 +64,10 @@ module.exports = {
     })
       .then((sessionData) => res.json(sessionData))
       .catch((err) => res.json(err));
+  },
+  getMyInfo: function (req, res) {
+    db.user.findOne({ username: req.body.username })
+      .then((userData) => res.json(userData))
+      .catch((err) => res.json(err));
   }
 }

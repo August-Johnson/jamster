@@ -17,6 +17,10 @@ class DashboardNav extends Component {
     this.setState({ addClass: !this.state.addClass });
   }
 
+  handleLogOut = () => {
+    localStorage.clear();
+  }
+
   render() {
 
     let buttonClass = ["inactive"];
@@ -47,7 +51,7 @@ class DashboardNav extends Component {
               <a href="/createSession">Create Session</a>
             </li>
             <li>
-              <a href="/login">Logout</a>
+              <a href="/login" onClick={this.handleLogOut}>Logout</a>
             </li>
           </ul>
         </nav>

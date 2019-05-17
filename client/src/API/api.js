@@ -27,7 +27,7 @@ export default {
         return axios.put("/api/jamster/sessions/" + sessionId, joiningUserData)
     },
     // get user info for myProfile
-    getMyInfo: function (userId) {
-        return axios.get("/api/jamster/users/" + userId);
+    getMyInfo: function (username) {
+        return axios.get("/api/jamster/userInfo", username);
     }
 }

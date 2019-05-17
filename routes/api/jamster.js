@@ -32,8 +32,8 @@ router.route("/sessions/:id")
     .put(allControllers.joinSession)
 
 // ------------------------------------------------ //
-// getting the users data for myProfile page
-// router.route("/users/:id")
-//     .get(allControllers.getMyInfo)
+// getting the user's data for myProfile page
+router.route("/userInfo")
+    .get(allControllers.getMyInfo)
 
 module.exports = router;

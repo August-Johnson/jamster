@@ -36,6 +36,7 @@ class createAccount extends Component {
         if (userData.userCreated === false) {
           return alert("User already exists!");
         }
+        console.log(userData);
         localStorage.setItem("username", this.state.username);
         window.location.replace("/dashboard");
       })
