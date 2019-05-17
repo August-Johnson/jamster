@@ -5,9 +5,7 @@ import Background from "./music_background.jpg";
 import { Link } from "react-router-dom";
 import API from "../../API/API";
 
-
 import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
-
 
 class createAccount extends Component {
   state = {
@@ -54,8 +52,8 @@ class createAccount extends Component {
             {/* Need to change text color to white probably */}
             <h2 style={{ 'color': 'white' }}>Welcome to Jamster to create an acount please enter the corresponding information below</h2>
             <br></br>
-            <InputGroup controlid="createInstrunment"><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrument" value={this.state.instrument} onChange={this.onChange}>
-              <option defaultValue="">Instrument</option>
+            <InputGroup controlId="createInstrunment"><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrument" value={this.state.instrument} onChange={this.onChange}>
+              <option selected value="">Instrument</option>
               <option value="Bass">Bass</option>
               <option value="Drums">Drums</option>
               <option value="Guitar">Guitar</option>
@@ -64,12 +62,12 @@ class createAccount extends Component {
 
             <br></br>
             <InputGroup><FormControl as="select" placeholder="Skill Level" aria-label="Skill Level" aria-describedby="basic-addon1" name="skillLevel" value={this.state.skillLevel} onChange={this.onChange}>
-              <option defaultValue="">Skill Level</option>
-              <option value="1">1 (Low)</option>
+              <option selected value="">Skill Level</option>
+              <option value="1">1 (Beginner)</option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
-              <option value="5">5 (High)</option></FormControl></InputGroup>
+              <option value="5">5 (Advanced)</option></FormControl></InputGroup>
 
 
             <br></br>
@@ -80,10 +78,11 @@ class createAccount extends Component {
 
 
             <br></br>
-            <Button className="mb-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
+            <Button className="mb-3" type="submit" variant="outline-primary"><Link to="/" >Submit</Link></Button>
 
           </Col>
         </Row>
+
       </Container>
 
 

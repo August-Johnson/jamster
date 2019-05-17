@@ -77,7 +77,12 @@ class CreateSession extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (!this.state.sessionName || !this.state.instrument || !this.state.skillLevel || !this.state.date || !this.state.time) {
+        if (!this.state.sessionName || 
+            // !this.state.instrument || 
+            // !this.state.skillLevel || 
+            !this.state.date ||
+            !this.state.collaboratorsArr || 
+            !this.state.time) {
             alert("Please Complete the Required Fields");
         } else if (this.state.collaborators === 0) {
             alert("Please Select at Least 1 Collaborator");
@@ -85,9 +90,9 @@ class CreateSession extends Component {
             alert("Time to Jam!");
             this.setState({
                 sessionName: "",
-                collaborators: 0,
-                instrument: "",
-                skillLevel: "",
+                // collaboratorsArr: [],
+                // instrument: "",
+                // skillLevel: "",
                 date: "",
                 time: "",
                 sessionDetails: ""
@@ -180,11 +185,11 @@ class CreateSession extends Component {
                                 <Form.Label>Skill Level (Required)</Form.Label>
                                 <Form.Control as="select" onChange={(event) => this.handleArrayChange(event, i)} name="skillLevel" value={this.state.skillLevel}>
                                     <option defaultValue="">Choose...</option>
-                                    <option value="1">1 (Low)</option>
+                                    <option value="1">1 (Beginner)</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-                                    <option value="5">5 (High)</option>
+                                    <option value="5">5 (Advanced)</option>
                                 </Form.Control>
                             </Form.Group>
                         </Col>
@@ -251,11 +256,25 @@ class CreateSession extends Component {
                                         </Form.Group>
                                     </Col>
                                 </Row>
-
-                                <Form.Group controlId="sessionForm.Details">
-                                    <Form.Label>Session Details (Optional)</Form.Label>
-                                    <Form.Control as="textarea" rows="3" placeholder="Add Any Additional Session Details" onChange={this.handleChange} name="sessionDetails" value={this.state.sessionDetails} />
-                                </Form.Group>
+                                <Row>
+                                    <Col>
+                                        <Form.Group controlId="sessionForm.Details">
+                                            <Form.Label>Session Details (Optional)</Form.Label>
+                                            <Form.Control as="textarea" rows="4" placeholder="Add Any Additional Session Details" onChange={this.handleChange} name="sessionDetails" value={this.state.sessionDetails} />
+                                        </Form.Group>
+                                    </Col>
+                                    <Col>
+                                        <Form.Label>Your Session(s)</Form.Label>
+                                            <Card>   
+                                                <Card.Body>
+                                                    <Card.Text>
+                                                        <li>{this.state.sessionName}</li>
+                                                    </Card.Text>
+                                                </Card.Body>
+                                            </Card>
+                                    </Col>
+                                </Row>
+                                
 
                                 <Button variant="primary" type="submit">
                                     Submit

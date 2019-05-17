@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Dashboard from "../../pages/dashboard/index"
-
-
-
+import Dashboard from "../../pages/dashboard/index";
 import "./style.css";
+
 
 class DashboardNav extends Component {
 
@@ -24,7 +22,7 @@ class DashboardNav extends Component {
   render() {
 
     let buttonClass = ["inactive"];
-    if(this.state.addClass) {
+    if (this.state.addClass) {
       buttonClass.push("active");
     }
 
@@ -33,7 +31,7 @@ class DashboardNav extends Component {
         <nav id="sidebar" className={buttonClass.join(' ')}>
           <div className="sidebar-header">
             <h3>Jamster</h3>
-            
+
           </div>
 
           <ul className="list-unstyled components">
@@ -51,7 +49,7 @@ class DashboardNav extends Component {
               <a href="/createSession">Create Session</a>
             </li>
             <li>
-              <a href="/login" onClick={this.handleLogOut}>Logout</a>
+              <a href="/">Logout</a>
             </li>
           </ul>
         </nav>
@@ -61,11 +59,13 @@ class DashboardNav extends Component {
         </button>
 
         <div className="container main">
-          <div className="card">
-            <div className="card-body">
-              <Dashboard/>
+          
+            <div className="card">
+              <div className="card-body">
+                <Dashboard/>
+              </div>
             </div>
-          </div>
+          
         </div>
       </div>
     );
