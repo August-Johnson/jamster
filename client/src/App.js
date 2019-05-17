@@ -9,7 +9,6 @@ import FindSession from "./routedPages/FindSession";
 import login from "./pages/login";
 import createAccount from "./pages/createAccount";
 import './App.css';
-import Footer from "../src/components/Footer/index"
 import notFound from "./pages/notFound/index"
 import StickyFooter from 'react-sticky-footer';
 
@@ -29,7 +28,6 @@ function App() {
             <Route exact path="/createAccount" component={createAccount} />
             <Route exact path="/*" component={notFound} />
             <StickyFooter normalStyles={{backgroundColor:"tomato", 'text-align':"center"}}>Jamster 2019&copy;</StickyFooter>
-            <Footer/>
           </Container>
 
         </Switch>

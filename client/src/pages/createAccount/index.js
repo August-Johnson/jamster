@@ -5,7 +5,6 @@ import Background from "./music_background.jpg";
 import { Link } from "react-router-dom";
 import {Button, InputGroup, FormControl, Row, Col} from "react-bootstrap";
 
-
 class createAccount extends Component {
   state = {
     instrument: "",
@@ -61,7 +60,7 @@ class createAccount extends Component {
       
 
       <br></br>
-      <Button className="mb-3" type="submit" variant="outline-primary"><Link to="/login" >Submit</Link></Button>
+      <Button className="mb-3" type="submit" variant="outline-primary"><Link to="/" >Submit</Link></Button>
       
       </Col>
       </Row>

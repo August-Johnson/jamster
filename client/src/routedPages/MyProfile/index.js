@@ -45,7 +45,7 @@ class DashboardNav extends Component {
               <a href="/createSession">Create Session</a>
             </li>
             <li>
-              <a href="/login">Logout</a>
+              <a href="/">Logout</a>
             </li>
           </ul>
         </nav>
