@@ -6,6 +6,8 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import DropdownItem from "react-bootstrap/DropdownItem";
 
 class UserInfo extends Component {
     state = {
@@ -31,7 +33,21 @@ class UserInfo extends Component {
                             <img src="https://via.placeholder.com/300x300" alt="null" />
                             <br />
                             <Button variant="info" size="lg" className="mt-2 mr-1">Edit Profile</Button>
-                            <Button variant="primary" size="lg" className="mt-2">Add Instrument</Button>
+                            <DropdownButton className="mt-2 mr-1" style={{'width': '187px'}} id="dropdown-basic-button" title="Add Instrument" size="lg">
+                                <DropdownItem href="#/action-1">Harp</DropdownItem>
+                                <DropdownItem href="#/action-2">Organ</DropdownItem>
+                                <DropdownItem href="#/action-3">Hydrolauphone</DropdownItem>
+                                <DropdownItem href="#/action-4">Thoramin</DropdownItem>
+                                <DropdownItem href="#/action-5">Jaws Harp</DropdownItem>
+                                <DropdownItem href="#/action-6">Ocarina</DropdownItem>
+                                </DropdownButton>
+                            <DropdownButton variant="danger" className="mt-2 mr-1" style={{'width': '143px'}} id="dropdown-basic-button" title="Skill Level" size="lg">
+                                <DropdownItem href="#/action-1">1</DropdownItem>
+                                <DropdownItem href="#/action-2">2</DropdownItem>
+                                <DropdownItem href="#/action-3">3</DropdownItem>
+                                <DropdownItem href="#/action-4">4</DropdownItem>
+                                <DropdownItem href="#/action-6">5</DropdownItem>
+                                </DropdownButton>
                         </Col>
 
                         <Col xl={6} lg={6} md={6} sm={12} xs={12}>
