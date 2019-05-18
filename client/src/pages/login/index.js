@@ -21,29 +21,26 @@ class login extends Component {
   }
 
   handleSubmit = () => {
-    const usernameData = {
-      username: this.state.username,
-    }
 
-    // window.location.replace("/dashboard")
+    const usernameData = {
+      username: this.state.username
+    }
 
 
     API.userLogin(usernameData)
       .then((userData) => {
         console.log(userData);
-        if (userData.data.password === this.state.password) {
+        if (userData.data !== null && userData.data.password === this.state.password) {
           // storing the username in localstorage if the login info is valid
           localStorage.setItem("username", this.state.username);
-
           window.location.replace("/dashboard");
         }
         else {
-          alert("Incorrect login info!")
+          alert("Incorrect login info!");
         }
       })
       .catch((err) => console.log(err));
   }
-
 
   render() {
     return (

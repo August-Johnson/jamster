@@ -15,25 +15,27 @@ module.exports = {
       .then(([userData, created]) => {
         // join for data from other tables to pass back to the front end.
         if (created) {
-          const createdUser = {
-            username: userData.username
-          }
-          res.json(createdUser);
+          db.user_instrument.create({
+            user_id: userData.id,
+            instrument_id: req.body.instrumentId,
+            skill_level: req.body.skillLevel
+          }).then((userInstrumentData) => res.json(userInstrumentData));
         }
         // if a new user wasn't created because the username is taken,
         // send back an object with a false value to let the front end know.
         else {
-          const existingUser = {
-            userCreated: false
-          }
-          res.json(existingUser);
+          throw new Error("User already exists");
         }
       })
-      .catch((err) => res.json(err));
+      .catch((err) => { throw new Error(err) });
   },
   // get user login by email ("find one") check password after we get db response from query.
   userLogin: function (req, res) {
-    db.user.findOne({ username: req.body.username })
+    db.user.findOne({
+      where: {
+        username: req.body.username
+      }
+    })
       .then((userData) => res.json(userData))
       .catch((err) => res.json(err));
   },
@@ -64,10 +66,6 @@ module.exports = {
     })
       .then((sessionData) => res.json(sessionData))
       .catch((err) => res.json(err));
-  },
-  getMyInfo: function (req, res) {
-    db.user.findOne({ username: req.body.username })
-      .then((userData) => res.json(userData))
-      .catch((err) => res.json(err));
   }
+
 }
