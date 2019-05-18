@@ -12,7 +12,7 @@ function SessionCard(props) {
         <Card>
             <Row>
                 <Col xl="12" className="mb-3">
-                    <Card.Header as="h2">{props.sessionTitle}</Card.Header>
+                    <Card.Header className="header" as="h2">{props.sessionTitle}</Card.Header>
                 </Col>
                 <Col xl="12">
                     <h3 style={{ "text-align": "center" }}>Collaborators / Band Members</h3>

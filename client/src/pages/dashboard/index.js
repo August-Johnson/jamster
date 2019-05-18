@@ -6,7 +6,7 @@ function Dashboard() {
               <div className="row">
                 <div className="col-md-6">
                   <div className="card">
-                    <a href="/myprofile">
+                    <a href="/findSession">
                       <div className="card-body text-center">
                         <p className="text-center font-weight-bold">
                           Find Session{" "}
