@@ -3,7 +3,7 @@ import React from "react";
 
 function Container(props) {
   return (
-    <div style={{"background-color": "black"}}>
+    <div style={{"backgroundColor": "black"}}>
       {props.children}
     </div>
   );

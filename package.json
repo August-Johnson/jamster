@@ -24,13 +24,11 @@
     },
     "homepage": "https://github.com/Iceberg09/jamster#readme",
     "dependencies": {
-        "@bit/formidablelabs.react-animations.fade-in-right-big": "^1.0.0",
         "axios": "^0.18.0",
         "classnames": "^2.2.6",
         "express": "^4.16.4",
         "if-env": "^1.0.4",
         "mysql2": "^1.6.5",
-        "react-sticky-footer": "0.1.0-rc3",
         "sequelize": "^5.8.5",
         "styled-components": "^4.2.0"
     },
