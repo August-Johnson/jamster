@@ -1,4 +1,6 @@
 const db = require("../../models");
+const Sequelize = require("sequelize")
+
 
 module.exports = {
   // create new account
@@ -36,7 +38,13 @@ module.exports = {
         username: req.body.username
       }
     })
-      .then((userData) => res.json(userData))
+      .then((userData) => {
+        db.user_instrument.findOne({
+          where: {
+            user_id: userData.id
+          }
+        }).then((userInstrumentData) => res.json([userInstrumentData, userData.password]));
+      })
       .catch((err) => res.json(err));
   },
   // create a jam session

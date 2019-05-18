@@ -3,7 +3,7 @@ import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
 import { Link } from "react-router-dom";
-import API from "../../API/api";
+import API from "../../API/API";
 
 import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
 
@@ -26,14 +26,16 @@ class login extends Component {
       username: this.state.username
     }
 
-
     API.userLogin(usernameData)
       .then((userData) => {
         console.log(userData);
-        if (userData.data !== null && userData.data.password === this.state.password) {
+        if (userData.data[1] !== null && userData.data[1] === this.state.password) {
           // storing the username in localstorage if the login info is valid
           localStorage.setItem("username", this.state.username);
-          window.location.replace("/dashboard");
+          localStorage.setItem("userId", userData.data[0].id);
+          localStorage.setItem("instrument", userData.data[0].instrument_id);
+          localStorage.setItem("skillLevel", userData.data[0].skill_level);
+          //window.location.replace("/dashboard");
         }
         else {
           alert("Incorrect login info!");
