@@ -29,6 +29,7 @@
         "express": "^4.16.4",
         "if-env": "^1.0.4",
         "mysql2": "^1.6.5",
+        "react-sticky-footer": "0.1.0-rc3",
         "sequelize": "^5.8.5",
         "styled-components": "^4.2.0"
     },
