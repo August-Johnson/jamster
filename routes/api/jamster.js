@@ -40,8 +40,4 @@ router.route("/userInfo")
 
 // ------------------------------------------------ //
 
-// post request for creating a new user_instrument row/instance
-router.route("/userInstrument")
-    .post(allControllers.createUserInstrument)
-
 module.exports = router;

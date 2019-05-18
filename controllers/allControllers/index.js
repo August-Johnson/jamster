@@ -15,21 +15,19 @@ module.exports = {
       .then(([userData, created]) => {
         // join for data from other tables to pass back to the front end.
         if (created) {
-          const createdUser = {
-            username: userData.username
-          }
-          res.json(createdUser);
+          db.user_instrument.create({
+            user_id: userData.id,
+            instrument_id: req.body.instrumentId,
+            skill_level: req.body.skillLevel
+          }).then((userInstrumentData) => res.json(userInstrumentData));
         }
         // if a new user wasn't created because the username is taken,
         // send back an object with a false value to let the front end know.
         else {
-          const existingUser = {
-            userCreated: false
-          }
-          res.json(existingUser);
+          throw new Error("User already exists");
         }
       })
-      .catch((err) => res.json(err));
+      .catch((err) => { throw new Error(err) });
   },
   // get user login by email ("find one") check password after we get db response from query.
   userLogin: function (req, res) {
@@ -71,33 +69,43 @@ module.exports = {
       .then((userData) => res.json(userData))
       .catch((err) => res.json(err));
   },
-  // create a user instrument relationship and skill level
-  createUserInstrument: function (req, res) {
-    return db.sequelize.transaction((t) => {
-      return db.user.findOne({
-        where: {
-          username: req.body.username
-        }
-      }, { transaction: t })
-        .then((userData) => {
-          console.log(userData);
-          return db.instrument.findOrCreate({
-            where: {
-              instrument: req.body.instrument
-            }
-          }, { transaction: t })
-            .then(([instrumentData, created]) => {
-              console.log(instrumentData);
-              db.user_instrument.create({
-                user_id: userData.id,
-                instrument_id: instrumentData.id,
-                skill_level: req.body.skillLevel
-              }, { transaction: t });
-            });
-        });
-    })
-      .then((userInstrumentData) => res.json(userInstrumentData))
-      .catch((err) => res.json(err));
 
-  }
+  // create a user instrument relationship and skill level
+  // createUserInstrument: function (req, res) {
+  //   return db.sequelize.transaction((t) => {
+
+  //     return db.user.findOne({
+  //       where: {
+  //         username: req.body.username
+  //       }
+  //     }, { transaction: t }).then((userData) => {
+  //         console.log(userData.id);
+  //         return db.instrument.findOrCreate({
+  //           where: {
+  //             instrument: req.body.instrument
+  //           }
+  //         }, { transaction: t }).then(([instrumentData, created]) => {
+  //             console.log(instrumentData);
+  //             return db.user_instrument.create({
+  //               user_id: userData.id,
+  //               instrument_id: instrumentData.id,
+  //               skill_level: req.body.skillLevel
+  //             }, { transaction: t });
+  //           });
+  //       });
+  //   })
+  //     .then((userInstrumentData) => res.json(userInstrumentData))
+  //     .catch((err) => res.json(err));
+
+  // }
+
+  // createUserInstrument: function (req, res) {
+  //   this.createNewUser({
+  //     username: req.body.username,
+  //     password: req.body.password
+  //   }).then((userData) => {
+
+  //   })
+
+  // }
 }

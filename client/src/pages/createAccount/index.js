@@ -8,7 +8,7 @@ import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
 
 class createAccount extends Component {
   state = {
-    instrument: "",
+    instrumentValue: "",
     skillLevel: 0,
     username: "",
     password: "",
@@ -23,33 +23,21 @@ class createAccount extends Component {
   }
 
   handleSubmit = () => {
-
     const createUserData = {
       username: this.state.username,
-      password: this.state.password
+      password: this.state.password,
+      skillLevel: parseInt(this.state.skillLevel),
+      instrumentId: parseInt(this.state.instrumentValue)
     }
 
     API.createNewUser(createUserData)
-      .then((userData) => {
-        console.log("create user ran first");
-        if (userData.data.userCreated === false) {
-          return alert("User already exists!");
-        }
-        console.log("userData: ", userData);
+      .then((dataResponse) => {
+        localStorage.setItem("username", this.state.username);
+        localStorage.setItem("userId", dataResponse.data.id);
+        localStorage.setItem("instrument", parseInt(this.state.instrumentValue));
+        localStorage.setItem("skillLevel", parseInt(this.state.skillLevel));
 
-        const userInstrumentData = {
-          username: this.state.username,
-          instrument: this.state.instrument,
-          skillLevel: this.state.skillLevel
-        }
-
-        API.createUserInstrument(userInstrumentData)
-          .then((results) => {
-            console.log("user instruments ran first");
-            // localStorage.setItem("username", this.state.username);
-            // window.location.replace("/dashboard");
-          });
-
+        window.location.replace("/dashboard");
       })
       .catch((err) => console.log(err));
   }
@@ -59,18 +47,18 @@ class createAccount extends Component {
 
       <Container>
         <Hero backgroundImage={Background}></Hero>
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center" style={{ "width": "100%" }}>
           <Col lg="4">
             {/* Need to change text color to white probably */}
             <h2 style={{ 'color': 'white' }}>Welcome to Jamster to create an acount please enter the corresponding information below</h2>
             <br></br>
-            <InputGroup><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrument" value={this.state.instrument} onChange={this.onChange}>
+            <InputGroup><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrumentValue" value={this.state.instrumentValue} onChange={this.onChange}>
               <option defaultValue="">Instrument</option>
-              <option value="Bass">Bass</option>
-              <option value="Drums">Drums</option>
-              <option value="Guitar">Guitar</option>
-              <option value="Keyboard">Keyboard</option>
-              <option value="Vocals">Vocals</option></FormControl></InputGroup>
+              <option value="1">Bass</option>
+              <option value="2">Drums</option>
+              <option value="3">Guitar</option>
+              <option value="4">Keyboard</option>
+              <option value="5">Vocals</option></FormControl></InputGroup>
 
             <br></br>
             <InputGroup><FormControl as="select" placeholder="Skill Level" aria-label="Skill Level" aria-describedby="basic-addon1" name="skillLevel" value={this.state.skillLevel} onChange={this.onChange}>

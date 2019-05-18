@@ -29,9 +29,5 @@ export default {
     // get user info for myProfile
     getMyInfo: function (username) {
         return axios.get("/api/jamster/userInfo", username);
-    },
-    // create a user_instrument row/instance
-    createUserInstrument: function(userInstrumentData) {
-        return axios.post("/api/jamster/userInstrument", userInstrumentData);
     }
 }
