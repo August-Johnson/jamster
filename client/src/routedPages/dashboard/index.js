@@ -15,6 +15,10 @@ class DashboardNav extends Component {
     this.setState({ addClass: !this.state.addClass });
   }
 
+  handleLogOut = () => {
+    localStorage.clear();
+  }
+
   render() {
 
     let buttonClass = ["inactive"];

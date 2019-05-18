@@ -27,7 +27,7 @@ function App() {
             <Route exact path="/createSession" component={CreateSession} />
             <Route exact path="/createAccount" component={createAccount} />
             <Route exact path="/*" component={notFound} />
-            <StickyFooter normalStyles={{backgroundColor:"tomato", 'text-align':"center"}}>Jamster 2019&copy;</StickyFooter>
+            <StickyFooter normalStyles={{backgroundColor:"tomato", 'textAlign':"center"}}>Jamster 2019&copy;</StickyFooter>
           </Container>
 
         </Switch>

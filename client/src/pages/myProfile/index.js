@@ -6,14 +6,29 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
+import API from "../../API/API";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import DropdownItem from "react-bootstrap/DropdownItem";
 
 class UserInfo extends Component {
     state = {
-        email: "someones-email@gmail.com",
-        instruments: [{ name: "Guitar", skillLevel: 3 }, { name: "Bass", skillLevel: 5 }],
-        username: "Gus"
+        username: localStorage.getItem("username"),
+        instruments: [],
+        skillLevel: "",
+    }
+
+    componentDidMount() {
+        const usernameData = {
+            username: this.state.username
+        }
+
+        API.getMyInfo(usernameData)
+            .then((userData) => {
+                console.log("UserData: ", userData);
+            })
+            // then call a function for getting the instrument and skill level data using the user's id being returned from the first call
+            // .then(() => API.)
+            .catch((err) => console.log(err));
     }
 
     render() {
@@ -56,10 +71,10 @@ class UserInfo extends Component {
                                 <Card.Header><h2>My Info</h2></Card.Header>
                                 <Card.Body>
                                     <Card.Title><h3>Username:</h3></Card.Title>
-                                    <Card.Text><h5>{this.state.username}</h5></Card.Text>
+                                    <h5>{this.state.username}</h5>
                                     <hr />
-                                    <Card.Title><h3>Email:</h3></Card.Title>
-                                    <Card.Text><h5>{this.state.email}</h5></Card.Text>
+                                    {/* <Card.Title><h3>Email:</h3></Card.Title>
+                                    <Card.Text><h5>{this.state.email}</h5></Card.Text> */}
                                     <hr />
                                     <Card.Title><h3>Instruments:</h3></Card.Title>
                                     <ListGroup>

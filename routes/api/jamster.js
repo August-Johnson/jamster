@@ -2,32 +2,38 @@ const router = require("express").Router();
 const allControllers = require("../../controllers/allControllers");
 
 // Routes relating to user data
-router.route("/user")
+router.route("/login")
     // Route for user login
     .get(allControllers.userLogin)
 
+
+router.route("/createNewUser")
     // Route for creating a new user
-    .post(allControllers.userCreate)
+    .post(allControllers.createNewUser)
 
 // ------------------------------------------------ //
 
 // Routes relating to sessions data
 router.route("/sessions")
     // Route for getting all sessions
-    .get(allControllers.getSessions)
+    .get(allControllers.getJamSessions)
 
     // Route for creating a session
-    .post(allControllers.createSession)
+    .post(allControllers.createNewSession)
 
 // ------------------------------------------------ //
 
 // Routes relating to single session data, with req.params.id
 router.route("/sessions/:id")
     // Route for viewing a single sessions (when user clicks on one to view details)
-    .get(allControllers.viewSession)
+    .get(allControllers.viewJamSession)
 
     // Route for updating a session
-    .put(allControllers.editSession)
+    .put(allControllers.joinSession)
 
+// ------------------------------------------------ //
+// getting the user's data for myProfile page
+router.route("/userInfo")
+    .get(allControllers.getMyInfo)
 
 module.exports = router;

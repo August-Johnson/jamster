@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import Container from "../../components/Container";
-import {Button, InputGroup, FormControl, Row, Col} from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 class notFound extends Component {
     state = {}
 
-    
-
     render() {
-        return(
+        return (
             <Container>
                 <Col>
                     <Row>
