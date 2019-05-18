@@ -7,13 +7,13 @@ class notFound extends Component {
 
     render() {
         return (
-            <Container>
-                <Col>
-                    <Row>
-                        404 Not Found
-                    </Row>
-                </Col>
-            </Container>
+
+            <Col>
+                <Row>
+                    404 Not Found
+                </Row>
+            </Col>
+        
         );
     }
 }
