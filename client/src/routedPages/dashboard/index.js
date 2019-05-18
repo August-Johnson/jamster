@@ -49,7 +49,7 @@ class DashboardNav extends Component {
               <a href="/createSession">Create Session</a>
             </li>
             <li>
-              <a href="/">Logout</a>
+              <a href="/" onClick={this.handleLogOut}>Logout</a>
             </li>
           </ul>
         </nav>

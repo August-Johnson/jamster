@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
-import { Link } from "react-router-dom";
 import API from "../../API/API";
 
 import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
@@ -24,6 +23,7 @@ class createAccount extends Component {
   }
 
   handleSubmit = () => {
+
     const createUserData = {
       username: this.state.username,
       password: this.state.password
@@ -31,19 +31,31 @@ class createAccount extends Component {
 
     API.createNewUser(createUserData)
       .then((userData) => {
-        if (userData.userCreated === false) {
+        console.log("create user ran first");
+        if (userData.data.userCreated === false) {
           return alert("User already exists!");
         }
         console.log("userData: ", userData);
-        localStorage.setItem("username", this.state.username);
-        window.location.replace("/dashboard");
+
+        const userInstrumentData = {
+          username: this.state.username,
+          instrument: this.state.instrument,
+          skillLevel: this.state.skillLevel
+        }
+
+        API.createUserInstrument(userInstrumentData)
+          .then((results) => {
+            console.log("user instruments ran first");
+            // localStorage.setItem("username", this.state.username);
+            // window.location.replace("/dashboard");
+          });
+
       })
       .catch((err) => console.log(err));
   }
 
   render() {
     return (
-
 
       <Container>
         <Hero backgroundImage={Background}></Hero>
@@ -52,8 +64,8 @@ class createAccount extends Component {
             {/* Need to change text color to white probably */}
             <h2 style={{ 'color': 'white' }}>Welcome to Jamster to create an acount please enter the corresponding information below</h2>
             <br></br>
-            <InputGroup controlId="createInstrunment"><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrument" value={this.state.instrument} onChange={this.onChange}>
-              <option selected value="">Instrument</option>
+            <InputGroup><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrument" value={this.state.instrument} onChange={this.onChange}>
+              <option defaultValue="">Instrument</option>
               <option value="Bass">Bass</option>
               <option value="Drums">Drums</option>
               <option value="Guitar">Guitar</option>
@@ -62,7 +74,7 @@ class createAccount extends Component {
 
             <br></br>
             <InputGroup><FormControl as="select" placeholder="Skill Level" aria-label="Skill Level" aria-describedby="basic-addon1" name="skillLevel" value={this.state.skillLevel} onChange={this.onChange}>
-              <option selected value="">Skill Level</option>
+              <option defaultValue="">Skill Level</option>
               <option value="1">1 (Beginner)</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -71,14 +83,14 @@ class createAccount extends Component {
 
 
             <br></br>
-            <InputGroup><FormControl placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} /></InputGroup>
+            <InputGroup><FormControl type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} /></InputGroup>
             <br></br>
-            <InputGroup><FormControl placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
+            <InputGroup><FormControl type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
             <br></br>
 
 
             <br></br>
-            <Button className="mb-3" type="submit" variant="outline-primary"><Link to="/" >Submit</Link></Button>
+            <Button className="mb-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
 
           </Col>
         </Row>

@@ -6,6 +6,7 @@ router.route("/login")
     // Route for user login
     .get(allControllers.userLogin)
 
+// ------------------------------------------------ //
 
 router.route("/createNewUser")
     // Route for creating a new user
@@ -32,8 +33,15 @@ router.route("/sessions/:id")
     .put(allControllers.joinSession)
 
 // ------------------------------------------------ //
+
 // getting the user's data for myProfile page
 router.route("/userInfo")
     .get(allControllers.getMyInfo)
+
+// ------------------------------------------------ //
+
+// post request for creating a new user_instrument row/instance
+router.route("/userInstrument")
+    .post(allControllers.createUserInstrument)
 
 module.exports = router;

@@ -65,9 +65,39 @@ module.exports = {
       .then((sessionData) => res.json(sessionData))
       .catch((err) => res.json(err));
   },
+  // getting user's info for myProfile page
   getMyInfo: function (req, res) {
     db.user.findOne({ username: req.body.username })
       .then((userData) => res.json(userData))
       .catch((err) => res.json(err));
+  },
+  // create a user instrument relationship and skill level
+  createUserInstrument: function (req, res) {
+    return db.sequelize.transaction((t) => {
+      return db.user.findOne({
+        where: {
+          username: req.body.username
+        }
+      }, { transaction: t })
+        .then((userData) => {
+          console.log(userData);
+          return db.instrument.findOrCreate({
+            where: {
+              instrument: req.body.instrument
+            }
+          }, { transaction: t })
+            .then(([instrumentData, created]) => {
+              console.log(instrumentData);
+              db.user_instrument.create({
+                user_id: userData.id,
+                instrument_id: instrumentData.id,
+                skill_level: req.body.skillLevel
+              }, { transaction: t });
+            });
+        });
+    })
+      .then((userInstrumentData) => res.json(userInstrumentData))
+      .catch((err) => res.json(err));
+
   }
 }
