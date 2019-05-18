@@ -31,7 +31,11 @@ module.exports = {
   },
   // get user login by email ("find one") check password after we get db response from query.
   userLogin: function (req, res) {
-    db.user.findOne({ username: req.body.username })
+    db.user.findOne({
+      where: {
+        username: req.body.username
+      }
+    })
       .then((userData) => res.json(userData))
       .catch((err) => res.json(err));
   },
@@ -62,50 +66,6 @@ module.exports = {
     })
       .then((sessionData) => res.json(sessionData))
       .catch((err) => res.json(err));
-  },
-  // getting user's info for myProfile page
-  getMyInfo: function (req, res) {
-    db.user.findOne({ username: req.body.username })
-      .then((userData) => res.json(userData))
-      .catch((err) => res.json(err));
-  },
+  }
 
-  // create a user instrument relationship and skill level
-  // createUserInstrument: function (req, res) {
-  //   return db.sequelize.transaction((t) => {
-
-  //     return db.user.findOne({
-  //       where: {
-  //         username: req.body.username
-  //       }
-  //     }, { transaction: t }).then((userData) => {
-  //         console.log(userData.id);
-  //         return db.instrument.findOrCreate({
-  //           where: {
-  //             instrument: req.body.instrument
-  //           }
-  //         }, { transaction: t }).then(([instrumentData, created]) => {
-  //             console.log(instrumentData);
-  //             return db.user_instrument.create({
-  //               user_id: userData.id,
-  //               instrument_id: instrumentData.id,
-  //               skill_level: req.body.skillLevel
-  //             }, { transaction: t });
-  //           });
-  //       });
-  //   })
-  //     .then((userInstrumentData) => res.json(userInstrumentData))
-  //     .catch((err) => res.json(err));
-
-  // }
-
-  // createUserInstrument: function (req, res) {
-  //   this.createNewUser({
-  //     username: req.body.username,
-  //     password: req.body.password
-  //   }).then((userData) => {
-
-  //   })
-
-  // }
 }

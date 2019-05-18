@@ -4,7 +4,7 @@ const allControllers = require("../../controllers/allControllers");
 // Routes relating to user data
 router.route("/login")
     // Route for user login
-    .get(allControllers.userLogin)
+    .post(allControllers.userLogin)
 
 // ------------------------------------------------ //
 
@@ -31,12 +31,6 @@ router.route("/sessions/:id")
 
     // Route for updating a session
     .put(allControllers.joinSession)
-
-// ------------------------------------------------ //
-
-// getting the user's data for myProfile page
-router.route("/userInfo")
-    .get(allControllers.getMyInfo)
 
 // ------------------------------------------------ //
 
