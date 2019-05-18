@@ -1,5 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
+import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
@@ -36,6 +37,14 @@ function Dashboard() {
         //       </div>
         //     </Container>
             <Container>
+              <Jumbotron>
+                    <Row>
+                        <Col>
+                            <h1 className="text-center">Welcome to Jamster!</h1>
+                            <p className="text-center">Connect with musicians in your area.</p>
+                        </Col>
+                    </Row>
+                </Jumbotron>
               <Row>
                 <Col>
                   <Card className="text-center">
