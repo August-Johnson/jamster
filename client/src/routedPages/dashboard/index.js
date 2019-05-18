@@ -61,7 +61,7 @@ class DashboardNav extends Component {
         <div className="container main">
           
             <div className="card">
-              <div className="card-body">
+              <div className="card-body main-content-card">
                 <Dashboard/>
               </div>
             </div>
