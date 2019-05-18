@@ -51,7 +51,7 @@ class login extends Component {
 
         <Hero backgroundImage={Background}></Hero>
         <br></br>
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center" style={{ "width": "100%" }}>
           <Col lg="4">
             <InputGroup><FormControl placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} /></InputGroup>
             <br></br>
