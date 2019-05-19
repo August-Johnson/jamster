@@ -1,7 +1,6 @@
 const db = require("../../models");
 const Sequelize = require("sequelize")
 
-
 module.exports = {
   // create new account
   createNewUser: function (req, res) {

@@ -36,7 +36,7 @@ class createAccount extends Component {
       .then((dataResponse) => {
         localStorage.setItem("username", this.state.username);
         localStorage.setItem("userId", dataResponse.data.id);
-        localStorage.setItem("instrument", parseInt(this.state.instrumentValue));
+        localStorage.setItem("instrumentId", parseInt(this.state.instrumentValue));
         localStorage.setItem("skillLevel", parseInt(this.state.skillLevel));
 
         window.location.replace("/dashboard");
