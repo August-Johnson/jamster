@@ -19,5 +19,12 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         }
     });
+
+    user_instrument.associate = function (models) {
+        user_instrument.belongsTo(models.user, {
+            foreignKey: 'id'
+        });
+    }
+
     return user_instrument;
 };

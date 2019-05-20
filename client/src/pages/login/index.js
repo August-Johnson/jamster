@@ -3,7 +3,7 @@ import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
 import { Link } from "react-router-dom";
-import API from "../../API/api";
+import API from "../../API/API";
 
 import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
 
@@ -26,13 +26,15 @@ class login extends Component {
       username: this.state.username
     }
 
-
     API.userLogin(usernameData)
       .then((userData) => {
         console.log(userData);
-        if (userData.data !== null && userData.data.password === this.state.password) {
+        if (userData.data[1] !== null && userData.data[1] === this.state.password) {
           // storing the username in localstorage if the login info is valid
           localStorage.setItem("username", this.state.username);
+          localStorage.setItem("userId", parseInt(userData.data[0].id));
+          localStorage.setItem("instrumentId", parseInt(userData.data[0].instrument_id));
+          localStorage.setItem("skillLevel", parseInt(userData.data[0].skill_level));
           window.location.replace("/dashboard");
         }
         else {
@@ -52,7 +54,7 @@ class login extends Component {
           <Col lg="4">
             <InputGroup><FormControl placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} /></InputGroup>
             <br></br>
-            <InputGroup><FormControl placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
+            <InputGroup><FormControl type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
 
             <br></br>
             <Button className="mb-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>

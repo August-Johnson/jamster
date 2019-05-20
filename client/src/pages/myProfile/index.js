@@ -6,15 +6,31 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
-
 import DropdownButton from "react-bootstrap/DropdownButton";
 import DropdownItem from "react-bootstrap/DropdownItem";
 
 class UserInfo extends Component {
     state = {
         username: localStorage.getItem("username"),
-        instrument: [localStorage.getItem("instrument")],
-        skillLevel: localStorage.getItem("skillLevel"),
+        instrument: parseInt(localStorage.getItem("instrumentId")),
+        skillLevel: parseInt(localStorage.getItem("skillLevel")),
+    }
+
+    renderInstrumentName = (instrumentId) => {
+        switch (instrumentId) {
+            case 1:
+                return "Bass"
+            case 2:
+                return "Drums"
+            case 3:
+                return "Guitar"
+            case 4:
+                return "Keyboard"
+            case 5:
+                return "Vocals"
+            default:
+                return "Unknown Instrument!"
+        }
     }
 
     render() {
@@ -64,18 +80,24 @@ class UserInfo extends Component {
                                     <hr />
                                     <Card.Title><h3>Instruments:</h3></Card.Title>
                                     <ListGroup>
-                                        {this.state.instruments.map((instrument) => {
-                                            if (instrument.skillLevel === 5) {
-                                                return <ListGroup.Item variant="success"><h4>{instrument.name}</h4> <h5>Skill Level: {instrument.skillLevel}</h5></ListGroup.Item>
+                                        <ListGroup.Item variant="success">
+                                            <h4>
+                                                {this.renderInstrumentName(this.state.instrument)}
+                                            </h4>
+                                            <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
+
+                                        {/* {this.state.instruments.map((instrument) => {
+                                            if (this.state.skillLevel === 5) {
+                                                return <ListGroup.Item variant="success"><h4>{}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
-                                            else if (instrument.skillLevel === 1) {
-                                                return <ListGroup.Item variant="danger"><h4>{instrument.name}</h4> <h5>Skill Level: {instrument.skillLevel}</h5></ListGroup.Item>
+                                            else if (this.state.skillLevel === 1) {
+                                                return <ListGroup.Item variant="danger"><h4>{instrument.name}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
                                             else {
-                                                return <ListGroup.Item variant="warning"><h4>{instrument.name}</h4> <h5>Skill Level: {instrument.skillLevel}</h5></ListGroup.Item>
+                                                return <ListGroup.Item variant="warning"><h4>{instrument.name}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
                                         }
-                                        )}
+                                        )} */}
                                     </ListGroup>
                                 </Card.Body>
                             </Card>

@@ -15,8 +15,8 @@ export default {
         return axios.get("/api/jamster/sessions");
     },
     // create a session call
-    createNewSession: function () {
-        return axios.post("/api/jamster/createSession");
+    createNewSession: function (createSessionData) {
+        return axios.post("/api/jamster/sessions", createSessionData);
     },
     // get session info
     viewJamSession: function (sessionId) {

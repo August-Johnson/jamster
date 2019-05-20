@@ -1,4 +1,5 @@
 const db = require("../../models");
+const Sequelize = require("sequelize")
 
 module.exports = {
   // create new account
@@ -36,12 +37,39 @@ module.exports = {
         username: req.body.username
       }
     })
-      .then((userData) => res.json(userData))
+      .then((userData) => {
+        db.user_instrument.findOne({
+          where: {
+            user_id: userData.id
+          }
+        }).then((userInstrumentData) => res.json([userInstrumentData, userData.password]));
+      })
       .catch((err) => res.json(err));
   },
   // create a jam session
   createNewSession: function (req, res) {
-    db.session.create(req.body)
+    console.log(req.body);
+    db.session.create({
+      name: req.body.name,
+      usr1: req.body.usr1,
+      inst1: req.body.inst1,
+      skill_level1: req.body.skillLevel1,
+      // usr2: req.body.usr2,
+      inst2: req.body.inst2,
+      skill_level2: req.body.skillLevel2,
+      // usr3: req.body.usr3,
+      inst3: req.body.inst3,
+      skill_level3: req.body.skillLevel3,
+      // usr4: req.body.usr4,
+      inst4: req.body.inst4,
+      skill_level4: req.body.skillLevel4,
+      // usr5: req.body.usr5,
+      inst5: req.body.inst5,
+      skill_level5: req.body.skillLevel5,
+      scheduled_date: req.body.date,
+      scheduled_time: req.body.time,
+      description: req.body.description
+    })
       .then((sessionData) => res.json(sessionData))
       .catch((err) => res.json(err));
   },
