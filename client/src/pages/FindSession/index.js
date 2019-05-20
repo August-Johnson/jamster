@@ -4,59 +4,54 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SessionsCard from "../../components/SessionCard";
+import API from "../../API/API";
 
 class FindSession extends Component {
     state = {
-        // card coded some 'session' for development testing
+        // hard coded some 'session' for development testing
         // jamSessions is an array of objects that represent each jam session.
         // Each one has a session id, an array of collaborators, a title and details (optional).
         // Each collaborator in the array is an object with the properties of the person's name, the instrument they play and their skill level.
-        jamSessions: [
-            {
-                sessionId: 1,
-                collaborators: [
-                    {
-                        name: "Ken",
-                        instrument: "Guitar",
-                        skillLevel: 3
-                    },
-                    {
-                        name: "Ben",
-                        instrument: "Drums",
-                        skillLevel: 4
-                    },
-                    {
-                        name: "Charlie",
-                        instrument: "Bass",
-                        skillLevel: 2
-                    }
-                ],
-                title: "Jam Session Title",
-                details: "We love to rock and roll! None of that country shit."
-            },
-            {
-                sessionId: 2,
-                collaborators: [
-                    {
-                        name: "James",
-                        instrument: "Piano",
-                        skillLevel: 4
-                    },
-                    {
-                        name: "George",
-                        instrument: "Violin",
-                        skillLevel: 5
-                    },
-                    {
-                        name: "Claire",
-                        instrument: "Cello",
-                        skillLevel: 4
-                    }
-                ],
-                title: "Jam Session Title 2",
-                details: "Jam session focused around classical music. Looking for experienced players only and expect each member to put in the time."
-            }
-        ]
+        jamSessions: []
+    }
+
+    componentDidMount() {
+        this.getJamSessions();
+    }
+
+    getJamSessions = () => {
+        API.getJamSessions()
+            .then((jamSessionsData) => {
+                console.log(jamSessionsData.data);
+                this.setState({
+                    jamSessions: jamSessionsData.data
+                });
+            })
+            .catch((err) => console.log(err));
+    }
+
+    // getUsername = (userId) => {
+    //     const userIdData = {
+    //         userId: userId
+    //     }
+    //     API.getUserName(userIdData)
+    //         .then((userData) => {
+    //             console.log(userData);
+    //             console.log(userData.data.username);
+    //             return userData.data.username
+    //         })
+    //         .catch((err) => console.log(err));
+    // }
+
+    // printSessionCards = () => {
+    //     for (let i = 0; i < this.state.jamSessions.length; i++) {
+    //         const username = () => this.getUsername(this.state.jamSessions[i].usr1)
+    //         return <SessionsCard key={this.state.jamSessions[i].id} sessionId={this.state.jamSessions[i].id} sessionName={this.state.jamSessions[i].name} sessionDetails={this.state.jamSessions[i].description} sessionDate={this.state.jamSessions[i].scheduled_date} sessionTime={this.state.jamSessions[i].scheduled_time} createdBy={username} onClick={this.handleViewSession(this.state.jamSessions[i].id)} />
+    //     }
+    // }
+
+    handleViewSession = (sessionId) => {
+        console.log(sessionId);
     }
 
     render() {
@@ -65,22 +60,30 @@ class FindSession extends Component {
                 <Jumbotron className="jumboBg">
                     <Row>
                         <Col>
-                            
+
                             <div className="jumboText">
-                            <h1 className="text-center">Find Session</h1>
-                            
-                            <p className="jumboP text-center">See sessions created by other musicians!</p>
+                                <h1 className="text-center">Find Session</h1>
+
+                                <p className="jumboP text-center">See sessions created by other musicians!</p>
                             </div>
-                            
+
                         </Col>
                     </Row>
                 </Jumbotron>
 
                 {/* mapping through the jamSessions array from the state and dynamically create session cards for each one.
                     Passing the info from each jam session in as props to the SessionsCard component. */}
-                    {this.state.jamSessions.map((session) =>
-                        <SessionsCard sessionTitle={session.title} sessionDetails={session.details} collaborators={session.collaborators} />
-                    )}
+                {/* {this.state.jamSessions.map((session) =>
+                    <SessionsCard sessionId={session.id} sessionName={session.name} sessionDetails={session.details} sessionDate={session.scheduled_date} sessionTime={session.scheduled_time} createdBy={session.usr1} onClick={this.handleViewSession} />
+                )} */}
+                {this.state.jamSessions.length ? (
+                    this.state.jamSessions.map((session) =>
+                        <SessionsCard key={session.id} sessionId={session.id} sessionName={session.name} sessionDetails={session.description} sessionDate={session.scheduled_date} sessionTime={session.scheduled_time} createdBy={session.id} onClick={this.handleViewSession(session.id)} />
+                    )) : (
+                        <h3 style={{ "textAlign": "center" }}>NO JAM SESSIONS!</h3>
+                    )
+                }
+               
             </Container>
         );
     }

@@ -14,6 +14,12 @@ router.route("/createNewUser")
 
 // ------------------------------------------------ //
 
+router.route("/getUsername")
+    .post(allControllers.getUserName)
+
+// ------------------------------------------------ //
+
+
 // Routes relating to sessions data
 router.route("/sessions")
     // Route for getting all sessions

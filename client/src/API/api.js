@@ -14,6 +14,9 @@ export default {
     getJamSessions: function () {
         return axios.get("/api/jamster/sessions");
     },
+    getUserName: function(userId) {
+        return axios.post("/api/jamster/getUsername", userId);
+    },
     // create a session call
     createNewSession: function (createSessionData) {
         return axios.post("/api/jamster/sessions", createSessionData);

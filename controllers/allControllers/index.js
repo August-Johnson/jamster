@@ -1,5 +1,4 @@
 const db = require("../../models");
-const Sequelize = require("sequelize")
 
 module.exports = {
   // create new account
@@ -77,6 +76,16 @@ module.exports = {
   getJamSessions: function (req, res) {
     db.session.findAll({})
       .then((sessionsData) => res.json(sessionsData))
+      .catch((err) => res.json(err));
+  },
+  getUserName: function (req, res) {
+    console.log("req body: ", req.body);
+    db.user.findOne({
+      where: {
+        id: req.body.userId
+      }
+    })
+      .then((userData) => res.json(userData))
       .catch((err) => res.json(err));
   },
   // getting a single jam session
