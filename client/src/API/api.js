@@ -4,7 +4,7 @@ export default {
     // login call
     userLogin: function (usernameData) {
         // I think it's a POST request since we need to access what the user entered into the fields.
-        return axios.get("/api/jamster/login", usernameData);
+        return axios.post("/api/jamster/login", usernameData);
     },
     // create account call
     createNewUser: function (createUserData) {
@@ -15,8 +15,8 @@ export default {
         return axios.get("/api/jamster/sessions");
     },
     // create a session call
-    createNewSession: function () {
-        return axios.post("/api/jamster/createSession");
+    createNewSession: function (createSessionData) {
+        return axios.post("/api/jamster/sessions", createSessionData);
     },
     // get session info
     viewJamSession: function (sessionId) {
@@ -24,10 +24,6 @@ export default {
     },
     // joining a jam session
     joinSession: function(sessionId, joiningUserData) {
-        return axios.put("/api/jamster/sessions/" + sessionId, joiningUserData)
-    },
-    // get user info for myProfile
-    getMyInfo: function (username) {
-        return axios.get("/api/jamster/userInfo", username);
+        return axios.put("/api/jamster/sessions/" + sessionId, joiningUserData);
     }
 }

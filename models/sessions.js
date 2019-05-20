@@ -1,8 +1,12 @@
 module.exports = function (sequelize, DataTypes) {
     const session = sequelize.define("session", {
-        name: DataTypes.STRING,
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         usr1: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'users',
                 key: 'id'
@@ -10,10 +14,15 @@ module.exports = function (sequelize, DataTypes) {
         },
         inst1: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'instruments',
                 key: 'id'
             }
+        },
+        skill_level1: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         usr2: {
             type: DataTypes.INTEGER,
@@ -24,10 +33,15 @@ module.exports = function (sequelize, DataTypes) {
         },
         inst2: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'instruments',
                 key: 'id'
             }
+        },
+        skill_level2: {
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         usr3: {
             type: DataTypes.INTEGER,
@@ -43,6 +57,10 @@ module.exports = function (sequelize, DataTypes) {
                 key: 'id'
             }
         },
+        skill_level3: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
         usr4: {
             type: DataTypes.INTEGER,
             references: {
@@ -56,6 +74,10 @@ module.exports = function (sequelize, DataTypes) {
                 model: 'instruments',
                 key: 'id'
             }
+        },
+        skill_level4: {
+            type: DataTypes.INTEGER,
+            allowNull: true
         },
         usr5: {
             type: DataTypes.INTEGER,
@@ -71,8 +93,16 @@ module.exports = function (sequelize, DataTypes) {
                 key: 'id'
             }
         },
-        scheduled: {
-            type: DataTypes.DATE,
+        skill_level5: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        scheduled_date: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        scheduled_time: {
+            type: DataTypes.STRING,
             allowNull: false
         },
         description: DataTypes.STRING

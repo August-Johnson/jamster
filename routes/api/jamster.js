@@ -4,8 +4,9 @@ const allControllers = require("../../controllers/allControllers");
 // Routes relating to user data
 router.route("/login")
     // Route for user login
-    .get(allControllers.userLogin)
+    .post(allControllers.userLogin)
 
+// ------------------------------------------------ //
 
 router.route("/createNewUser")
     // Route for creating a new user
@@ -32,8 +33,5 @@ router.route("/sessions/:id")
     .put(allControllers.joinSession)
 
 // ------------------------------------------------ //
-// getting the user's data for myProfile page
-router.route("/userInfo")
-    .get(allControllers.getMyInfo)
 
 module.exports = router;
