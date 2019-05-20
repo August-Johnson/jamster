@@ -4,6 +4,10 @@
     align-items: stretch;
 }
 
+.sidebarCollapse:hover {
+    color: #4e5b74
+}
+
 
 #sidebar {
     min-width: 250px;
@@ -65,8 +69,13 @@ p {
 		1px 1px 0 #fff; */
 }
 
+.logo-text {
+    font-family: 'Rock Salt', cursive;
+}
+
 .user-name {
     color: #fff;
+    font-family: 'Rock Salt', cursive;
     text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
@@ -78,6 +87,7 @@ a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
+    font-family: 'Rock Salt', cursive;
 }
 
 #sidebar {
