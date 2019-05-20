@@ -6,7 +6,6 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
-import API from "../../API/api";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import DropdownItem from "react-bootstrap/DropdownItem";
 
@@ -14,6 +13,7 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 class UserInfo extends Component {
     state = {
         username: localStorage.getItem("username"),
+ 
         // instruments: {
         //     instrument: "",
         //     skillLevel: ""
@@ -85,34 +85,50 @@ class UserInfo extends Component {
         console.log("Instruments: " ,this.state.instruments);
         const usernameData = {
             username: this.state.username
-        }
+ 
+        instrument: parseInt(localStorage.getItem("instrumentId")),
+        skillLevel: parseInt(localStorage.getItem("skillLevel")),
+    }
 
-        API.getMyInfo(usernameData)
-            .then((userData) => {
-                console.log("UserData: ", userData);
-            })
-            // then call a function for getting the instrument and skill level data using the user's id being returned from the first call
-            // .then(() => API.)
-            .catch((err) => console.log(err));
+    renderInstrumentName = (instrumentId) => {
+        switch (instrumentId) {
+            case 1:
+                return "Bass"
+            case 2:
+                return "Drums"
+            case 3:
+                return "Guitar"
+            case 4:
+                return "Keyboard"
+            case 5:
+                return "Vocals"
+            default:
+                return "Unknown Instrument!"
+ 
+        }
     }
 
     render() {
         return (
             <Container>
-                <Jumbotron>
+                <Jumbotron className="jumboBg">
                     <Row>
                         <Col>
+                            <div className="jumboText">
                             <h1 className="text-center mb-4">My Profile</h1>
-                            <hr />
-                            <br />
+                            </div>
+                            
                         </Col>
                     </Row>
+                </Jumbotron>
+                <Card>
 
                     <Row>
                         <Col xl={6} lg={6} md={6} sm={12} xs={12}>
                             <img src="https://via.placeholder.com/300x300" alt="null" />
                             <br />
                             <Button variant="info" size="lg" className="mt-2 mr-1">Edit Profile</Button>
+
                             <DropdownButton className="mt-2 mr-1" style={{'width': '205px'}} id="dropdown-basic-button" title="Add Instrument" size="lg" onSelect={this.InstrumentAdd}>
                                 <DropdownItem eventKey="Harp">Harp</DropdownItem>
                                 <DropdownItem eventKey="Organ">Organ</DropdownItem>
@@ -130,6 +146,7 @@ class UserInfo extends Component {
                                 <DropdownItem eventKey="5">5</DropdownItem>
                                 </DropdownButton>
                                 <Button variant="info" size="lg" className="mt-2 mr-1" onClick={this.Add}>Submit</Button>
+ 
                         </Col>
 
                         
@@ -147,6 +164,7 @@ class UserInfo extends Component {
                                     <hr />
                                     <Card.Title><h3>Instruments:</h3></Card.Title>
                                     <ListGroup>
+
                                         {this.state.instrumentArr.map((instrument) => {
                                             if (instrument.skillLevel === 5) {
                                                 return <ListGroup.Item variant="success"><h4>{instrument.instruments}</h4> <h5>Skill Level: {instrument.skill}</h5></ListGroup.Item>
@@ -156,17 +174,20 @@ class UserInfo extends Component {
                                             }
                                             else {
                                                 return <ListGroup.Item variant="warning"><h4>{instrument.instruments}</h4> <h5>Skill Level: {instrument.skill}</h5></ListGroup.Item>
+ 
+ 
                                             }
                                         }
-                                        )}
+                                        )} */}
                                     </ListGroup>
                                 </Card.Body>
                             </Card>
 
                         </Col>
                     </Row>
+                </Card>
 
-                </Jumbotron>
+
             </Container>
         );
     }

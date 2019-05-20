@@ -9,7 +9,7 @@ import FindSession from "./routedPages/FindSession";
 import login from "./pages/login";
 import createAccount from "./pages/createAccount";
 import './App.css';
-import notFound from "./pages/notFound/index"
+import notFound from "./components/notFound/index"
 import StickyFooter from 'react-sticky-footer';
 
 function App() {
@@ -17,21 +17,16 @@ function App() {
     <Container>
       <Router>
         <Switch>
-          {/* Landing page route */}
-          {/* <Route exact path="/" component={LandingPage} /> */}
-          <Container>
-            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/" component={login} />
+            <Route exact path="/createAccount" component={createAccount} />
+            <Route exact path="/dashboard" component={Dashboard} />          
             <Route exact path="/myProfile" component={MyProfile} />
             <Route exact path="/findSession" component={FindSession} />
-            <Route exact path="/createSession" component={CreateSession} />
-            <Route exact path="/createAccount" component={createAccount} />
-            <Route exact path="/*" component={notFound} />
-            <StickyFooter normalStyles={{backgroundColor:"tomato", 'textAlign':"center"}}>Jamster 2019&copy;</StickyFooter>
-          </Container>
-
-        </Switch>
+            <Route exact path="/createSession" component={CreateSession} />        
+            <Route component={notFound}/>
+        </Switch>    
       </Router>
+      <StickyFooter normalStyles={{backgroundColor:"#393f4d", 'textAlign':"center", 'textColor':"white" }}>Jamster 2019&copy;</StickyFooter>
     </Container>
   );
 }

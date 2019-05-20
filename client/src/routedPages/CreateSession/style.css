@@ -4,6 +4,10 @@
     align-items: stretch;
 }
 
+.sidebarCollapse:hover {
+    color: #4e5b74
+}
+
 
 #sidebar {
     min-width: 250px;
@@ -65,8 +69,13 @@ p {
 		1px 1px 0 #fff; */
 }
 
+.logo-text {
+    font-family: 'Rock Salt', cursive;
+}
+
 .user-name {
     color: #fff;
+    font-family: 'Rock Salt', cursive;
     text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
@@ -78,23 +87,24 @@ a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
+    font-family: 'Rock Salt', cursive;
 }
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    background: #ff6060;
+    background: #1c1d1f;
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #000000;
+    background: #393f4d;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #ff6060;
+    border-bottom: 1px solid #1c1d1f;
 }
 
 #sidebar ul p {
@@ -108,13 +118,13 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #fff;
-    background: #000000;
+    color: #4e5b74;
+    background: #ffd96a;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #000000;
+    color: #4e5b74;
+    background: #ffd96a;
 }
 ul ul a {
     font-size: 0.9em !important;
@@ -147,10 +157,50 @@ p {
 }
 
 .delete-btn {
-    color: #ff0000;
+    color: #1c1d1f;
 }
 
 
 .modal-to-dashboard {
-    background-color: #ff6060;
+    background-color: #1c1d1f;
+}
+
+
+.main-content-card {
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
 }
