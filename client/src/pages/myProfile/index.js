@@ -84,12 +84,12 @@ class UserInfo extends Component {
     componentDidMount() {
         console.log("Instruments: " ,this.state.instruments);
         const usernameData = {
-            username: this.state.username
+            username: this.state.username,
  
         instrument: parseInt(localStorage.getItem("instrumentId")),
         skillLevel: parseInt(localStorage.getItem("skillLevel")),
     }
-
+    }
     renderInstrumentName = (instrumentId) => {
         switch (instrumentId) {
             case 1:
@@ -107,6 +107,7 @@ class UserInfo extends Component {
  
         }
     }
+
 
     render() {
         return (
@@ -178,7 +179,8 @@ class UserInfo extends Component {
  
                                             }
                                         }
-                                        )} */}
+                                    
+                                        )}
                                     </ListGroup>
                                 </Card.Body>
                             </Card>
@@ -189,8 +191,12 @@ class UserInfo extends Component {
 
 
             </Container>
+    
         );
+       }
     }
-}
+
+
+
 
 export default UserInfo;

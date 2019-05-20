@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./style.css";
-import API from "../../API/API";
+import API from "../../API/api";
 
 
 class CreateSession extends Component {
