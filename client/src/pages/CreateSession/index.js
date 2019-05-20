@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./style.css";
-import API from "../../API/API";
+import API from "../../API/api";
 
 
 class CreateSession extends Component {
@@ -67,16 +67,12 @@ class CreateSession extends Component {
                 usr1: parseInt(localStorage.getItem("userId")),
                 inst1: parseInt(localStorage.getItem("instrumentId")),
                 skillLevel1: parseInt(localStorage.getItem("skillLevel")),
-                // usr2: null,
                 inst2: this.state.collaboratorsArr[1].instrument,
                 skillLevel2: this.state.collaboratorsArr[1].skillLevel,
-                // usr3: null,
                 inst3: this.state.collaboratorsArr[2].instrument || null,
                 skillLevel3: this.state.collaboratorsArr[2].skillLevel || null,
-                // usr4: null,
                 inst4: this.state.collaboratorsArr[3].instrument || null,
                 skillLevel4: this.state.collaboratorsArr[3].skillLevel || null,
-                // usr5: null,
                 inst5: this.state.collaboratorsArr[4].instrument || null,
                 skillLevel5: this.state.collaboratorsArr[4].skillLevel || null
             }

@@ -4,7 +4,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SessionsCard from "../../components/SessionCard";
-import API from "../../API/API";
+import API from "../../API/api";
 
 class FindSession extends Component {
     state = {

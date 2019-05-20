@@ -13,52 +13,49 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 class UserInfo extends Component {
     state = {
         username: localStorage.getItem("username"),
- 
-        // instruments: {
-        //     instrument: "",
-        //     skillLevel: ""
-        // },
         instruments: '',
         skill: '',
         instrumentArr: []
     }
 
-    InstrumentAdd = (evtKey, event)  => {
+    InstrumentAdd = (evtKey, event) => {
         // if (evtKey.target.title === "") {
         //     return;
         // }
         // else {
-            console.log(evtKey);
-            this.setState({instruments: evtKey });
-            console.log(setTimeout(()=>(console.log("Instruments: " ,this.state.instruments), 10000)));
+        console.log(evtKey);
+        this.setState({ instruments: evtKey });
+        console.log(setTimeout(() => (console.log("Instruments: ", this.state.instruments), 10000)));
         // }
-       
+
     }
 
 
-    SkillAdd = (evtKey, event)  => {
+    SkillAdd = (evtKey, event) => {
         // if (evtKey.target.title === "") {
         //     return;
         // }
         // else {
-            console.log(evtKey);
-            this.setState({skill: evtKey });
-            console.log(setTimeout(()=>(console.log("Skill: " ,this.state.skill), 10000)));
+        console.log(evtKey);
+        this.setState({ skill: evtKey });
+        console.log(setTimeout(() => (console.log("Skill: ", this.state.skill), 10000)));
         // }
-       
+
     }
-    Add = (evtKey, event)  => {
+    Add = (evtKey, event) => {
 
         console.log("click");
 
         console.log(this.state.instruments)
         console.log(this.state.skill)
 
-        this.setState({instrumentArr: [...this.state.instrumentArr, {
-            instruments: this.state.instruments, 
-            skill: this.state.skill
-        }]})
-        console.log(setTimeout(()=>(console.log("instrumentsArr: " + this.state.instrumentArr[0].instruments),50000)));
+        this.setState({
+            instrumentArr: [...this.state.instrumentArr, {
+                instruments: this.state.instruments,
+                skill: this.state.skill
+            }]
+        })
+        console.log(setTimeout(() => (console.log("instrumentsArr: " + this.state.instrumentArr[0].instruments), 50000)));
         // console.log(evtKey)
         // console.log(event)
         // let instSkill = {
@@ -68,7 +65,7 @@ class UserInfo extends Component {
         // if (typeof evtKey == 'number') {
         //     console.log('number');
         //     instSkill.skill = evtKey;
-            
+
         //     //this.setState({skillLevel: [...this.state.instruments.skillLevel, evtKey]});
         // }
         // else {
@@ -76,18 +73,18 @@ class UserInfo extends Component {
         //     instSkill.instrument = evtKey
         //     this.setState({instrument: evtKey})
         //     console.log(setTimeout(()=>(console.log("Skill level: " ,this.state.skillLevel), 10000)));
-            
+
         // }
         // this.setState({})
     }
 
     componentDidMount() {
-        console.log("Instruments: " ,this.state.instruments);
+        console.log("Instruments: ", this.state.instruments);
         const usernameData = {
-            username: this.state.username
- 
-        instrument: parseInt(localStorage.getItem("instrumentId")),
-        skillLevel: parseInt(localStorage.getItem("skillLevel")),
+            username: this.state.username,
+            instrument: parseInt(localStorage.getItem("instrumentId")),
+            skillLevel: parseInt(localStorage.getItem("skillLevel")),
+        }
     }
 
     renderInstrumentName = (instrumentId) => {
@@ -104,7 +101,7 @@ class UserInfo extends Component {
                 return "Vocals"
             default:
                 return "Unknown Instrument!"
- 
+
         }
     }
 
@@ -115,9 +112,9 @@ class UserInfo extends Component {
                     <Row>
                         <Col>
                             <div className="jumboText">
-                            <h1 className="text-center mb-4">My Profile</h1>
+                                <h1 className="text-center mb-4">My Profile</h1>
                             </div>
-                            
+
                         </Col>
                     </Row>
                 </Jumbotron>
@@ -129,7 +126,7 @@ class UserInfo extends Component {
                             <br />
                             <Button variant="info" size="lg" className="mt-2 mr-1">Edit Profile</Button>
 
-                            <DropdownButton className="mt-2 mr-1" style={{'width': '205px'}} id="dropdown-basic-button" title="Add Instrument" size="lg" onSelect={this.InstrumentAdd}>
+                            <DropdownButton className="mt-2 mr-1" style={{ 'width': '205px' }} id="dropdown-basic-button" title="Add Instrument" size="lg" onSelect={this.InstrumentAdd}>
                                 <DropdownItem eventKey="Harp">Harp</DropdownItem>
                                 <DropdownItem eventKey="Organ">Organ</DropdownItem>
                                 <DropdownItem eventKey="Hydrolauphone">Hydrolauphone</DropdownItem>
@@ -137,19 +134,19 @@ class UserInfo extends Component {
                                 <DropdownItem eventKey="Jaws Harp">Jaws Harp</DropdownItem>
                                 <DropdownItem eventKey="Ocarina">Ocarina</DropdownItem>
                                 <DropdownItem eventKey="Triangle">Triangle</DropdownItem>
-                                </DropdownButton>
-                            <DropdownButton variant="danger" className="mt-2 mr-1" style={{'width': '143px'}} id="dropdown-basic-button" title="Skill Level" size="lg" onSelect={this.SkillAdd}>
+                            </DropdownButton>
+                            <DropdownButton variant="danger" className="mt-2 mr-1" style={{ 'width': '143px' }} id="dropdown-basic-button" title="Skill Level" size="lg" onSelect={this.SkillAdd}>
                                 <DropdownItem eventKey="1">1</DropdownItem>
                                 <DropdownItem eventKey="2">2</DropdownItem>
                                 <DropdownItem eventKey="3">3</DropdownItem>
                                 <DropdownItem eventKey="4">4</DropdownItem>
                                 <DropdownItem eventKey="5">5</DropdownItem>
-                                </DropdownButton>
-                                <Button variant="info" size="lg" className="mt-2 mr-1" onClick={this.Add}>Submit</Button>
- 
+                            </DropdownButton>
+                            <Button variant="info" size="lg" className="mt-2 mr-1" onClick={this.Add}>Submit</Button>
+
                         </Col>
 
-                        
+
 
                         <Col xl={6} lg={6} md={6} sm={12} xs={12}>
 
@@ -174,8 +171,8 @@ class UserInfo extends Component {
                                             }
                                             else {
                                                 return <ListGroup.Item variant="warning"><h4>{instrument.instruments}</h4> <h5>Skill Level: {instrument.skill}</h5></ListGroup.Item>
- 
- 
+
+
                                             }
                                         }
                                         )} */}

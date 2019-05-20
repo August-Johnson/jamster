@@ -19,7 +19,6 @@ router.route("/getUsername")
 
 // ------------------------------------------------ //
 
-
 // Routes relating to sessions data
 router.route("/sessions")
     // Route for getting all sessions
