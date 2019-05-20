@@ -30,7 +30,7 @@ class DashboardNav extends Component {
       <div className="wrapper">
         <nav id="sidebar" className={buttonClass.join(' ')}>
           <div className="sidebar-header">
-            <h3>Jamster</h3>
+            <h3 className="logo-text">Jamster</h3>
 
           </div>
 

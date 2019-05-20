@@ -4,6 +4,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import "./style.css";
 
 function Dashboard() {
     return(
@@ -37,11 +38,13 @@ function Dashboard() {
         //       </div>
         //     </Container>
             <Container>
-              <Jumbotron>
+              <Jumbotron className="jumboBg">
                     <Row>
                         <Col>
+                            <div className="jumboText">
                             <h1 className="text-center">Welcome to Jamster!</h1>
-                            <p className="text-center">Connect with musicians in your area.</p>
+                            <p className="jumboP text-center">Connect with musicians in your area.</p>
+                            </div>
                         </Col>
                     </Row>
                 </Jumbotron>
@@ -51,7 +54,7 @@ function Dashboard() {
                     <Card.Body>
                       <Card.Title>My Profile</Card.Title>
                       <Card.Text>
-                        <a href="/myprofile"> <i className="fas fa-id-card fa-5x" /></a> 
+                        <a className="dashBtn" href="/myprofile"> <i className="fas fa-id-card fa-5x" /></a> 
                       </Card.Text>
                     </Card.Body>
                   </Card>
@@ -61,7 +64,7 @@ function Dashboard() {
                     <Card.Body>
                     <Card.Title>Create Session</Card.Title>
                       <Card.Text>
-                        <a href="/createsession"> <i className="fas fa-edit fa-5x" /></a> 
+                        <a className="dashBtn" href="/createsession"> <i className="fas fa-edit fa-5x" /></a> 
                       </Card.Text>
                     </Card.Body>
                   </Card>

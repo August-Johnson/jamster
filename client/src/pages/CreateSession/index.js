@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import "./style.css";
 
 class CreateSession extends Component {
     state = {
@@ -203,11 +204,16 @@ class CreateSession extends Component {
     render() {
         return (
             <Container>
-                <Jumbotron>
+                <Jumbotron className="jumboBg">
                     <Row>
                         <Col>
+                            
+                            <div className="jumboText">
                             <h1 className="text-center">Create Session</h1>
-                            <p className="text-center">Create Your Own Jam Session Below!</p>
+                            
+                            <p className="jumboP text-center">Create Your Own Jam Session Below!</p>
+                            </div>
+                            
                         </Col>
                     </Row>
                 </Jumbotron>

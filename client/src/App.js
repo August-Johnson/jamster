@@ -26,7 +26,7 @@ function App() {
             <Route component={notFound}/>
         </Switch>    
       </Router>
-      <StickyFooter normalStyles={{backgroundColor:"tomato", 'textAlign':"center"}}>Jamster 2019&copy;</StickyFooter>
+      <StickyFooter normalStyles={{backgroundColor:"#393f4d", 'textAlign':"center", 'textColor':"white" }}>Jamster 2019&copy;</StickyFooter>
     </Container>
   );
 }

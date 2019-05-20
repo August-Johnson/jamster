@@ -34,10 +34,12 @@ class UserInfo extends Component {
     render() {
         return (
             <Container>
-                <Jumbotron>
+                <Jumbotron className="jumboBg">
                     <Row>
                         <Col>
+                            <div className="jumboText">
                             <h1 className="text-center mb-4">My Profile</h1>
+                            </div>
                             
                         </Col>
                     </Row>
