@@ -48,7 +48,7 @@ function SessionCard(props) {
                         <p>{props.sessionDetails}</p>
                 </Col>
                 <Col>
-                    <Button variant="primary" size="lg" onClick={props.onClick} >View Session</Button>
+                    <Button variant="primary" size="lg" data-sessionId={props.sessionId} onClick={props.onClick} >Join Session</Button>
                 </Col>
             </Row>
         </Card>
