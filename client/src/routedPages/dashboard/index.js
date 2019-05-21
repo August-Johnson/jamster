@@ -35,7 +35,7 @@ class DashboardNav extends Component {
           </div>
 
           <ul className="list-unstyled components">
-            <p className="user-name">User Name</p>
+            <p className="user-name">{localStorage.getItem("username")}</p>
             <li>
               <a href="/dashboard">Dashboard</a>
             </li>
