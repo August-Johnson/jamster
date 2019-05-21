@@ -9,10 +9,10 @@ import ListGroup from "react-bootstrap/ListGroup";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import DropdownItem from "react-bootstrap/DropdownItem";
 
-
 class UserInfo extends Component {
     state = {
         username: localStorage.getItem("username"),
+ 
  
         // instruments: {
         //     instrument: "",
@@ -86,6 +86,7 @@ class UserInfo extends Component {
         const usernameData = {
             username: this.state.username,
  
+ 
         instrument: parseInt(localStorage.getItem("instrumentId")),
         skillLevel: parseInt(localStorage.getItem("skillLevel")),
     }
@@ -104,7 +105,6 @@ class UserInfo extends Component {
                 return "Vocals"
             default:
                 return "Unknown Instrument!"
- 
         }
     }
 
@@ -129,28 +129,22 @@ class UserInfo extends Component {
                             <img src="https://via.placeholder.com/300x300" alt="null" />
                             <br />
                             <Button variant="info" size="lg" className="mt-2 mr-1">Edit Profile</Button>
-
-                            <DropdownButton className="mt-2 mr-1" style={{'width': '205px'}} id="dropdown-basic-button" title="Add Instrument" size="lg" onSelect={this.InstrumentAdd}>
-                                <DropdownItem eventKey="Harp">Harp</DropdownItem>
-                                <DropdownItem eventKey="Organ">Organ</DropdownItem>
-                                <DropdownItem eventKey="Hydrolauphone">Hydrolauphone</DropdownItem>
-                                <DropdownItem eventKey="Thoramin">Thoramin</DropdownItem>
-                                <DropdownItem eventKey="Jaws Harp">Jaws Harp</DropdownItem>
-                                <DropdownItem eventKey="Ocarina">Ocarina</DropdownItem>
-                                <DropdownItem eventKey="Triangle">Triangle</DropdownItem>
-                                </DropdownButton>
-                            <DropdownButton variant="danger" className="mt-2 mr-1" style={{'width': '143px'}} id="dropdown-basic-button" title="Skill Level" size="lg" onSelect={this.SkillAdd}>
-                                <DropdownItem eventKey="1">1</DropdownItem>
-                                <DropdownItem eventKey="2">2</DropdownItem>
-                                <DropdownItem eventKey="3">3</DropdownItem>
-                                <DropdownItem eventKey="4">4</DropdownItem>
-                                <DropdownItem eventKey="5">5</DropdownItem>
-                                </DropdownButton>
-                                <Button variant="info" size="lg" className="mt-2 mr-1" onClick={this.Add}>Submit</Button>
- 
+                            <DropdownButton className="mt-2 mr-1" style={{ 'width': '187px' }} id="dropdown-basic-button" title="Add Instrument" size="lg">
+                                <DropdownItem href="#/action-1">Harp</DropdownItem>
+                                <DropdownItem href="#/action-2">Organ</DropdownItem>
+                                <DropdownItem href="#/action-3">Hydrolauphone</DropdownItem>
+                                <DropdownItem href="#/action-4">Thoramin</DropdownItem>
+                                <DropdownItem href="#/action-5">Jaws Harp</DropdownItem>
+                                <DropdownItem href="#/action-6">Ocarina</DropdownItem>
+                            </DropdownButton>
+                            <DropdownButton variant="danger" className="mt-2 mr-1" style={{ 'width': '143px' }} id="dropdown-basic-button" title="Skill Level" size="lg">
+                                <DropdownItem href="#/action-1">1</DropdownItem>
+                                <DropdownItem href="#/action-2">2</DropdownItem>
+                                <DropdownItem href="#/action-3">3</DropdownItem>
+                                <DropdownItem href="#/action-4">4</DropdownItem>
+                                <DropdownItem href="#/action-6">5</DropdownItem>
+                            </DropdownButton>
                         </Col>
-
-                        
 
                         <Col xl={6} lg={6} md={6} sm={12} xs={12}>
 
@@ -165,18 +159,21 @@ class UserInfo extends Component {
                                     <hr />
                                     <Card.Title><h3>Instruments:</h3></Card.Title>
                                     <ListGroup>
+                                        <ListGroup.Item variant="success">
+                                            <h4>
+                                                {this.renderInstrumentName(this.state.instrument)}
+                                            </h4>
+                                            <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
 
-                                        {this.state.instrumentArr.map((instrument) => {
-                                            if (instrument.skillLevel === 5) {
-                                                return <ListGroup.Item variant="success"><h4>{instrument.instruments}</h4> <h5>Skill Level: {instrument.skill}</h5></ListGroup.Item>
+                                        {/* {this.state.instruments.map((instrument) => {
+                                            if (this.state.skillLevel === 5) {
+                                                return <ListGroup.Item variant="success"><h4>{}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
-                                            else if (instrument.skillLevel === 1) {
-                                                return <ListGroup.Item variant="danger"><h4>{instrument.instruments}</h4> <h5>Skill Level: {instrument.skill}</h5></ListGroup.Item>
+                                            else if (this.state.skillLevel === 1) {
+                                                return <ListGroup.Item variant="danger"><h4>{instrument.name}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
                                             else {
-                                                return <ListGroup.Item variant="warning"><h4>{instrument.instruments}</h4> <h5>Skill Level: {instrument.skill}</h5></ListGroup.Item>
- 
- 
+                                                return <ListGroup.Item variant="warning"><h4>{instrument.name}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
                                         }
                                     
