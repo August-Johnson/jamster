@@ -12,9 +12,9 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 class UserInfo extends Component {
     state = {
         username: localStorage.getItem("username"),
-        instruments: '',
-        skill: '',
-        instrumentArr: []
+        instrument: parseInt(localStorage.getItem("instrumentId")),
+        skillLevel: parseInt(localStorage.getItem("skillLevel")),
+        // instrumentArr: []
     }
 
     InstrumentAdd = (evtKey, event) => {
@@ -24,7 +24,7 @@ class UserInfo extends Component {
         // else {
         console.log(evtKey);
         this.setState({ instruments: evtKey });
-        console.log(setTimeout(() => (console.log("Instruments: ", this.state.instruments), 10000)));
+        // console.log(setTimeout(() => (console.log("Instruments: ", this.state.instruments), 10000)));
         // }
 
     }
@@ -37,7 +37,7 @@ class UserInfo extends Component {
         // else {
         console.log(evtKey);
         this.setState({ skill: evtKey });
-        console.log(setTimeout(() => (console.log("Skill: ", this.state.skill), 10000)));
+        // console.log(setTimeout(() => (console.log("Skill: ", this.state.skill), 10000)));
         // }
 
     }
@@ -54,7 +54,7 @@ class UserInfo extends Component {
                 skill: this.state.skill
             }]
         })
-        console.log(setTimeout(() => (console.log("instrumentsArr: " + this.state.instrumentArr[0].instruments), 50000)));
+        // console.log(setTimeout(() => (console.log("instrumentsArr: " + this.state.instrumentArr[0].instruments), 50000)));
         // console.log(evtKey)
         // console.log(event)
         // let instSkill = {
@@ -75,15 +75,6 @@ class UserInfo extends Component {
 
         // }
         // this.setState({})
-    }
-
-    componentDidMount() {
-        console.log("Instruments: ", this.state.instruments);
-        const usernameData = {
-            username: this.state.username,
-            instrument: parseInt(localStorage.getItem("instrumentId")),
-            skillLevel: parseInt(localStorage.getItem("skillLevel")),
-        }
     }
 
     renderInstrumentName = (instrumentId) => {
@@ -157,8 +148,7 @@ class UserInfo extends Component {
                                                 {this.renderInstrumentName(this.state.instrument)}
                                             </h4>
                                             <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
-
-                                        {this.state.instruments.map((instrument) => {
+                                        {/* {this.state.instruments.map((instrument) => {
                                             if (this.state.skillLevel === 5) {
                                                 return <ListGroup.Item variant="success"><h4>{}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
@@ -168,8 +158,7 @@ class UserInfo extends Component {
                                             else {
                                                 return <ListGroup.Item variant="warning"><h4>{instrument.name}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
-                                        }
-                                        )}
+                                        } */}
                                     </ListGroup>
                                 </Card.Body>
                             </Card>
