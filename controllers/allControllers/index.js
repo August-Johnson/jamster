@@ -1,5 +1,4 @@
 const db = require("../../models");
-const Sequelize = require("sequelize")
 
 module.exports = {
   // create new account
@@ -54,16 +53,12 @@ module.exports = {
       usr1: req.body.usr1,
       inst1: req.body.inst1,
       skill_level1: req.body.skillLevel1,
-      // usr2: req.body.usr2,
       inst2: req.body.inst2,
       skill_level2: req.body.skillLevel2,
-      // usr3: req.body.usr3,
       inst3: req.body.inst3,
       skill_level3: req.body.skillLevel3,
-      // usr4: req.body.usr4,
       inst4: req.body.inst4,
       skill_level4: req.body.skillLevel4,
-      // usr5: req.body.usr5,
       inst5: req.body.inst5,
       skill_level5: req.body.skillLevel5,
       scheduled_date: req.body.date,
@@ -77,6 +72,16 @@ module.exports = {
   getJamSessions: function (req, res) {
     db.session.findAll({})
       .then((sessionsData) => res.json(sessionsData))
+      .catch((err) => res.json(err));
+  },
+  getUserName: function (req, res) {
+    console.log("req body: ", req.body);
+    db.user.findOne({
+      where: {
+        id: req.body.userId
+      }
+    })
+      .then((userData) => res.json(userData))
       .catch((err) => res.json(err));
   },
   // getting a single jam session

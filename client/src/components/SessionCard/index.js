@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ListGroup from "react-bootstrap/ListGroup";
+// import ListGroup from "react-bootstrap/ListGroup";
 
 import "./style.css";
 
@@ -12,12 +12,13 @@ function SessionCard(props) {
         <Card>
             <Row>
                 <Col xl="12" className="mb-3">
-                    <Card.Header className="header" as="h2">{props.sessionTitle}</Card.Header>
+                    <Card.Header className="header" as="h2">{props.sessionName}</Card.Header>
                 </Col>
                 <Col xl="12">
-                    <h3 style={{ "text-align": "center" }}>Collaborators / Band Members</h3>
+                    <h3 style={{"textAlign": "center"}}>Created by User #{props.createdBy}</h3>
+                    {/* <h3 style={{ "text-align": "center" }}>Collaborators / Band Members</h3> */}
                 </Col>
-                {props.collaborators.map((collaberator) =>
+                {/* {props.collaborators.map((collaberator) =>
                     <Col xl="6">
                         <Card>
                             <Card.Header as="h4">
@@ -39,15 +40,15 @@ function SessionCard(props) {
                             </Card.Body>
                         </Card>
                     </Col>
-                )}
+                )} */}
             </Row>
             <Row>
                 <Col xl="12">
-                    <h4>Session Details</h4>
+                    <h4>Session Details:</h4>
                         <p>{props.sessionDetails}</p>
                 </Col>
                 <Col>
-                    <Button variant="primary" size="lg">View Session</Button>
+                    <Button variant="primary" size="lg" data-sessionId={props.sessionId} onClick={props.onClick} >Join Session</Button>
                 </Col>
             </Row>
         </Card>

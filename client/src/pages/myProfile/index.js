@@ -12,53 +12,49 @@ import DropdownItem from "react-bootstrap/DropdownItem";
 class UserInfo extends Component {
     state = {
         username: localStorage.getItem("username"),
- 
- 
-        // instruments: {
-        //     instrument: "",
-        //     skillLevel: ""
-        // },
-        instruments: '',
-        skill: '',
-        instrumentArr: []
+        instrument: parseInt(localStorage.getItem("instrumentId")),
+        skillLevel: parseInt(localStorage.getItem("skillLevel")),
+        // instrumentArr: []
     }
 
-    InstrumentAdd = (evtKey, event)  => {
+    InstrumentAdd = (evtKey, event) => {
         // if (evtKey.target.title === "") {
         //     return;
         // }
         // else {
-            console.log(evtKey);
-            this.setState({instruments: evtKey });
-            console.log(setTimeout(()=>(console.log("Instruments: " ,this.state.instruments), 10000)));
+        console.log(evtKey);
+        this.setState({ instruments: evtKey });
+        // console.log(setTimeout(() => (console.log("Instruments: ", this.state.instruments), 10000)));
         // }
-       
+
     }
 
 
-    SkillAdd = (evtKey, event)  => {
+    SkillAdd = (evtKey, event) => {
         // if (evtKey.target.title === "") {
         //     return;
         // }
         // else {
-            console.log(evtKey);
-            this.setState({skill: evtKey });
-            console.log(setTimeout(()=>(console.log("Skill: " ,this.state.skill), 10000)));
+        console.log(evtKey);
+        this.setState({ skill: evtKey });
+        // console.log(setTimeout(() => (console.log("Skill: ", this.state.skill), 10000)));
         // }
-       
+
     }
-    Add = (evtKey, event)  => {
+    Add = (evtKey, event) => {
 
         console.log("click");
 
         console.log(this.state.instruments)
         console.log(this.state.skill)
 
-        this.setState({instrumentArr: [...this.state.instrumentArr, {
-            instruments: this.state.instruments, 
-            skill: this.state.skill
-        }]})
-        console.log(setTimeout(()=>(console.log("instrumentsArr: " + this.state.instrumentArr[0].instruments),50000)));
+        this.setState({
+            instrumentArr: [...this.state.instrumentArr, {
+                instruments: this.state.instruments,
+                skill: this.state.skill
+            }]
+        })
+        // console.log(setTimeout(() => (console.log("instrumentsArr: " + this.state.instrumentArr[0].instruments), 50000)));
         // console.log(evtKey)
         // console.log(event)
         // let instSkill = {
@@ -68,7 +64,7 @@ class UserInfo extends Component {
         // if (typeof evtKey == 'number') {
         //     console.log('number');
         //     instSkill.skill = evtKey;
-            
+
         //     //this.setState({skillLevel: [...this.state.instruments.skillLevel, evtKey]});
         // }
         // else {
@@ -76,21 +72,11 @@ class UserInfo extends Component {
         //     instSkill.instrument = evtKey
         //     this.setState({instrument: evtKey})
         //     console.log(setTimeout(()=>(console.log("Skill level: " ,this.state.skillLevel), 10000)));
-            
+
         // }
         // this.setState({})
     }
 
-    componentDidMount() {
-        console.log("Instruments: " ,this.state.instruments);
-        const usernameData = {
-            username: this.state.username,
- 
- 
-        instrument: parseInt(localStorage.getItem("instrumentId")),
-        skillLevel: parseInt(localStorage.getItem("skillLevel")),
-    }
-    }
     renderInstrumentName = (instrumentId) => {
         switch (instrumentId) {
             case 1:
@@ -116,9 +102,9 @@ class UserInfo extends Component {
                     <Row>
                         <Col>
                             <div className="jumboText">
-                            <h1 className="text-center mb-4">My Profile</h1>
+                                <h1 className="text-center mb-4">My Profile</h1>
                             </div>
-                            
+
                         </Col>
                     </Row>
                 </Jumbotron>
@@ -154,8 +140,6 @@ class UserInfo extends Component {
                                     <Card.Title><h3>Username:</h3></Card.Title>
                                     <h5>{this.state.username}</h5>
                                     <hr />
-                                    {/* <Card.Title><h3>Email:</h3></Card.Title>
-                                    <Card.Text><h5>{this.state.email}</h5></Card.Text> */}
                                     <hr />
                                     <Card.Title><h3>Instruments:</h3></Card.Title>
                                     <ListGroup>
@@ -164,7 +148,6 @@ class UserInfo extends Component {
                                                 {this.renderInstrumentName(this.state.instrument)}
                                             </h4>
                                             <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
-
                                         {/* {this.state.instruments.map((instrument) => {
                                             if (this.state.skillLevel === 5) {
                                                 return <ListGroup.Item variant="success"><h4>{}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
@@ -175,9 +158,7 @@ class UserInfo extends Component {
                                             else {
                                                 return <ListGroup.Item variant="warning"><h4>{instrument.name}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
                                             }
-                                        }
-                                    
-                                        )}
+                                        } */}
                                     </ListGroup>
                                 </Card.Body>
                             </Card>
@@ -188,10 +169,10 @@ class UserInfo extends Component {
 
 
             </Container>
-    
+
         );
-       }
     }
+}
 
 
 

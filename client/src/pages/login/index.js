@@ -3,12 +3,7 @@ import Hero from "../../components/Hero";
 import Container from "../../components/Container";
 import Background from "./music_background.jpg";
 import { Link } from "react-router-dom";
-
 import API from "../../API/api";
-
-
-
-
 import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
 
 class login extends Component {
