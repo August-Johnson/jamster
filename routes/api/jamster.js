@@ -27,6 +27,8 @@ router.route("/sessions")
     // Route for creating a session
     .post(allControllers.createNewSession)
 
+    .put(allControllers.joinSession)
+
 // ------------------------------------------------ //
 
 // Routes relating to single session data, with req.params.id
@@ -35,7 +37,6 @@ router.route("/sessions/:id")
     .get(allControllers.viewJamSession)
 
     // Route for updating a session
-    .put(allControllers.joinSession)
 
 // ------------------------------------------------ //
 

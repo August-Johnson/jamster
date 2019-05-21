@@ -92,13 +92,31 @@ module.exports = {
   },
   // join a jam session
   joinSession: function (req, res) {
-    const user = 3;
-    const user3 = "usr3";
+    console.log(req.body);
+    const userPosition = req.body.userPosition;
+    let usrDatabase;
+    if (userPosition === 2) {
+      usrDatabase = "usr2"
+    }
+    else if (userPosition === 3) {
+      usrDatabase = "usr3"
+    }
+    else if (userPosition === 4) {
+      usrDatabase = "usr4"
+    }
+    else {
+      usrDatabase = "usr5"
+    }
+    console.log(userPosition);
     db.session.update({
-      [user3]: user
-    })
+      [usrDatabase]: parseInt(req.body.userId)
+    }, {
+      where: {
+        id: req.body.sessionId
+      }
+      })
       .then((sessionData) => res.json(sessionData))
-      .catch((err) => res.json(err));
-  }
+    .catch((err) => res.json(err));
+}
 
 }

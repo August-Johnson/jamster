@@ -26,7 +26,7 @@ export default {
         return axios.get("/api/jamster/sessions/" + sessionId);
     },
     // joining a jam session
-    joinSession: function(sessionId, joiningUserData) {
-        return axios.put("/api/jamster/sessions/" + sessionId, joiningUserData);
+    joinSession: function(joiningUserData) {
+        return axios.put("/api/jamster/sessions", joiningUserData);
     }
 }

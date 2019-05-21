@@ -94,7 +94,6 @@ class UserInfo extends Component {
         }
     }
 
-
     render() {
         return (
             <Container>
@@ -166,8 +165,6 @@ class UserInfo extends Component {
                         </Col>
                     </Row>
                 </Card>
-
-
             </Container>
 
         );

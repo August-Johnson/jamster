@@ -3,7 +3,8 @@ import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import SessionsCard from "../../components/SessionCard";
+import SessionCardWithJoin from "../../components/SessionCardWithJoin";
+import SessionCardWithoutJoin from "../../components/SessionCardWithoutJoin";
 import API from "../../API/api";
 
 class FindSession extends Component {
@@ -22,11 +23,81 @@ class FindSession extends Component {
     getJamSessions = () => {
         API.getJamSessions()
             .then((jamSessionsData) => {
-                console.log(jamSessionsData.data);
+                console.log("All Jam Session Data: ", jamSessionsData.data);
                 this.setState({
                     jamSessions: jamSessionsData.data
                 });
             })
+            .catch((err) => console.log(err));
+    }
+
+    renderSessions = (sessionData) => {
+        console.log("Session Data: ", sessionData);
+        if (sessionData.usr2 === null && localStorage.getItem("instrumentId") == sessionData.inst2 && localStorage.getItem("skillLevel") >= sessionData.skill_level2) {
+            return <SessionCardWithJoin
+                key={sessionData.id}
+                sessionName={sessionData.name}
+                sessionDetails={sessionData.description}
+                sessionDate={sessionData.scheduled_date}
+                sessionTime={sessionData.scheduled_time}
+                onClick={() => this.joinJamSession(2, sessionData.id)}
+            />
+        }
+        else if (sessionData.usr3 === null && localStorage.getItem("instrumentId") == sessionData.inst3 && localStorage.getItem("skillLevel") >= sessionData.skill_level3) {
+            return <SessionCardWithJoin
+                key={sessionData.id}
+                sessionName={sessionData.name}
+                sessionDetails={sessionData.description}
+                sessionDate={sessionData.scheduled_date}
+                sessionTime={sessionData.scheduled_time}
+                onClick={() => this.joinJamSession(3, sessionData.id)}
+            />
+        }
+
+        else if (sessionData.usr4 === null && localStorage.getItem("instrumentId") == sessionData.inst4 && localStorage.getItem("skillLevel") >= sessionData.skill_level4) {
+            return <SessionCardWithJoin
+                key={sessionData.id}
+                sessionName={sessionData.name}
+                sessionDetails={sessionData.description}
+                sessionDate={sessionData.scheduled_date}
+                sessionTime={sessionData.scheduled_time}
+                onClick={() => this.joinJamSession(4, sessionData.id)}
+            />
+        }
+
+        else if (sessionData.usr5 === null && localStorage.getItem("instrumentId") == sessionData.inst5 && localStorage.getItem("skillLevel") >= sessionData.skill_level5) {
+            return <SessionCardWithJoin
+                key={sessionData.id}
+                sessionName={sessionData.name}
+                sessionDetails={sessionData.description}
+                sessionDate={sessionData.scheduled_date}
+                sessionTime={sessionData.scheduled_time}
+                onClick={() => this.joinJamSession(5, sessionData.id)}
+            />
+        }
+
+        else {
+            console.log("YOU don't qualify");
+            return <SessionCardWithoutJoin
+                key={sessionData.id}
+                sessionName={sessionData.name}
+                sessionDetails={sessionData.description}
+                sessionDate={sessionData.scheduled_date}
+                sessionTime={sessionData.scheduled_time}
+            />
+        }
+
+    }
+
+    joinJamSession = (positionId, sessionId) => {
+        const userDataObj = {
+            userPosition: positionId,
+            userId: localStorage.getItem("userId"),
+            sessionId: sessionId
+        }
+        console.log("Kicking off call!");
+        API.joinSession(userDataObj)
+            .then((sessionData) => console.log(sessionData))
             .catch((err) => console.log(err));
     }
 
@@ -46,13 +117,9 @@ class FindSession extends Component {
     // printSessionCards = () => {
     //     for (let i = 0; i < this.state.jamSessions.length; i++) {
     //         const username = () => this.getUsername(this.state.jamSessions[i].usr1)
-    //         return <SessionsCard key={this.state.jamSessions[i].id} sessionId={this.state.jamSessions[i].id} sessionName={this.state.jamSessions[i].name} sessionDetails={this.state.jamSessions[i].description} sessionDate={this.state.jamSessions[i].scheduled_date} sessionTime={this.state.jamSessions[i].scheduled_time} createdBy={username} onClick={this.handleViewSession(this.state.jamSessions[i].id)} />
+    //         return <SessionsCard key={this.state.jamSessions[i].id} sessionId={this.state.jamSessions[i].id} sessionName={this.state.jamSessions[i].name} sessionDetails={this.state.jamSessions[i].description} sessionDate={this.state.jamSessions[i].scheduled_date} sessionTime={this.state.jamSessions[i].scheduled_time} createdBy={username} onClick={this.joinJamSession(this.state.jamSessions[i].id)} />
     //     }
     // }
-
-    handleViewSession = (sessionId) => {
-        console.log(sessionId);
-    }
 
     render() {
         return (
@@ -74,16 +141,15 @@ class FindSession extends Component {
                 {/* mapping through the jamSessions array from the state and dynamically create session cards for each one.
                     Passing the info from each jam session in as props to the SessionsCard component. */}
                 {/* {this.state.jamSessions.map((session) =>
-                    <SessionsCard sessionId={session.id} sessionName={session.name} sessionDetails={session.details} sessionDate={session.scheduled_date} sessionTime={session.scheduled_time} createdBy={session.usr1} onClick={this.handleViewSession} />
+                    <SessionsCard sessionId={session.id} sessionName={session.name} sessionDetails={session.details} sessionDate={session.scheduled_date} sessionTime={session.scheduled_time} createdBy={session.usr1} onClick={this.joinJamSession} />
                 )} */}
                 {this.state.jamSessions.length ? (
-                    this.state.jamSessions.map((session) =>
-                        <SessionsCard key={session.id} sessionId={session.id} sessionName={session.name} sessionDetails={session.description} sessionDate={session.scheduled_date} sessionTime={session.scheduled_time} createdBy={session.id} onClick={this.handleViewSession(session.id)} />
+                    this.state.jamSessions.map((session) => this.renderSessions(session)
                     )) : (
                         <h3 style={{ "textAlign": "center" }}>NO JAM SESSIONS!</h3>
                     )
                 }
-               
+
             </Container>
         );
     }
