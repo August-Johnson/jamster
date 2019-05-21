@@ -12,6 +12,8 @@ class login extends Component {
     password: ""
   }
 
+  
+
   onChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -44,6 +46,10 @@ class login extends Component {
   }
 
   render() {
+
+    const fontStyle = {
+      fontFamily: '"Rock Salt", cursive'
+    }
     return (
       <Container>
 
@@ -56,7 +62,7 @@ class login extends Component {
             <InputGroup><FormControl type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
 
             <br></br>
-            <Button className="mb-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
+            <Button style={fontStyle} className="submitBtn mb-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
             <Link to="/createAccount"><Button className="mb-3" type="submit" variant="outline-info">Create Account</Button></Link>
           </Col>
         </Row>
