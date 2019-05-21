@@ -1,5 +1,4 @@
 import React from 'react';
-//import logo from './logo.svg';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./routedPages/dashboard"
 import MyProfile from "./routedPages/MyProfile";

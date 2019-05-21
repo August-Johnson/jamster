@@ -14,67 +14,6 @@ class UserInfo extends Component {
         username: localStorage.getItem("username"),
         instrument: parseInt(localStorage.getItem("instrumentId")),
         skillLevel: parseInt(localStorage.getItem("skillLevel")),
-        // instrumentArr: []
-    }
-
-    InstrumentAdd = (evtKey, event) => {
-        // if (evtKey.target.title === "") {
-        //     return;
-        // }
-        // else {
-        console.log(evtKey);
-        this.setState({ instruments: evtKey });
-        // console.log(setTimeout(() => (console.log("Instruments: ", this.state.instruments), 10000)));
-        // }
-
-    }
-
-
-    SkillAdd = (evtKey, event) => {
-        // if (evtKey.target.title === "") {
-        //     return;
-        // }
-        // else {
-        console.log(evtKey);
-        this.setState({ skill: evtKey });
-        // console.log(setTimeout(() => (console.log("Skill: ", this.state.skill), 10000)));
-        // }
-
-    }
-    Add = (evtKey, event) => {
-
-        console.log("click");
-
-        console.log(this.state.instruments)
-        console.log(this.state.skill)
-
-        this.setState({
-            instrumentArr: [...this.state.instrumentArr, {
-                instruments: this.state.instruments,
-                skill: this.state.skill
-            }]
-        })
-        // console.log(setTimeout(() => (console.log("instrumentsArr: " + this.state.instrumentArr[0].instruments), 50000)));
-        // console.log(evtKey)
-        // console.log(event)
-        // let instSkill = {
-        //     instrument: '',
-        //     skill: ''
-        // }
-        // if (typeof evtKey == 'number') {
-        //     console.log('number');
-        //     instSkill.skill = evtKey;
-
-        //     //this.setState({skillLevel: [...this.state.instruments.skillLevel, evtKey]});
-        // }
-        // else {
-        //     //this.setState({instruments: [...this.state.instruments.instrument, evtKey]});
-        //     instSkill.instrument = evtKey
-        //     this.setState({instrument: evtKey})
-        //     console.log(setTimeout(()=>(console.log("Skill level: " ,this.state.skillLevel), 10000)));
-
-        // }
-        // this.setState({})
     }
 
     renderInstrumentName = (instrumentId) => {
@@ -147,17 +86,6 @@ class UserInfo extends Component {
                                                 {this.renderInstrumentName(this.state.instrument)}
                                             </h4>
                                             <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
-                                        {/* {this.state.instruments.map((instrument) => {
-                                            if (this.state.skillLevel === 5) {
-                                                return <ListGroup.Item variant="success"><h4>{}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
-                                            }
-                                            else if (this.state.skillLevel === 1) {
-                                                return <ListGroup.Item variant="danger"><h4>{instrument.name}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
-                                            }
-                                            else {
-                                                return <ListGroup.Item variant="warning"><h4>{instrument.name}</h4> <h5>Skill Level: {this.state.skillLevel}</h5></ListGroup.Item>
-                                            }
-                                        } */}
                                     </ListGroup>
                                 </Card.Body>
                             </Card>
@@ -170,8 +98,5 @@ class UserInfo extends Component {
         );
     }
 }
-
-
-
 
 export default UserInfo;

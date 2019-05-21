@@ -47,7 +47,6 @@ module.exports = {
   },
   // create a jam session
   createNewSession: function (req, res) {
-    console.log(req.body);
     db.session.create({
       name: req.body.name,
       usr1: req.body.usr1,
@@ -75,7 +74,6 @@ module.exports = {
       .catch((err) => res.json(err));
   },
   getUserName: function (req, res) {
-    console.log("req body: ", req.body);
     db.user.findOne({
       where: {
         id: req.body.userId
@@ -92,7 +90,6 @@ module.exports = {
   },
   // join a jam session
   joinSession: function (req, res) {
-    console.log(req.body);
     const userPosition = req.body.userPosition;
     let usrDatabase;
     if (userPosition === 2) {
@@ -107,7 +104,6 @@ module.exports = {
     else {
       usrDatabase = "usr5"
     }
-    console.log(userPosition);
     db.session.update({
       [usrDatabase]: parseInt(req.body.userId)
     }, {

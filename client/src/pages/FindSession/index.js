@@ -9,10 +9,6 @@ import API from "../../API/api";
 
 class FindSession extends Component {
     state = {
-        // hard coded some 'session' for development testing
-        // jamSessions is an array of objects that represent each jam session.
-        // Each one has a session id, an array of collaborators, a title and details (optional).
-        // Each collaborator in the array is an object with the properties of the person's name, the instrument they play and their skill level.
         jamSessions: []
     }
 
@@ -23,7 +19,6 @@ class FindSession extends Component {
     getJamSessions = () => {
         API.getJamSessions()
             .then((jamSessionsData) => {
-                console.log("All Jam Session Data: ", jamSessionsData.data);
                 this.setState({
                     jamSessions: jamSessionsData.data
                 });
@@ -32,7 +27,6 @@ class FindSession extends Component {
     }
 
     renderSessions = (sessionData) => {
-        console.log("Session Data: ", sessionData);
         if (sessionData.usr2 === null && localStorage.getItem("instrumentId") == sessionData.inst2 && localStorage.getItem("skillLevel") >= sessionData.skill_level2) {
             return <SessionCardWithJoin
                 key={sessionData.id}
@@ -77,7 +71,6 @@ class FindSession extends Component {
         }
 
         else {
-            console.log("YOU don't qualify");
             return <SessionCardWithoutJoin
                 key={sessionData.id}
                 sessionName={sessionData.name}
@@ -95,31 +88,13 @@ class FindSession extends Component {
             userId: localStorage.getItem("userId"),
             sessionId: sessionId
         }
-        console.log("Kicking off call!");
         API.joinSession(userDataObj)
-            .then((sessionData) => console.log(sessionData))
+            .then((sessionData) => {
+                alert("Session Joined!");
+                window.location.reload();
+            })
             .catch((err) => console.log(err));
     }
-
-    // getUsername = (userId) => {
-    //     const userIdData = {
-    //         userId: userId
-    //     }
-    //     API.getUserName(userIdData)
-    //         .then((userData) => {
-    //             console.log(userData);
-    //             console.log(userData.data.username);
-    //             return userData.data.username
-    //         })
-    //         .catch((err) => console.log(err));
-    // }
-
-    // printSessionCards = () => {
-    //     for (let i = 0; i < this.state.jamSessions.length; i++) {
-    //         const username = () => this.getUsername(this.state.jamSessions[i].usr1)
-    //         return <SessionsCard key={this.state.jamSessions[i].id} sessionId={this.state.jamSessions[i].id} sessionName={this.state.jamSessions[i].name} sessionDetails={this.state.jamSessions[i].description} sessionDate={this.state.jamSessions[i].scheduled_date} sessionTime={this.state.jamSessions[i].scheduled_time} createdBy={username} onClick={this.joinJamSession(this.state.jamSessions[i].id)} />
-    //     }
-    // }
 
     render() {
         return (
@@ -138,11 +113,6 @@ class FindSession extends Component {
                     </Row>
                 </Jumbotron>
 
-                {/* mapping through the jamSessions array from the state and dynamically create session cards for each one.
-                    Passing the info from each jam session in as props to the SessionsCard component. */}
-                {/* {this.state.jamSessions.map((session) =>
-                    <SessionsCard sessionId={session.id} sessionName={session.name} sessionDetails={session.details} sessionDate={session.scheduled_date} sessionTime={session.scheduled_time} createdBy={session.usr1} onClick={this.joinJamSession} />
-                )} */}
                 {this.state.jamSessions.length ? (
                     this.state.jamSessions.map((session) => this.renderSessions(session)
                     )) : (

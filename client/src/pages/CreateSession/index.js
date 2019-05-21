@@ -41,10 +41,6 @@ class CreateSession extends Component {
         sessionDetails: ""
     }
 
-    componentDidUpdate() {
-        console.log(this.state);
-    }
-
     handleFormSubmit = (event) => {
         event.preventDefault();
         if (!this.state.sessionName ||
@@ -79,7 +75,6 @@ class CreateSession extends Component {
 
             API.createNewSession(createSessionData)
                 .then((sessionData) => {
-                    console.log(sessionData);
                     this.setState({
                         sessionName: "",
                         collaboratorsArr: [
@@ -104,9 +99,9 @@ class CreateSession extends Component {
                                 skillLevel: ""
                             }
                         ],
-                        collaborators: 0,
-                        date: "",
-                        time: "",
+                        collaborators: "0",
+                        sessionDate: "",
+                        sessionTime: "",
                         sessionDetails: ""
                     });
                 })

@@ -12,8 +12,6 @@ class login extends Component {
     password: ""
   }
 
-  
-
   onChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -22,14 +20,12 @@ class login extends Component {
   }
 
   handleSubmit = () => {
-
     const usernameData = {
       username: this.state.username
     }
 
     API.userLogin(usernameData)
       .then((userData) => {
-        console.log(userData);
         if (userData.data[1] !== null && userData.data[1] === this.state.password) {
           // storing the username in localstorage if the login info is valid
           localStorage.setItem("username", this.state.username);
