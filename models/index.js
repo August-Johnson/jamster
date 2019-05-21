@@ -7,9 +7,10 @@ var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
+var mysql = require("mysql2");
 
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
+if (config.use_env_variable) {
+  var sequelize = new Sequelize (process.env[config.use_env_variable], config);
 } else {
   var sequelize = new Sequelize(
     config.database,
