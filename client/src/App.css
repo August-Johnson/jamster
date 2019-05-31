@@ -24,6 +24,13 @@
   color: #61dafb;
 }
 
+.btn {
+  vertical-align: baseline;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  font-size: 125%;
+}
+
 html, body {
   height: 100%;
 }

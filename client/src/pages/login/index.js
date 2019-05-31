@@ -42,24 +42,31 @@ class login extends Component {
   }
 
   render() {
-
-    const fontStyle = {
-      fontFamily: '"Rock Salt", cursive'
-    }
     return (
       <Container>
 
-        <Hero backgroundImage={Background}></Hero>
+        <Hero backgroundImage={Background}>
+          <span style={{
+            "color": "#FFFFFF",
+            "position": "relative",
+            "top": "9%",
+            "fontSize": "500%",
+            "fontWeigth": "550",
+            "fontFamily": '"Rock Salt", cursive'
+          }}>JAMSTER</span>
+        </Hero>
+
         <br></br>
-        <Row className="justify-content-md-center" style={{ "width": "100%" }}>
+        <Row className="justify-content-md-center" style={{ "width": "100%", "marginBottom": "20px" }}>
           <Col lg="4">
             <InputGroup><FormControl placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} /></InputGroup>
             <br></br>
             <InputGroup><FormControl type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
 
             <br></br>
-            <Button style={fontStyle} className="submitBtn mb-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
-            <Link to="/createAccount"><Button className="mb-3" type="submit" variant="outline-info">Create Account</Button></Link>
+            <Button className="p-2 mr-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Sign In</Button>
+            <span style={{ "color": "#FFFFFF", "fontSize": "120%", "fontWeight": "550" }}>or</span>
+            <Link to="/createAccount"><Button className="p-2 ml-3" variant="outline-info">Create Account</Button></Link>
           </Col>
         </Row>
 

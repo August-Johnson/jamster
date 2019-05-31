@@ -41,16 +41,12 @@ a[data-toggle="collapse"] {
 }
 
 
-
-
-
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
-    /* margin-bottom: 100px; */
     clear: both;
 }
 
@@ -59,14 +55,8 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    /* color: #999; */
     font-size:15px;
     color: #000;
-    /* text-shadow:
-		-1px -1px 0 #fff,
-		1px -1px 0 #fff,
-		-1px 1px 0 #fff,
-		1px 1px 0 #fff; */
 }
 
 .logo-text {
@@ -87,7 +77,6 @@ a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
-    font-family: 'Rock Salt', cursive;
 }
 
 #sidebar {
@@ -148,12 +137,6 @@ h2 {
     padding-left: 100px;
     padding-right: 100px;
     line-height: 50px;
-}
-
-
-
-p {
-    
 }
 
 .delete-btn {

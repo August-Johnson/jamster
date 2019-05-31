@@ -49,7 +49,8 @@ class createAccount extends Component {
         <Row className="justify-content-md-center" style={{ "width": "100%" }}>
           <Col lg="4">
             {/* Need to change text color to white probably */}
-            <h2 style={{ 'color': 'white' }}>Welcome to Jamster to create an acount please enter the corresponding information below</h2>
+            <h2 style={{ "color": "#FFFFFF" }}>Welcome to Jamster!</h2>
+            <p style={{ "color": "#E8E8E8", "fontSize": "112%", "fontWeight": "500", "textAlign": "center" }}>To create an account, enter your information below.</p>
             <br></br>
             <InputGroup><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrumentValue" value={this.state.instrumentValue} onChange={this.onChange}>
               <option defaultValue="">Instrument</option>

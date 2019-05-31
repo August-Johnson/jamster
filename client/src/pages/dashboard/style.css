@@ -3,7 +3,8 @@
 }
 
 .jumboBg {
-    background-image: url("https://cdn.stocksnap.io/img-thumbs/280h/VP6XCPG662.jpg");
+    /* background-image: url("https://cdn.stocksnap.io/img-thumbs/280h/VP6XCPG662.jpg"); */
+    background-image: url("");
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
