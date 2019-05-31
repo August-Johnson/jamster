@@ -1,11 +1,7 @@
-.jumboBg {
-    background-image: url("https://cdn.stocksnap.io/img-thumbs/280h/VP6XCPG662.jpg");
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
-}
 
-.jumboText {
-    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+
+/* .jumboText {
+    background: rgb(204, 204, 204); 
     background: rgba(0, 0, 0, 0.4);
     border-radius: 20px;
 }
@@ -20,4 +16,4 @@ h1 {
     color: white;
     font-weight: bold;
     
-}
+} */
