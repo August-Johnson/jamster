@@ -8,27 +8,27 @@ import FindSession from "./pages/FindSession";
 import login from "./pages/login";
 import createAccount from "./pages/createAccount";
 import "./App.css";
-// import notFound from "./components/notFound/index"
+import notFound from "./components/notFound/index"
 import Footer from "./components/Footer";
-import DashboardNav from "./routedPages/dashboard";
+import SidebarNav from "./components/SidebarNav";
 
 function App() {
   return (
     <Container>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={login} />
-          <DashboardNav>
+      <SidebarNav>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={login} />
             <Route exact path="/createAccount" component={createAccount} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/myProfile" component={MyProfile} />
             <Route exact path="/findSession" component={FindSession} />
             <Route exact path="/createSession" component={CreateSession} />
-            {/* <Route component={notFound} /> */}
-          </DashboardNav>
-        </Switch>
-      </Router>
-      <Footer />
+            <Route component={notFound} />
+          </Switch>
+        </Router>
+        <Footer />
+      </SidebarNav>
     </Container>
   );
 }
