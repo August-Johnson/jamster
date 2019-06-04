@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import Hero from "../../components/Hero";
 import Container from "../../components/Container";
-import Background from "./music_background.jpg";
 import API from "../../API/api";
 import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+import "./style.css";
 
 class createAccount extends Component {
   state = {
@@ -11,17 +12,19 @@ class createAccount extends Component {
     skillLevel: 0,
     username: "",
     password: "",
+    passwordConfirm: ""
   }
 
   onChange = event => {
     const { name, value } = event.target;
+
     this.setState({
       [name]: value
     })
-
   }
 
   handleSubmit = () => {
+
     const createUserData = {
       username: this.state.username,
       password: this.state.password,
@@ -45,12 +48,11 @@ class createAccount extends Component {
     return (
 
       <Container>
-        <Hero backgroundImage={Background}></Hero>
-        <Row className="justify-content-md-center" style={{ "width": "100%" }}>
-          <Col lg="4">
-            {/* Need to change text color to white probably */}
-            <h2 style={{ "color": "#FFFFFF" }}>Welcome to Jamster!</h2>
-            <p style={{ "color": "#E8E8E8", "fontSize": "112%", "fontWeight": "500", "textAlign": "center" }}>To create an account, enter your information below.</p>
+        {/* <div id="create-background"></div> */}
+        <Row className="create-form">
+          <Col xs="12" sm="9" md="6" lg="5" xl="5">
+            <h1 className="welcome-header">Welcome to Jamster!</h1>
+            <p className="welcome-message">To create an account, enter your information below.</p>
             <br></br>
             <InputGroup><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrumentValue" value={this.state.instrumentValue} onChange={this.onChange}>
               <option defaultValue="">Instrument</option>
@@ -75,10 +77,13 @@ class createAccount extends Component {
             <br></br>
             <InputGroup><FormControl type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
             <br></br>
-
-
+            <InputGroup><FormControl type="password" placeholder="Confirm Password" aria-label="Password Confirm" aria-describedby="basic-addon1" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.onChange} /></InputGroup>
             <br></br>
-            <Button className="mb-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
+
+            <Button className="mb-3 mr-2" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
+
+            <Link to="/"><Button className="mb-3 ml-2" variant="outline-primary">Back to Login Page</Button></Link>
+
 
           </Col>
         </Row>

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Hero from "../../components/Hero";
 import Container from "../../components/Container";
-import Background from "./music_background.jpg";
 import { Link } from "react-router-dom";
 import API from "../../API/api";
 import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
+
+import "./style.css";
 
 class login extends Component {
   state = {
@@ -45,28 +45,27 @@ class login extends Component {
     return (
       <Container>
 
-        <Hero backgroundImage={Background}>
-          <span style={{
-            "color": "#FFFFFF",
-            "position": "relative",
-            "top": "9%",
-            "fontSize": "500%",
-            "fontWeigth": "550",
-            "fontFamily": '"Rock Salt", cursive'
-          }}>JAMSTER</span>
-        </Hero>
+        <div id="login-background">
+          JAMSTER
+        </div>
 
-        <br></br>
-        <Row className="justify-content-md-center" style={{ "width": "100%", "marginBottom": "20px" }}>
+        <br />
+        {/* <Row className="justify-content-md-center" style={{ "width": "100%", "marginBottom": "20px" }}> */}
+        <Row className="login-form">
           <Col lg="4">
-            <InputGroup><FormControl placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} /></InputGroup>
-            <br></br>
-            <InputGroup><FormControl type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
-
-            <br></br>
-            <Button className="p-2 mr-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Sign In</Button>
+          <h2>Login to Your Profile!</h2>
+          <br />
+            <InputGroup size="lg">
+              <FormControl id="username-login" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} />
+            </InputGroup>
+            <br />
+            <InputGroup size="lg">
+              <FormControl id="password-login" type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} />
+            </InputGroup>
+            <br />
+            <Button className="p-2 mr-3 mb-4" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Sign In</Button>
             <span style={{ "color": "#FFFFFF", "fontSize": "120%", "fontWeight": "550" }}>or</span>
-            <Link to="/createAccount"><Button className="p-2 ml-3" variant="outline-info">Create Account</Button></Link>
+            <Link to="/createAccount"><Button className="p-2 ml-3 mb-4" variant="outline-info">Create Account</Button></Link>
           </Col>
         </Row>
 

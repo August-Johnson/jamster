@@ -1,0 +1,28 @@
+#login-background {
+    height: 500px;
+    background-size: 75%;
+    background-image: url("../../images/wallpaper3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding-top: 40px;
+    font-size: 500%;
+    font-weight: 500;
+    font-family: "Rock Salt", cursive;
+}
+
+.login-form {
+    justify-content: center;
+    color: #ffffff;
+}
+
+label {
+    color: #ffffff;
+    font-size: 140%;
+    font-weight: 450;
+}
+
+.row {
+    width: 100%;
+}
