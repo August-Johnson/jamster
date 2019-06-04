@@ -14,6 +14,8 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
+// this is a test comment line 
+
 db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {
     console.log(
