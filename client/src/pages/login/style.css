@@ -1,4 +1,4 @@
-html, body {
+body {
     position: relative;
     height: 100%;
     margin: 0;
@@ -30,10 +30,6 @@ label {
     color: #ffffff;
     font-size: 140%;
     font-weight: 450;
-}
-
-.row {
-    width: 100%;
 }
 
 @media screen and (min-width: 900px) {

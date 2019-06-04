@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
 import MyProfile from "./pages/myProfile";
-import Container from "./components/Container";
 import CreateSession from "./pages/CreateSession";
 import FindSession from "./pages/FindSession";
 import login from "./pages/login";
@@ -14,8 +13,8 @@ import SidebarNav from "./components/SidebarNav";
 
 function App() {
   return (
-    <Container>
-      <SidebarNav>
+    <div className="App">
+        <SidebarNav />
         <Router>
           <Switch>
             <Route exact path="/" component={login} />
@@ -27,9 +26,9 @@ function App() {
             <Route component={notFound} />
           </Switch>
         </Router>
-      </SidebarNav>
-      <Footer />
-    </Container>
+        <Footer />
+        {/* </SidebarNav> */}
+    </div>
   );
 }
 

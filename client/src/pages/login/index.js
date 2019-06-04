@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import Container from "../../components/Container";
-import { Link } from "react-router-dom";
 import API from "../../API/api";
-import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import FormControl from "react-bootstrap/FormControl";
+import InputGroup from "react-bootstrap/InputGroup";
+import Button from "react-bootstrap/Button";
 
 import "./style.css";
 
@@ -44,17 +48,20 @@ class login extends Component {
   render() {
     return (
       <Container>
-
-        <div id="login-background">
-          JAMSTER
+        <Row>
+          <Col>
+            <div id="login-background">
+              JAMSTER
         </div>
+          </Col>
+        </Row>
 
         <br />
         {/* <Row className="justify-content-md-center" style={{ "width": "100%", "marginBottom": "20px" }}> */}
         <Row className="login-form">
           <Col xs="10" sm="8" md="7" lg="4" xl="4">
-          <h2>Login to Your Profile!</h2>
-          <br />
+            <h2>Login to Your Profile!</h2>
+            <br />
             <InputGroup size="lg">
               <FormControl id="username-login" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} />
             </InputGroup>

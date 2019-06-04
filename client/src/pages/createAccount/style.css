@@ -18,29 +18,19 @@ NOTE: try using media queries to adjust the 'hero' size so the page's height is 
 }
 
 .welcome-header {
-    font-size: 200%;
+    font-size: 220%;
     color: #ffffff;
     text-align: center;
 }
 
 .welcome-message {
     color: #E8E8E8;
-     font-size: 120%; 
-     font-weight: 500;
-     text-align: center;
+    font-size: 120%; 
+    font-weight: 500;
+    text-align: center;
+    margin-top: 15px;
 }
 
-
-@media screen and  (min-width: 600px) {
-    .welcome-header {
-        font-size: 220%;
-    }
-
-    .welcome-message {
-        font-size: 120%;
-        margin-top: 15px;
-    }
-}
 
 @media screen and (min-width: 800px) {
     .welcome-header {
@@ -54,7 +44,17 @@ NOTE: try using media queries to adjust the 'hero' size so the page's height is 
 
 @media screen and  (min-width: 900px) {
     .welcome-header {
-        font-size: 235%;
-        color: red;
+        font-size: 230%;
+    }
+}
+
+@media screen and  (min-width: 1200px) {
+    .welcome-header {
+        font-size: 250%;
+    }
+
+    .welcome-message {
+        font-size: 130%;
+        margin-top: 15px;
     }
 }

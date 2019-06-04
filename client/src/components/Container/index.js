@@ -1,8 +1,10 @@
 import React from "react";
 
+import "./style.css";
+
 function Container(props) {
   return (
-    <div style={{"backgroundColor": "black", "position" : "relative", "height": "100%", "paddingBottom": "50px"}}>
+    <div className="content-container">
       {props.children}
     </div>
   );

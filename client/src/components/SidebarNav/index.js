@@ -36,7 +36,7 @@ class sidebarNav extends Component {
           <button className="openbtn" onClick={this.handleExpand}>Toggle Collapse</button>
         </div>
 
-        {this.props.children}
+        {/* {this.props.children} */}
 
       </div>
     );

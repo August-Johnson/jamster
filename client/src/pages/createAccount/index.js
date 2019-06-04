@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import Container from "../../components/Container";
 import API from "../../API/api";
-import { Button, InputGroup, FormControl, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import FormControl from "react-bootstrap/FormControl";
+import InputGroup from "react-bootstrap/InputGroup";
+import Button from "react-bootstrap/Button";
 
 import "./style.css";
 
@@ -48,12 +52,17 @@ class createAccount extends Component {
     return (
 
       <Container>
-        {/* <div id="create-background"></div> */}
-        <Row className="create-form">
-          <Col xs="12" sm="9" md="6" lg="5" xl="5">
+        <Row>
+          <Col>
             <h1 className="welcome-header">Welcome to Jamster!</h1>
             <p className="welcome-message">To create an account, enter your information below.</p>
-            <br></br>
+          </Col>
+        </Row>
+
+        <br />
+
+        <Row className="create-form">
+          <Col xs="12" sm="9" md="6" lg="5" xl="5">
             <InputGroup><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrumentValue" value={this.state.instrumentValue} onChange={this.onChange}>
               <option defaultValue="">Instrument</option>
               <option value="1">Bass</option>
@@ -84,14 +93,12 @@ class createAccount extends Component {
 
             <Link to="/"><Button className="mb-3 ml-2" variant="outline-primary">Back to Login Page</Button></Link>
 
-
           </Col>
         </Row>
 
       </Container>
-
-
     );
   }
 }
+
 export default createAccount;
