@@ -52,7 +52,7 @@ class login extends Component {
         <br />
         {/* <Row className="justify-content-md-center" style={{ "width": "100%", "marginBottom": "20px" }}> */}
         <Row className="login-form">
-          <Col lg="4">
+          <Col xs="10" sm="8" md="7" lg="4" xl="4">
           <h2>Login to Your Profile!</h2>
           <br />
             <InputGroup size="lg">
@@ -70,8 +70,6 @@ class login extends Component {
         </Row>
 
       </Container>
-
-
     );
   }
 }

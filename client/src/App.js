@@ -27,8 +27,8 @@ function App() {
             <Route component={notFound} />
           </Switch>
         </Router>
-        <Footer />
       </SidebarNav>
+      <Footer />
     </Container>
   );
 }
