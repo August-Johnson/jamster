@@ -5,9 +5,9 @@
     top: 0;
     left: 0;
     overflow-x: hidden;
-    padding-top: 85px;
+    padding-top: 75px;
     transition: 0.25s;
-    background-color:  #111;
+    background-color:  #111111;
     z-index: 1;
 }
 
@@ -21,30 +21,27 @@
 
 #sidebarNav a:hover {
     color: #f1f1f1;
-    text-decoration: underline;
+    background-color: #007bff;
     font-weight: 500;
 }
 
-#sidebarNav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 25px;
-    margin-left: 40px;
-    margin-top: 20px;
+.current-page li {
+    font-size: 120%;
+    font-weight: 500;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
 }
 
 #openbtn {
-    font-size: 20px;
     cursor: pointer;
-    padding: 15px 20px;
+    padding: 6px 10px;
     color: #ffffff;
     background-color: #111;
     border: none;
     position: fixed;
-    top: 25px;
-    left: 25px;
-    z-index: 1;
+    top: 15px;
+    left: 10px;
+    z-index: 3;
     transition: 0.25s;
 }
 
@@ -52,11 +49,26 @@
     background-color: #444;
 }
 
-.bar-icon {
-width: 35px;
-height: 5px;
-background-color: #f1f1f1;
-margin: 5px 0;
+.bar-icon1, .bar-icon2, .bar-icon3 {
+    width: 32px;
+    height: 5px;
+    background-color: #f1f1f1;
+    margin: 5px 0px;
+    transition: 0.25s;
+}
+
+.sidebar-close-icon .bar-icon1 {
+    -webkit-transform: rotate(-45deg) translate(-7px, 7px);
+    transform: rotate(-45deg) translate(-7px, 7px);
+}
+
+.sidebar-close-icon .bar-icon2 {
+    opacity: 0;
+}
+
+.sidebar-close-icon .bar-icon3 {
+    -webkit-transform: rotate(45deg) translate(-7px, -8px);
+    transform: rotate(45deg) translate(-7px, -8px);
 }
 
 #main {
@@ -64,12 +76,17 @@ margin: 5px 0;
     padding: 20px;
 }
 
-@media screen and (max-height: 450px) {
+@media screen and (min-width: 600px) {
     #sidebarNav {
-        padding-top: 15px;
+        width: 320px;
+        padding-top: 120px;
     }
 
     #sidebarNav a {
-        font-size: 18px;
+        font-size: 170%;
+    }
+
+    #openbtn {
+        display: none;
     }
 }

@@ -6,28 +6,29 @@ import CreateSession from "./pages/CreateSession";
 import FindSession from "./pages/FindSession";
 import login from "./pages/login";
 import createAccount from "./pages/createAccount";
-import "./App.css";
-import notFound from "./components/notFound/index"
+import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import SidebarNav from "./components/SidebarNav";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-        <SidebarNav />
-        <Router>
-          <Switch>
-            <Route exact path="/" component={login} />
-            <Route exact path="/createAccount" component={createAccount} />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={login} />
+          <Route exact path="/createAccount" component={createAccount} />
+          <SidebarNav>
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/myProfile" component={MyProfile} />
             <Route exact path="/findSession" component={FindSession} />
             <Route exact path="/createSession" component={CreateSession} />
-            <Route component={notFound} />
-          </Switch>
-        </Router>
-        <Footer />
-        {/* </SidebarNav> */}
+            <Route component={NotFound} />
+          </SidebarNav>
+        </Switch>
+      </Router>
+      <Footer />
     </div>
   );
 }
