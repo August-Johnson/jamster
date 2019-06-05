@@ -63,39 +63,55 @@ class createAccount extends Component {
 
         <Row className="create-form">
           <Col xs="12" sm="9" md="6" lg="5" xl="5">
-            <InputGroup><FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrumentValue" value={this.state.instrumentValue} onChange={this.onChange}>
-              <option defaultValue="">Instrument</option>
-              <option value="1">Bass</option>
-              <option value="2">Drums</option>
-              <option value="3">Guitar</option>
-              <option value="4">Keyboard</option>
-              <option value="5">Vocals</option></FormControl></InputGroup>
+            <InputGroup>
+              <FormControl as="select" placeholder="Instrument" aria-label="Instrument" aria-describedby="basic-addon1" name="instrumentValue" value={this.state.instrumentValue} onChange={this.onChange}>
+                <option defaultValue="">Instrument</option>
+                <option value="1">Bass</option>
+                <option value="2">Drums</option>
+                <option value="3">Guitar</option>
+                <option value="4">Keyboard</option>
+                <option value="5">Vocals</option>
+              </FormControl>
+            </InputGroup>
 
-            <br></br>
-            <InputGroup><FormControl as="select" placeholder="Skill Level" aria-label="Skill Level" aria-describedby="basic-addon1" name="skillLevel" value={this.state.skillLevel} onChange={this.onChange}>
-              <option defaultValue="">Skill Level</option>
-              <option value="1">1 (Beginner)</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5 (Advanced)</option></FormControl></InputGroup>
+            <br />
 
+            <InputGroup>
+              <FormControl as="select" placeholder="Skill Level" aria-label="Skill Level" aria-describedby="basic-addon1" name="skillLevel" value={this.state.skillLevel} onChange={this.onChange}>
+                <option defaultValue="">Skill Level</option>
+                <option value="1">1 (Beginner)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Advanced)</option>
+              </FormControl>
+            </InputGroup>
 
-            <br></br>
-            <InputGroup><FormControl type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} /></InputGroup>
-            <br></br>
-            <InputGroup><FormControl type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} /></InputGroup>
-            <br></br>
-            <InputGroup><FormControl type="password" placeholder="Confirm Password" aria-label="Password Confirm" aria-describedby="basic-addon1" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.onChange} /></InputGroup>
-            <br></br>
+            <br />
 
-            <Button className="mb-3 mr-2" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
+            <InputGroup>
+              <FormControl type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} />
+            </InputGroup>
 
-            <Link to="/"><Button className="mb-3 ml-2" variant="outline-primary">Back to Login Page</Button></Link>
+            <br />
+
+            <InputGroup>
+              <FormControl type="password" placeholder="Create Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} />
+            </InputGroup>
+
+            <br />
+
+            <InputGroup>
+              <FormControl type="password" placeholder="Confirm Password" aria-label="Password Confirm" aria-describedby="basic-addon1" name="passwordConfirm" value={this.state.passwordConfirm} onChange={this.onChange} />
+            </InputGroup>
+
+            <br />
+
+            <Button className="mb-3" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Submit</Button>
+            <Link to="/" className="login-page-return mb-3">Back to Login Page</Link>
 
           </Col>
         </Row>
-
       </Container>
     );
   }

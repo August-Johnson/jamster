@@ -8,16 +8,30 @@ body {
 #login-background {
     height: 300px;
     background-size: cover;
-    background-image: url("../../images/wallpaper3.jpg");
+    background-image: url("../../images/wallpaper2.jpg");
     background-repeat: no-repeat;
-    text-align: center;
-    /* color: #FFFFFF; */
+    background-position: right;
     color: #FFF;
-    padding-top: 50px;
-    font-size: 300%;
-    letter-spacing: .55rem;
+    padding-top: 35px;
+    padding-left: 5px;
+    letter-spacing: .3rem;
     font-weight: 600;
     font-family: "Rock Salt", cursive;
+}
+
+#login-background h1 {
+    font-size: 100%;
+    margin-bottom: 15px;
+}
+
+#login-background ul {
+    padding-left: 15px;
+}
+
+#login-background ul li {
+    font-size: 80%;
+    max-width: 250px;
+    margin-bottom: 15px;
 }
 
 .login-form {
@@ -26,22 +40,67 @@ body {
     height: 100%;
 }
 
-label {
-    color: #ffffff;
-    font-size: 140%;
-    font-weight: 450;
-}
-
 @media screen and (min-width: 900px) {
     #login-background {
-        height: 600px;
+        height: 400px;
+    }
+
+    #login-background h1 {
+        font-size: 170%;
+        margin-bottom: 15px;
+    }
+
+    #login-background ul {
+        padding-left: 5px;
+    }
+
+    #login-background ul li {
+        font-size: 100%;
+        max-width: 425px;
+        margin-bottom: 20px;
     }
 }
 
 @media screen and (min-width: 1200px) {
-    
+    #login-background {
+        height: 500px;
+    }
+
+    #login-background h1 {
+        font-size: 240%;
+        margin-bottom: 35px;
+    }
+
+    #login-background ul {
+        padding-left: 30px;
+    }
+
+    #login-background ul li {
+        font-size: 125%;
+        max-width: 500px;
+        margin-bottom: 25px;
+    }
 }
 
 @media screen and (min-width: 1800px) {
-    
+    #login-background {
+        height: 600px;
+        padding-top: 90px;
+        padding-left: 20px;
+    }
+
+    #login-background h1 {
+        font-size: 270%;
+        margin-bottom: 50px;
+    }
+
+    #login-background ul {
+        padding-left: 40px;
+    }
+
+    #login-background ul li {
+        font-size: 140%;
+        max-width: 625px;
+        margin-bottom: 35px;
+    }
 }
