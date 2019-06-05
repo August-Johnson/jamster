@@ -4,11 +4,10 @@ import Dashboard from "./pages/dashboard";
 import MyProfile from "./pages/myProfile";
 import CreateSession from "./pages/CreateSession";
 import FindSession from "./pages/FindSession";
-import login from "./pages/login";
+import Login from "./pages/login";
 import createAccount from "./pages/createAccount";
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
-import SidebarNav from "./components/SidebarNav";
 
 import "./App.css";
 
@@ -17,15 +16,13 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={login} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/createAccount" component={createAccount} />
-          <SidebarNav>
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/myProfile" component={MyProfile} />
             <Route exact path="/findSession" component={FindSession} />
             <Route exact path="/createSession" component={CreateSession} />
-            <Route component={NotFound} />
-          </SidebarNav>
+          <Route path="*" component={NotFound} />
         </Switch>
       </Router>
       <Footer />

@@ -1,26 +1,32 @@
-import React, { Component } from "./node_modules/react";
-import { Link } from "./node_modules/react-router-dom";
-import Row from "./node_modules/react-bootstrap/Row";
-import Col from "./node_modules/react-bootstrap/Col";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import "./style.css";
 
 class NotFound extends Component {
 
     handleReturnToLogin = () => {
         localStorage.clear();
     }
- 
+
     render() {
         return (
-
-            <Col>
+            <Container>
                 <Row>
-                    <h1>404 Not Found</h1>
-                    <br />
-                    <Link to="/dashboard">Back to Dashboard</Link>
-                    <Link to="/" onClick={this.handleReturnToLogin}>Back to Log in Page</Link>
+                    <Col>
+                        <h1 className="notFound-message">404 Not Found</h1>
+                        <br />
+                        <br />
+                        <div className="notFound-links">
+                            <Link to="/dashboard" className="notFound-link">Back to Dashboard</Link>
+                            <Link to="/" onClick={this.handleReturnToLogin} className="notFound-link">Back to Log in Page</Link>
+                        </div>
+                    </Col>
                 </Row>
-            </Col >
-
+            </Container>
         );
     }
 }

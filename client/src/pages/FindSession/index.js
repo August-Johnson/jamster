@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import API from "../../API/api";
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SessionCardWithJoin from "../../components/SessionCardWithJoin";
 import SessionCardWithoutJoin from "../../components/SessionCardWithoutJoin";
-import API from "../../API/api";
+import SidebarNav from "../../components/SidebarNav";
 
 class FindSession extends Component {
     state = {
@@ -79,7 +80,6 @@ class FindSession extends Component {
                 sessionTime={sessionData.scheduled_time}
             />
         }
-
     }
 
     joinJamSession = (positionId, sessionId) => {
@@ -98,32 +98,32 @@ class FindSession extends Component {
 
     render() {
         return (
-            <Container>
-                <Jumbotron className="jumboBg">
-                    <Row>
-                        <Col>
+            <SidebarNav currentPagePath={window.location.pathname}>
+                <Container>
+                    <Jumbotron className="jumboBg">
+                        <Row>
+                            <Col>
 
-                            <div className="jumboText">
-                                <h1 className="text-center">Find Session</h1>
+                                <div className="jumboText">
+                                    <h1 className="text-center">Find Session</h1>
 
-                                <p className="jumboP text-center">See sessions created by other musicians!</p>
-                            </div>
+                                    <p className="jumboP text-center">See sessions created by other musicians!</p>
+                                </div>
 
-                        </Col>
-                    </Row>
-                </Jumbotron>
+                            </Col>
+                        </Row>
+                    </Jumbotron>
 
-                {this.state.jamSessions.length ? (
-                    this.state.jamSessions.map((session) => this.renderSessions(session)
-                    )) : (
-                        <h3 style={{ "textAlign": "center" }}>NO JAM SESSIONS!</h3>
-                    )
-                }
-
-            </Container>
+                    {this.state.jamSessions.length ? (
+                        this.state.jamSessions.map((session) => this.renderSessions(session)
+                        )) : (
+                            <h3 style={{ "textAlign": "center" }}>NO JAM SESSIONS!</h3>
+                        )
+                    }
+                </Container>
+            </SidebarNav>
         );
     }
-
 }
 
 export default FindSession;

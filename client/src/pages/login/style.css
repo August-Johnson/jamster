@@ -14,7 +14,6 @@ body {
     color: #FFF;
     padding-top: 35px;
     padding-left: 5px;
-    letter-spacing: .3rem;
     font-weight: 600;
     font-family: "Rock Salt", cursive;
 }
@@ -32,10 +31,16 @@ body {
     font-size: 80%;
     max-width: 250px;
     margin-bottom: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-message {
+    padding-left: 50px;
+    font-size: 150%;
 }
 
 .login-form {
-    justify-content: center;
+    padding-left: 50px;
     color: #ffffff;
     height: 100%;
 }
@@ -64,6 +69,8 @@ body {
 @media screen and (min-width: 1200px) {
     #login-background {
         height: 500px;
+        padding-top: 160px;
+        padding-left: 40px;
     }
 
     #login-background h1 {
@@ -72,35 +79,30 @@ body {
     }
 
     #login-background ul {
-        padding-left: 30px;
+        padding-left: 40px;
     }
 
     #login-background ul li {
-        font-size: 125%;
+        font-size: 160%;
         max-width: 500px;
-        margin-bottom: 25px;
+        margin-bottom: 10px;
     }
 }
 
 @media screen and (min-width: 1800px) {
     #login-background {
         height: 600px;
-        padding-top: 90px;
-        padding-left: 20px;
+        padding-top: 200px;
     }
 
     #login-background h1 {
         font-size: 270%;
-        margin-bottom: 50px;
-    }
-
-    #login-background ul {
-        padding-left: 40px;
+        margin-bottom: 25px;
     }
 
     #login-background ul li {
-        font-size: 140%;
+        font-size: 180%;
         max-width: 625px;
-        margin-bottom: 35px;
+        margin-bottom: 15px;
     }
 }

@@ -70,7 +70,7 @@ class login extends Component {
 
         <Row>
           <Col>
-            <h2 className="text-center text-white">Log in to get your Jam on!</h2>
+            <h2 className="text-white login-message">Log in to get your Jam on!</h2>
           </Col>
         </Row>
 

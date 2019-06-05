@@ -1,0 +1,18 @@
+h1.notFound-message {
+    text-align: center;
+    font-size: 500%;
+    color: #ffffff;
+    padding-top: 150px;
+}
+
+.notFound-links {
+    text-emphasis: center;
+    font-size: 300%;
+    color: #f1f1f1;
+    text-decoration: underline;
+    margin: 50px;
+}
+
+.notFound-link:hover {
+    background-color: #e8e8e8;
+}
