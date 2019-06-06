@@ -15,14 +15,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Iceberg09/jamster.git"
+        "url": "git+https://github.com/August-Johnson/jamster.git"
     },
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/Iceberg09/jamster/issues"
+        "url": "https://github.com/August-Johnson/jamster/issues"
     },
-    "homepage": "https://github.com/Iceberg09/jamster#readme",
+    "homepage": "https://github.com/August-Johnson/jamster#readme",
     "dependencies": {
         "axios": "^0.18.0",
         "classnames": "^2.2.6",
