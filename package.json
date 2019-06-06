@@ -24,7 +24,7 @@
     },
     "homepage": "https://github.com/August-Johnson/jamster#readme",
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.18.1",
         "classnames": "^2.2.6",
         "express": "^4.16.4",
         "if-env": "^1.0.4",
