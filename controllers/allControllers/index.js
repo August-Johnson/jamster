@@ -6,28 +6,27 @@ module.exports = {
     // come back to later
     db.user.findOrCreate({
       defaults: {
-        password: req.body.password
+        password: req.body.password,
+        skill_level: req.body.skillLevel,
+        instrument: req.body.instrumentId
       },
       where: {
         username: req.body.username
       }
     })
       .then(([userData, created]) => {
-        // join for data from other tables to pass back to the front end.
+        // If a new user was created, meaning the username was available/unique, 
+        // send a response containing the data of the newly created user and a boolean of true.
         if (created) {
-          db.user_instrument.create({
-            user_id: userData.id,
-            instrument_id: req.body.instrumentId,
-            skill_level: req.body.skillLevel
-          }).then((userInstrumentData) => res.json(userInstrumentData));
+          res.json([userData, true]);
         }
         // if a new user wasn't created because the username is taken,
-        // send back an object with a false value to let the front end know.
+        // send back a response of false to let the front end know.
         else {
-          throw new Error("User already exists");
+          res.json(false);
         }
       })
-      .catch((err) => { throw new Error(err) });
+      .catch((err) => res.json(err));
   },
   // get user login by email ("find one") check password after we get db response from query.
   userLogin: function (req, res) {
@@ -37,11 +36,12 @@ module.exports = {
       }
     })
       .then((userData) => {
-        db.user_instrument.findOne({
-          where: {
-            user_id: userData.id
-          }
-        }).then((userInstrumentData) => res.json([userInstrumentData, userData.password]));
+        if (!userData || userData.length <= 0 || userData.password !== req.body.password) {
+          res.json(false);
+        }
+        else {
+          res.json([userData, true]);
+        }
       })
       .catch((err) => res.json(err));
   },
@@ -69,7 +69,9 @@ module.exports = {
   },
   // get jam sessions
   getJamSessions: function (req, res) {
-    db.session.findAll({})
+    db.session.findAll({
+      include: [db.user]
+    })
       .then((sessionsData) => res.json(sessionsData))
       .catch((err) => res.json(err));
   },
@@ -107,12 +109,12 @@ module.exports = {
     db.session.update({
       [usrDatabase]: parseInt(req.body.userId)
     }, {
-      where: {
-        id: req.body.sessionId
-      }
+        where: {
+          id: req.body.sessionId
+        }
       })
       .then((sessionData) => res.json(sessionData))
-    .catch((err) => res.json(err));
-}
+      .catch((err) => res.json(err));
+  }
 
 }

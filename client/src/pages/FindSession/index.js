@@ -20,6 +20,7 @@ class FindSession extends Component {
     getJamSessions = () => {
         API.getJamSessions()
             .then((jamSessionsData) => {
+                console.log(jamSessionsData);
                 this.setState({
                     jamSessions: jamSessionsData.data
                 });
