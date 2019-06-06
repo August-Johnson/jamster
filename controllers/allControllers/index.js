@@ -49,6 +49,9 @@ module.exports = {
   createNewSession: function (req, res) {
     db.session.create({
       name: req.body.name,
+      scheduled_date: req.body.date,
+      scheduled_time: req.body.time,
+      description: req.body.description,
       usr1: req.body.usr1,
       inst1: req.body.inst1,
       skill_level1: req.body.skillLevel1,
@@ -59,12 +62,15 @@ module.exports = {
       inst4: req.body.inst4,
       skill_level4: req.body.skillLevel4,
       inst5: req.body.inst5,
-      skill_level5: req.body.skillLevel5,
-      scheduled_date: req.body.date,
-      scheduled_time: req.body.time,
-      description: req.body.description
+      skill_level5: req.body.skillLevel5
     })
-      .then((sessionData) => res.json(sessionData))
+      .then((sessionData) => {
+        db.user_session.create({
+          userId: sessionData.usr1,
+          sessionId: sessionData.id
+        })
+          .then((userSessionResponse) => res.json(userSessionResponse));
+      })
       .catch((err) => res.json(err));
   },
   // get jam sessions

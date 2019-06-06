@@ -23,6 +23,10 @@ class createAccount extends Component {
   onChange = (event) => {
     const { name, value } = event.target;
 
+    if (value === " ") {
+      return "";
+    }
+
     this.setState({
       [name]: value
     });
@@ -31,7 +35,7 @@ class createAccount extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    if (this.state.instrumentId === "" || this.state.skillLevel === 0 || this.state.username === "" || this.state.password === "" || this.state.passwordConfirm === "") {
+    if (this.state.instrumentId.trim() === "" || this.state.skillLevel === 0 || this.state.username.trim() === "" || this.state.password.trim() === "" || this.state.passwordConfirm.trim() === "") {
       document.getElementById("password-fail-message").style.display = "none";
       document.getElementById("existing-user-message").style.display = "none";
       document.getElementById("empty-field-message").style.display = "block";
@@ -50,7 +54,7 @@ class createAccount extends Component {
 
       API.createNewUser(createUserData)
         .then((dataResponse) => {
-
+          console.log(dataResponse.data);
           // If a new user was successfully created
           if (dataResponse.data[1] === true) {
             localStorage.setItem("username", this.state.username);

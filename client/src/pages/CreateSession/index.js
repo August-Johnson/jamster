@@ -48,8 +48,7 @@ class CreateSession extends Component {
             !this.state.sessionDate ||
             !this.state.collaboratorsArr ||
             !this.state.sessionTime ||
-            !this.state.collaboratorsArr[0] ||
-            !this.state.collaboratorsArr[1]) {
+            !this.state.collaboratorsArr[0]) {
             alert("Please Complete the Required Fields");
         } else if (this.state.collaborators === 0) {
             alert("Please Select at Least 1 Collaborator");
@@ -64,14 +63,14 @@ class CreateSession extends Component {
                 usr1: parseInt(localStorage.getItem("userId")),
                 inst1: parseInt(localStorage.getItem("instrumentId")),
                 skillLevel1: parseInt(localStorage.getItem("skillLevel")),
-                inst2: this.state.collaboratorsArr[1].instrument,
-                skillLevel2: this.state.collaboratorsArr[1].skillLevel,
-                inst3: this.state.collaboratorsArr[2].instrument || null,
-                skillLevel3: this.state.collaboratorsArr[2].skillLevel || null,
-                inst4: this.state.collaboratorsArr[3].instrument || null,
-                skillLevel4: this.state.collaboratorsArr[3].skillLevel || null,
-                inst5: this.state.collaboratorsArr[4].instrument || null,
-                skillLevel5: this.state.collaboratorsArr[4].skillLevel || null
+                inst2: this.state.collaboratorsArr[0].instrument,
+                skillLevel2: this.state.collaboratorsArr[0].skillLevel,
+                inst3: this.state.collaboratorsArr[1].instrument || null,
+                skillLevel3: this.state.collaboratorsArr[1].skillLevel || null,
+                inst4: this.state.collaboratorsArr[2].instrument || null,
+                skillLevel4: this.state.collaboratorsArr[2].skillLevel || null,
+                inst5: this.state.collaboratorsArr[3].instrument || null,
+                skillLevel5: this.state.collaboratorsArr[3].skillLevel || null
             }
 
             API.createNewSession(createSessionData)
@@ -79,10 +78,6 @@ class CreateSession extends Component {
                     this.setState({
                         sessionName: "",
                         collaboratorsArr: [
-                            {
-                                instrument: "",
-                                skillLevel: ""
-                            },
                             {
                                 instrument: "",
                                 skillLevel: ""
@@ -216,13 +211,13 @@ class CreateSession extends Component {
                                         <Col>
                                             <Form.Group controlId="sessionForm.Collaborators">
                                                 <Form.Label>Number of Collaborators (Required)</Form.Label>
-                                                <Form.Control as="select" onChange={this.handleCollaborators} name="collaborators">
+                                                <Form.Control as="select" onChange={this.handleCollaborators} name="collaborators" value={this.state.collaborators}>
                                                     <option defaultValue="0">Choose...</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="4">4</option>
-                                                    <option value="5">5</option>
+                                                    {/* <option value="5">5</option> */}
                                                 </Form.Control>
                                             </Form.Group>
                                         </Col>

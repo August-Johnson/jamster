@@ -29,7 +29,7 @@ class FindSession extends Component {
     }
 
     renderSessions = (sessionData) => {
-        if (sessionData.usr2 === null && localStorage.getItem("instrumentId") == sessionData.inst2 && localStorage.getItem("skillLevel") >= sessionData.skill_level2) {
+        if (sessionData.usr2 === null && parseInt(localStorage.getItem("instrumentId")) === sessionData.inst2 && localStorage.getItem("skillLevel") >= sessionData.skill_level2) {
             return <SessionCardWithJoin
                 key={sessionData.id}
                 sessionName={sessionData.name}
@@ -39,7 +39,7 @@ class FindSession extends Component {
                 onClick={() => this.joinJamSession(2, sessionData.id)}
             />
         }
-        else if (sessionData.usr3 === null && localStorage.getItem("instrumentId") == sessionData.inst3 && localStorage.getItem("skillLevel") >= sessionData.skill_level3) {
+        else if (sessionData.usr3 === null && parseInt(localStorage.getItem("instrumentId")) === sessionData.inst3 && localStorage.getItem("skillLevel") >= sessionData.skill_level3) {
             return <SessionCardWithJoin
                 key={sessionData.id}
                 sessionName={sessionData.name}
@@ -50,7 +50,7 @@ class FindSession extends Component {
             />
         }
 
-        else if (sessionData.usr4 === null && localStorage.getItem("instrumentId") == sessionData.inst4 && localStorage.getItem("skillLevel") >= sessionData.skill_level4) {
+        else if (sessionData.usr4 === null && parseInt(localStorage.getItem("instrumentId")) === sessionData.inst4 && localStorage.getItem("skillLevel") >= sessionData.skill_level4) {
             return <SessionCardWithJoin
                 key={sessionData.id}
                 sessionName={sessionData.name}
@@ -61,7 +61,7 @@ class FindSession extends Component {
             />
         }
 
-        else if (sessionData.usr5 === null && localStorage.getItem("instrumentId") == sessionData.inst5 && localStorage.getItem("skillLevel") >= sessionData.skill_level5) {
+        else if (sessionData.usr5 === null && parseInt(localStorage.getItem("instrumentId")) === sessionData.inst5 && localStorage.getItem("skillLevel") >= sessionData.skill_level5) {
             return <SessionCardWithJoin
                 key={sessionData.id}
                 sessionName={sessionData.name}

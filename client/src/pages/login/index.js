@@ -39,13 +39,13 @@ class login extends Component {
       document.getElementById("empty-username-fail").style.display = "none";
       document.getElementById("all-empty-fail").style.display = "block";
     }
-    else if (this.state.username === "") {
+    else if (this.state.username.trim() === "") {
       document.getElementById("all-empty-fail").style.display = "none";
       document.getElementById("login-fail-message").style.display = "none";
       document.getElementById("empty-password-fail").style.display = "none";
       document.getElementById("empty-username-fail").style.display = "block";
     }
-    else if (this.state.password === "") {
+    else if (this.state.password.trim() === "") {
       document.getElementById("all-empty-fail").style.display = "none";
       document.getElementById("login-fail-message").style.display = "none";
       document.getElementById("empty-username-fail").style.display = "none";
@@ -113,12 +113,12 @@ class login extends Component {
 
         <Row className="login-form">
           <Col xs="10" sm="10" md="8" lg="8" xl="5">
-            <InputGroup size="lg" required>
-              <FormControl id="username-login" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} />
+            <InputGroup size="lg">
+              <FormControl required id="username-login" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} />
             </InputGroup>
             <div id="empty-username-fail">Please enter a username.</div>
             <br />
-            <InputGroup size="lg" required>
+            <InputGroup size="lg">
               <FormControl id="password-login" type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} />
             </InputGroup>
             <div id="empty-password-fail">Please enter a password.</div>
