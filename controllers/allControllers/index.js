@@ -1,9 +1,11 @@
 const db = require("../../models");
+const Op = db.Sequelize.Op;
 
 module.exports = {
-  // create new account
+  // Create new account
   createNewUser: function (req, res) {
-    // come back to later
+    // Find or create a user. Looks for an existing user with the username entered in the front end.
+    // Return false for created, if a user was found with that username, otherwise return true.
     db.user.findOrCreate({
       defaults: {
         password: req.body.password,
@@ -20,7 +22,7 @@ module.exports = {
         if (created) {
           res.json([userData, true]);
         }
-        // if a new user wasn't created because the username is taken,
+        // If a new user wasn't created because the username is taken,
         // send back a response of false to let the front end know.
         else {
           res.json(false);
@@ -28,7 +30,8 @@ module.exports = {
       })
       .catch((err) => res.json(err));
   },
-  // get user login by email ("find one") check password after we get db response from query.
+  // Get user login by username ("find one")and check 
+  // their password after we get a database response from the query.
   userLogin: function (req, res) {
     db.user.findOne({
       where: {
@@ -45,7 +48,7 @@ module.exports = {
       })
       .catch((err) => res.json(err));
   },
-  // create a jam session
+  // Create a jam session using the object being passed/submitted from the front end.
   createNewSession: function (req, res) {
     db.session.create({
       name: req.body.name,
@@ -73,10 +76,20 @@ module.exports = {
       })
       .catch((err) => res.json(err));
   },
-  // get jam sessions
+  // get jam sessions and all users in each session.
   getJamSessions: function (req, res) {
+    // Only return the user data we need. (not their password)
+    // Only return the jam sessions that the user didn't create
     db.session.findAll({
-      include: [db.user]
+      include: {
+        model: db.user,
+        attributes: { exclude: ['password'] }
+      },
+      where: {
+        usr1: {
+          [Op.ne]: req.body.id
+        }
+      }
     })
       .then((sessionsData) => res.json(sessionsData))
       .catch((err) => res.json(err));
@@ -90,28 +103,31 @@ module.exports = {
       .then((userData) => res.json(userData))
       .catch((err) => res.json(err));
   },
-  // getting a single jam session
+  // Getting a single jam session (not implemented yet)
   viewJamSession: function (req, res) {
     db.session.findOne({ id: req.params.id })
       .then((sessionData) => res.json(sessionData))
       .catch((err) => res.json(err));
   },
-  // join a jam session
+  // Join a jam session
   joinSession: function (req, res) {
+    // Checking for the position the user joined at.
     const userPosition = req.body.userPosition;
     let usrDatabase;
-    if (userPosition === 2) {
-      usrDatabase = "usr2"
+    switch (parseInt(userPosition)) {
+      case 2:
+        usrDatabase = "usr2";
+        break;
+      case 3:
+        usrDatabase = "usr3";
+        break;
+      case 4:
+        usrDatabase = "usr4";
+        break;
+      default:
+        usrDatabase = "usr5"
     }
-    else if (userPosition === 3) {
-      usrDatabase = "usr3"
-    }
-    else if (userPosition === 4) {
-      usrDatabase = "usr4"
-    }
-    else {
-      usrDatabase = "usr5"
-    }
+    // Update the position the user joined at in the database to hold their id.
     db.session.update({
       [usrDatabase]: parseInt(req.body.userId)
     }, {

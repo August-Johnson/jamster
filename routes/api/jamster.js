@@ -20,13 +20,17 @@ router.route("/getUsername")
 // ------------------------------------------------ //
 
 // Routes relating to sessions data
-router.route("/sessions")
-    // Route for getting all sessions
-    .get(allControllers.getJamSessions)
 
-    // Route for creating a session
+// Route for finding jam sessions
+router.route("/findSessions")
+    .post(allControllers.getJamSessions)
+
+// Route for creating a jam session
+router.route("/createSession")
     .post(allControllers.createNewSession)
 
+// Route for joining a jam session
+router.route("/joinSession")
     .put(allControllers.joinSession)
 
 // ------------------------------------------------ //
@@ -36,7 +40,7 @@ router.route("/sessions/:id")
     // Route for viewing a single sessions (when user clicks on one to view details)
     .get(allControllers.viewJamSession)
 
-    // Route for updating a session
+// Route for updating a session
 
 // ------------------------------------------------ //
 

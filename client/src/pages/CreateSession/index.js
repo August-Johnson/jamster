@@ -44,17 +44,16 @@ class CreateSession extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        if (!this.state.sessionName ||
-            !this.state.sessionDate ||
-            !this.state.collaboratorsArr ||
-            !this.state.sessionTime ||
-            !this.state.collaboratorsArr[0]) {
+        if (this.state.sessionName === "" ||
+            this.state.sessionDate === "" ||
+            this.state.sessionTime === "" ||
+            this.state.collaboratorsArr[0] === "") {
             alert("Please Complete the Required Fields");
-        } else if (this.state.collaborators === 0) {
+        }
+        else if (parseInt(this.state.collaborators) === 0) {
             alert("Please Select at Least 1 Collaborator");
-        } else {
-            alert("Time to Jam!");
-
+        }
+        else {
             const createSessionData = {
                 name: this.state.sessionName,
                 date: this.state.sessionDate,
@@ -63,18 +62,21 @@ class CreateSession extends Component {
                 usr1: parseInt(localStorage.getItem("userId")),
                 inst1: parseInt(localStorage.getItem("instrumentId")),
                 skillLevel1: parseInt(localStorage.getItem("skillLevel")),
-                inst2: this.state.collaboratorsArr[0].instrument,
-                skillLevel2: this.state.collaboratorsArr[0].skillLevel,
-                inst3: this.state.collaboratorsArr[1].instrument || null,
-                skillLevel3: this.state.collaboratorsArr[1].skillLevel || null,
-                inst4: this.state.collaboratorsArr[2].instrument || null,
-                skillLevel4: this.state.collaboratorsArr[2].skillLevel || null,
-                inst5: this.state.collaboratorsArr[3].instrument || null,
-                skillLevel5: this.state.collaboratorsArr[3].skillLevel || null
+                inst2: parseInt(this.state.collaboratorsArr[0].instrument),
+                skillLevel2: parseInt(this.state.collaboratorsArr[0].skillLevel),
+                inst3: parseInt(this.state.collaboratorsArr[1].instrument) || null,
+                skillLevel3: parseInt(this.state.collaboratorsArr[1].skillLevel) || null,
+                inst4: parseInt(this.state.collaboratorsArr[2].instrument) || null,
+                skillLevel4: parseInt(this.state.collaboratorsArr[2].skillLevel) || null,
+                inst5: parseInt(this.state.collaboratorsArr[3].instrument) || null,
+                skillLevel5: parseInt(this.state.collaboratorsArr[3].skillLevel) || null
             }
+
+            console.log(createSessionData);
 
             API.createNewSession(createSessionData)
                 .then((sessionData) => {
+                    console.log(sessionData);
                     this.setState({
                         sessionName: "",
                         collaboratorsArr: [

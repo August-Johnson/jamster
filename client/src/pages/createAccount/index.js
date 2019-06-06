@@ -54,11 +54,10 @@ class createAccount extends Component {
 
       API.createNewUser(createUserData)
         .then((dataResponse) => {
-          console.log(dataResponse.data);
           // If a new user was successfully created
           if (dataResponse.data[1] === true) {
             localStorage.setItem("username", this.state.username);
-            localStorage.setItem("userId", dataResponse.data.id);
+            localStorage.setItem("userId", dataResponse.data[0].id);
             localStorage.setItem("instrumentId", parseInt(this.state.instrumentId));
             localStorage.setItem("skillLevel", parseInt(this.state.skillLevel));
             window.location.replace("/dashboard");
