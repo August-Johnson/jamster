@@ -55,8 +55,8 @@ class sidebarNav extends Component {
 
   // Function that handles expanding the navbar.
   handleExpand = () => {
-    document.getElementById("sidebarNav").style.width = "300px";
-    document.getElementById("main").style.marginLeft = "300px";
+    document.getElementById("sidebarNav").style.width = "270px";
+    document.getElementById("main").style.marginLeft = "270px";
   }
 
   // Function that collapses the navbar.

@@ -195,79 +195,81 @@ class CreateSession extends Component {
                         </Row>
                     </Jumbotron>
 
-                    <Row>
-                        <Col>
-                            <Card>
+                    <Jumbotron>
+                        <Row>
+                            <Col>
+                                <Card>
 
-                                <Form className="m-4" onSubmit={this.handleFormSubmit}>
+                                    <Form className="m-4" onSubmit={this.handleFormSubmit}>
 
-                                    <Row>
-                                        <Col>
-                                            <Form.Group controlId="sessionForm.Name">
-                                                <Form.Label>Session Name (Required)</Form.Label>
-                                                <Form.Control as="textarea" rows="1" placeholder="Session Name" onChange={this.handleChange} name="sessionName" value={this.state.sessionName} />
-                                            </Form.Group>
-                                        </Col>
-                                        <Col>
-                                            <Form.Group controlId="sessionForm.Collaborators">
-                                                <Form.Label>Number of Collaborators (Required)</Form.Label>
-                                                <Form.Control as="select" onChange={this.handleCollaborators} name="collaborators" value={this.state.collaborators}>
-                                                    <option defaultValue="0">Choose...</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    {/* <option value="5">5</option> */}
-                                                </Form.Control>
-                                            </Form.Group>
-                                        </Col>
-                                    </Row>
+                                        <Row>
+                                            <Col>
+                                                <Form.Group controlId="sessionForm.Name">
+                                                    <Form.Label>Session Name (Required)</Form.Label>
+                                                    <Form.Control as="textarea" rows="1" placeholder="Session Name" onChange={this.handleChange} name="sessionName" value={this.state.sessionName} />
+                                                </Form.Group>
+                                            </Col>
+                                            <Col>
+                                                <Form.Group controlId="sessionForm.Collaborators">
+                                                    <Form.Label>Number of Collaborators (Required)</Form.Label>
+                                                    <Form.Control as="select" onChange={this.handleCollaborators} name="collaborators" value={this.state.collaborators}>
+                                                        <option defaultValue="0">Choose...</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        {/* <option value="5">5</option> */}
+                                                    </Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                        </Row>
 
-                                    {this.createCollaboratorsForm()}
+                                        {this.createCollaboratorsForm()}
 
-                                    <Row>
-                                        <Col>
-                                            <Form.Group controlId="sessionForm.Date">
-                                                <Form.Label>Date (Required)</Form.Label>
-                                                <Form.Control type="date" placeholder="" onChange={this.handleChange} name="sessionDate" value={this.state.sessionDate} />
-                                            </Form.Group>
-                                        </Col>
-                                        <Col>
-                                            <Form.Group controlId="sessionForm.Time">
-                                                <Form.Label>Time (Required)</Form.Label>
-                                                <Form.Control type="time" placeholder="" onChange={this.handleChange} name="sessionTime" value={this.state.sessionTime} />
-                                            </Form.Group>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col>
-                                            <Form.Group controlId="sessionForm.Details">
-                                                <Form.Label>Session Details (Optional)</Form.Label>
-                                                <Form.Control as="textarea" rows="4" placeholder="Add Any Additional Session Details" onChange={this.handleChange} name="sessionDetails" value={this.state.sessionDetails} />
-                                            </Form.Group>
-                                        </Col>
-                                        <Col>
-                                            <Form.Label>Your Session(s)</Form.Label>
-                                            <Card>
-                                                <Card.Body>
-                                                    <Card.Text>
-                                                        <li>{this.state.sessionName}</li>
-                                                    </Card.Text>
-                                                </Card.Body>
-                                            </Card>
-                                        </Col>
-                                    </Row>
+                                        <Row>
+                                            <Col>
+                                                <Form.Group controlId="sessionForm.Date">
+                                                    <Form.Label>Date (Required)</Form.Label>
+                                                    <Form.Control type="date" placeholder="" onChange={this.handleChange} name="sessionDate" value={this.state.sessionDate} />
+                                                </Form.Group>
+                                            </Col>
+                                            <Col>
+                                                <Form.Group controlId="sessionForm.Time">
+                                                    <Form.Label>Time (Required)</Form.Label>
+                                                    <Form.Control type="time" placeholder="" onChange={this.handleChange} name="sessionTime" value={this.state.sessionTime} />
+                                                </Form.Group>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col>
+                                                <Form.Group controlId="sessionForm.Details">
+                                                    <Form.Label>Session Details (Optional)</Form.Label>
+                                                    <Form.Control as="textarea" rows="4" placeholder="Add Any Additional Session Details" onChange={this.handleChange} name="sessionDetails" value={this.state.sessionDetails} />
+                                                </Form.Group>
+                                            </Col>
+                                            <Col>
+                                                <Form.Label>Your Session(s)</Form.Label>
+                                                <Card>
+                                                    <Card.Body>
+                                                        <Card.Text>
+                                                            <li>{this.state.sessionName}</li>
+                                                        </Card.Text>
+                                                    </Card.Body>
+                                                </Card>
+                                            </Col>
+                                        </Row>
 
 
-                                    <Button variant="primary" type="submit">
-                                        Submit
+                                        <Button variant="primary" type="submit">
+                                            Submit
                                     </Button>
 
-                                </Form>
+                                    </Form>
 
-                            </Card>
-                        </Col>
-                    </Row>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Jumbotron>
                 </Container>
             </SidebarNav>
         );

@@ -14,7 +14,7 @@
 #sidebarNav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 150%;
     color: #818181;
     display: block;
 }
@@ -23,6 +23,10 @@
     color: #f1f1f1;
     background-color: #007bff;
     font-weight: 500;
+}
+
+#sidebarNav ul {
+    padding-left: 10px;
 }
 
 .current-page li {
@@ -76,17 +80,42 @@
     padding: 20px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
     #sidebarNav {
-        width: 320px;
-        padding-top: 120px;
+        width: 230px;
+        padding-top: 90px;
     }
 
     #sidebarNav a {
-        font-size: 170%;
+        font-size: 125%;
     }
 
     #openbtn {
         display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #sidebarNav {
+        width: 280px;
+        padding-top: 100px;
+    }
+
+    #sidebarNav a {
+        font-size: 150%;
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    #sidebarNav {
+        width: 300px;
+    }
+
+    #sidebarNav a {
+        font-size: 160%;
+    }
+
+    #sidebarNav ul {
+        padding-left: 15px;
     }
 }

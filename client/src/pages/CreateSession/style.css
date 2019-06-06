@@ -1,24 +1,17 @@
-/* .jumboBg {
-    background-image: url("https://images.unsplash.com/photo-1541673513302-6144bb1a498d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
-    border-radius: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
-}
+@media screen and (min-width: 900px) {
+    .jumbotron {
+        margin-left: 145px;
+    }
+ }
 
-.jumboText {
-    background: rgb(204, 204, 204);
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-}
+@media screen and (min-width: 1200px) {
+     .jumbotron {
+         margin-left: 155px;
+     }
+ }
 
-h1 {
-    color: white;
-    font-weight: bold;
-    
-}
-
-.jumboP {
-    color: white;
-    font-weight: bold;
-    
-}
- */
+@media screen and (min-width: 1500px) {
+     .jumbotron {
+         margin-left: 85px;
+     }
+ }
