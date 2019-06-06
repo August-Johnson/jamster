@@ -107,5 +107,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         description: DataTypes.STRING
     });
+
+    // session.associate = function (models) {
+    //     session.hasMany(models.user, { constraints: false });
+    // }
+
     return session;
 };

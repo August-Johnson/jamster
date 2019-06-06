@@ -45,6 +45,18 @@ body {
     height: 100%;
 }
 
+#login-fail-message, #empty-username-fail, #empty-password-fail, #all-empty-fail {
+    color: #DC143C;
+    font-size: 130%;
+    font-weight: 450;
+    display: none;
+    margin-top: 10px;
+}
+
+#all-empty-fail {
+    padding-left: 50px;
+}
+
 @media screen and (min-width: 900px) {
     #login-background {
         height: 400px;

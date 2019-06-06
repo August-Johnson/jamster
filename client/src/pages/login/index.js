@@ -17,36 +17,70 @@ class login extends Component {
     password: ""
   }
 
-  onChange = event => {
+  onChange = (event) => {
     const { name, value } = event.target;
+
+    if (value === " ") {
+      return "";
+    }
+
     this.setState({
       [name]: value
     })
   }
 
-  // Function for when the user submits their log in info
-  handleSubmit = () => {
-    
-    // Creating an object with the usernameto send to the backend
-    const usernameData = {
-      username: this.state.username
-    }
+  // Function for when the user submits their log in info.
+  handleSubmit = (event) => {
+    event.preventDefault();
 
-    API.userLogin(usernameData)
-      .then((userData) => {
-        if (userData.data[1] !== null && userData.data[1] === this.state.password) {
-          // storing the username in localstorage if the login info is valid
-          localStorage.setItem("username", this.state.username);
-          localStorage.setItem("userId", parseInt(userData.data[0].id));
-          localStorage.setItem("instrumentId", parseInt(userData.data[0].instrument_id));
-          localStorage.setItem("skillLevel", parseInt(userData.data[0].skill_level));
-          window.location.replace("/dashboard");
-        }
-        else {
-          alert("Incorrect login info!");
-        }
-      })
-      .catch((err) => console.log(err));
+    if (this.state.username.trim() === "" && this.state.password.trim() === "") {
+      document.getElementById("login-fail-message").style.display = "none";
+      document.getElementById("empty-password-fail").style.display = "none";
+      document.getElementById("empty-username-fail").style.display = "none";
+      document.getElementById("all-empty-fail").style.display = "block";
+    }
+    else if (this.state.username === "") {
+      document.getElementById("all-empty-fail").style.display = "none";
+      document.getElementById("login-fail-message").style.display = "none";
+      document.getElementById("empty-password-fail").style.display = "none";
+      document.getElementById("empty-username-fail").style.display = "block";
+    }
+    else if (this.state.password === "") {
+      document.getElementById("all-empty-fail").style.display = "none";
+      document.getElementById("login-fail-message").style.display = "none";
+      document.getElementById("empty-username-fail").style.display = "none";
+      document.getElementById("empty-password-fail").style.display = "block";
+    }
+    else {
+
+      // Creating an object with the usernameto send to the backend.
+      const usernameData = {
+        username: this.state.username,
+        password: this.state.password
+      }
+
+      API.userLogin(usernameData)
+        .then((userData) => {
+          // If the login info was correct, store the relevent info in localstorage,
+          // then bring the user to the dashboard.
+          if (userData.data[1] === true) {
+            localStorage.clear();
+            localStorage.setItem("username", this.state.username);
+            localStorage.setItem("userId", parseInt(userData.data[0].id));
+            localStorage.setItem("instrumentId", parseInt(userData.data[0].instrument));
+            localStorage.setItem("skillLevel", parseInt(userData.data[0].skill_level));
+            window.location.replace("/dashboard");
+          }
+          else {
+            // If the password is incorrect, reveal the message showing that.
+            document.getElementById("all-empty-fail").style.display = "none";
+            document.getElementById("empty-username-fail").style.display = "none";
+            document.getElementById("empty-password-fail").style.display = "none";
+            document.getElementById("login-fail-message").style.display = "block";
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   }
 
   render() {
@@ -70,7 +104,8 @@ class login extends Component {
 
         <Row>
           <Col>
-            <h2 className="text-white login-message">Log in to get your Jam on!</h2>
+            <h2 className="text-white login-message">Log in to get your jam on!</h2>
+            <div id="all-empty-fail">Please enter a username and password.</div>
           </Col>
         </Row>
 
@@ -78,13 +113,16 @@ class login extends Component {
 
         <Row className="login-form">
           <Col xs="10" sm="10" md="8" lg="8" xl="5">
-            <InputGroup size="lg">
+            <InputGroup size="lg" required>
               <FormControl id="username-login" type="text" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value={this.state.username} onChange={this.onChange} />
             </InputGroup>
+            <div id="empty-username-fail">Please enter a username.</div>
             <br />
-            <InputGroup size="lg">
+            <InputGroup size="lg" required>
               <FormControl id="password-login" type="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password" value={this.state.password} onChange={this.onChange} />
             </InputGroup>
+            <div id="empty-password-fail">Please enter a password.</div>
+            <div id="login-fail-message">Incorrect username or password.</div>
             <br />
             <Button className="p-2 mr-3 mb-4" type="submit" variant="outline-primary" onClick={this.handleSubmit}>Log In</Button>
             <span style={{ "color": "#FFFFFF", "fontSize": "120%", "fontWeight": "550" }}>or</span>

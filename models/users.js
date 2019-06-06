@@ -8,13 +8,24 @@ module.exports = function (sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    skill_level: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    instrument: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'instruments',
+        key: 'id'
+      },
+      allowNull: false
     }
   });
 
   user.associate = function (models) {
-    user.hasMany(models.user_instrument, {
-      onDelete: "cascade"
-    });
+
+    user.belongsToMany(models.session, { through: models.user_session });
   }
 
   return user;
