@@ -38,6 +38,50 @@ class FindSession extends Component {
 
     renderSessions = (sessionData) => {
         // Checking If the user qualifies or not.
+        const sessionPositions = [];
+        let positionDetails;
+
+        if (sessionData.inst2 !== null) {
+            positionDetails = {
+                instrument: sessionData.inst2,
+                skillLevel: sessionData.skill_level2
+            }
+            sessionPositions.push(positionDetails);
+        }
+        if (sessionData.inst3 !== null) {
+            positionDetails = {
+                instrument: sessionData.inst3,
+                skillLevel: sessionData.skill_level3
+            }
+            sessionPositions.push(positionDetails);
+        }
+        if (sessionData.inst4 !== null) {
+            positionDetails = {
+                instrument: sessionData.inst4,
+                skillLevel: sessionData.skill_level4
+            }
+            sessionPositions.push(positionDetails);
+        }
+        if (sessionData.inst5 !== null) {
+            positionDetails = {
+                instrument: sessionData.inst5,
+                skillLevel: sessionData.skill_level5
+            }
+            sessionPositions.push(positionDetails);
+        }
+
+        // return <SessionCardWithJoin
+        //     key={sessionData.id}
+        //     sessionId={sessionData.id}
+        //     sessionName={sessionData.name}
+        //     sessionDetails={sessionData.description}
+        //     sessionDate={sessionData.scheduled_date}
+        //     sessionTime={sessionData.scheduled_time}
+        //     sessionMembers={sessionData.users}
+        //     sessionPositions={sessionPositions}
+        //     onClick={() => this.joinJamSession()}
+        // />
+
         if (sessionData.usr2 === null && parseInt(localStorage.getItem("instrumentId")) === sessionData.inst2 && localStorage.getItem("skillLevel") >= sessionData.skill_level2) {
             return <SessionCardWithJoin
                 key={sessionData.id}
@@ -46,6 +90,7 @@ class FindSession extends Component {
                 sessionDate={sessionData.scheduled_date}
                 sessionTime={sessionData.scheduled_time}
                 sessionMembers={sessionData.users}
+                sessionPositions={sessionPositions}
                 onClick={() => this.joinJamSession(2, sessionData.id)}
             />
         }
@@ -57,6 +102,7 @@ class FindSession extends Component {
                 sessionDate={sessionData.scheduled_date}
                 sessionTime={sessionData.scheduled_time}
                 sessionMembers={sessionData.users}
+                sessionPositions={sessionPositions}
                 onClick={() => this.joinJamSession(3, sessionData.id)}
             />
         }
@@ -69,6 +115,7 @@ class FindSession extends Component {
                 sessionDate={sessionData.scheduled_date}
                 sessionTime={sessionData.scheduled_time}
                 sessionMembers={sessionData.users}
+                sessionPositions={sessionPositions}
                 onClick={() => this.joinJamSession(4, sessionData.id)}
             />
         }
@@ -81,6 +128,7 @@ class FindSession extends Component {
                 sessionDate={sessionData.scheduled_date}
                 sessionTime={sessionData.scheduled_time}
                 sessionMembers={sessionData.users}
+                sessionPositions={sessionPositions}
                 onClick={() => this.joinJamSession(5, sessionData.id)}
             />
         }
@@ -94,6 +142,7 @@ class FindSession extends Component {
                 sessionDate={sessionData.scheduled_date}
                 sessionTime={sessionData.scheduled_time}
                 sessionMembers={sessionData.users}
+                sessionPositions={sessionPositions}
             />
         }
     }
@@ -104,6 +153,7 @@ class FindSession extends Component {
             userId: localStorage.getItem("userId"),
             sessionId: sessionId
         }
+
         API.joinSession(userDataObj)
             .then((sessionData) => {
                 alert("Session Joined!");

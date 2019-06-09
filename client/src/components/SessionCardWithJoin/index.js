@@ -49,14 +49,61 @@ function SessionCardWithJoin(props) {
                                     collaboratorInstrument = "";
                             }
                             return (
-                                <Col key={collaborator.id}>
-                                    <h5>Name: {collaborator.username}</h5>
-                                    <h5>Instrument: {collaboratorInstrument}</h5>
-                                    <h5>Skill Level: {collaborator.skill_level}</h5>
-                                </Col>
+                                <Card>
+                                    <Col key={collaborator.id}>
+                                        <h5>Name: {collaborator.username}</h5>
+                                        <h5>Instrument: {collaboratorInstrument}</h5>
+                                        <h5>Skill Level: {collaborator.skill_level}</h5>
+                                    </Col>
+                                </Card>
                             )
                         }
                         )}
+
+                    <hr />
+
+                    <h4>Open Positions</h4>
+                    {
+                        props.sessionPositions.map((position) => {
+                            let positionName;
+                            switch (parseInt(position.instrument)) {
+                                case 1:
+                                    positionName = "Bass";
+                                    break;
+
+                                case 2:
+                                    positionName = "Drums";
+                                    break;
+                                case 3:
+                                    positionName = "Guitar";
+                                    break;
+
+                                case 4:
+                                    positionName = "Keyboard";
+                                    break;
+                                case 5:
+                                    positionName = "Vocals";
+                                    break;
+                                default:
+                                    positionName = "";
+                            }
+                            return (
+                                <Card>
+                                    <Col>
+                                        <h5>Instrument: {positionName}</h5>
+                                        <h5>Skill Level: {position.skillLevel}</h5>
+                                        {parseInt(localStorage.getItem("skillLevel")) >= position.skillLevel && parseInt(localStorage.getItem("instrumentId")) === position.instrument ? (
+                                            <div>
+                                                <h5 style={{ "fontWeight": "bold", "margin-top": "10px" }}>You qualify for this position</h5>
+                                                <Button variant="primary" size="lg" onClick={props.onClick}>Join Session</Button>
+                                            </div>
+                                        ) : <h5 style={{ "fontWeight": "bold", "margin-top": "10px", "color": "#FF0000" }}>You don't qualify for this position</h5>}
+                                    </Col>
+                                </Card>
+                            )
+                        }
+                        )}
+
                 </Card.Body>
             </Row>
             <Row>
@@ -64,9 +111,9 @@ function SessionCardWithJoin(props) {
                     <h4>Session Details</h4>
                     <p>{props.sessionDetails}</p>
                 </Col>
-                <Col>
+                {/* <Col>
                     <Button variant="primary" size="lg" onClick={props.onClick}>Join Session</Button>
-                </Col>
+                </Col> */}
             </Row>
         </Card>
     );
