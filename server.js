@@ -4,12 +4,14 @@ const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const db = require('./models');
 const app = express();
+const path = require('path');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  // app.use(express.static("client/build"));
+  app.use(path.join(__dirname, 'build'));
 }
 
 app.use(routes);
