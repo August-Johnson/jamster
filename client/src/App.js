@@ -6,7 +6,7 @@ import CreateSession from "./pages/CreateSession";
 import FindSession from "./pages/FindSession";
 import Login from "./pages/login";
 import createAccount from "./pages/createAccount";
-import NotFound from "./pages/NotFound";
+// import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 
 import "./App.css";
@@ -22,7 +22,7 @@ function App() {
             <Route exact path="/myProfile" component={MyProfile} />
             <Route exact path="/findSession" component={FindSession} />
             <Route exact path="/createSession" component={CreateSession} />
-          <Route path="*" component={NotFound} />
+          {/* <Route path="*" component={NotFound} /> */}
         </Switch>
       </Router>
       <Footer />
