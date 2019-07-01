@@ -24,11 +24,12 @@
     },
     "homepage": "https://github.com/August-Johnson/jamster#readme",
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.19.0",
         "classnames": "^2.2.6",
         "express": "^4.16.4",
         "if-env": "^1.0.4",
         "mysql2": "^1.6.5",
+        "path": "^0.12.7",
         "sequelize": "^5.8.5",
         "styled-components": "^4.2.0"
     },
